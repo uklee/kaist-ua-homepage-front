@@ -1,5 +1,17 @@
 .title {
-  font-size: 20pt;
+  font-size: 50pt;
   font-weight: bold;
   color: #555;
+}
+
+.facebook-logo {
+  height: 25px;
+  filter: grayscale(100%);
+  opacity: 30%;
+  transition: 0.5s;
+}
+
+.facebook-logo:hover {
+  filter: none;
+  opacity: 100%;
 }
