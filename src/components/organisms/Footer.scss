@@ -1,0 +1,20 @@
+.social-media-logo {
+  padding-left: 15px;
+  height: 20px;
+  filter: grayscale(100%);
+  opacity: 0.3;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+.kaist-logo {
+  height: 25px;
+  padding-right: 10px;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
