@@ -28,9 +28,7 @@ const Footer = () => (
         <Nav.Item>
           <img
             onClick={() =>
-              window.location.assign(
-                "https://www.facebook.com/kaistundergraduateassociation"
-              )
+              window.location.assign("https://www.instagram.com/kaistua_flex")
             }
             className="social-media-logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
