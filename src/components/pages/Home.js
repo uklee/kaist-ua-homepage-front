@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 
 import { Header, Footer } from "../organisms";
+import { HomeContent } from "../templates";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       className="d-flex flex-column"
     >
       <Header />
-      <Container className="flex-grow-1"></Container>
+      <HomeContent />
       <Footer />
     </div>
   );
