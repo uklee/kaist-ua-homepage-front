@@ -40,14 +40,19 @@ const Footer = () => (
       </Nav>
     </Navbar>
     <Container
-      style={{ paddingBottom: "15px", fontSize: "10pt", color: "#888" }}
+      style={{
+        paddingBottom: "15px",
+        paddingLeft: "20px",
+        fontSize: "10pt",
+        color: "#888"
+      }}
     >
       <Row>
         <Col md="1">
           <b>주소</b>
         </Col>
         <Col md="11">
-          대전광역시 유성구 대학로291, 한국과학기술원 N13-1 301호
+          대전광역시 유성구 대학로291 | 한국과학기술원 N13-1 301호
         </Col>
       </Row>
       <Row>
