@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Navbar, Nav, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Navbar,
+  Nav,
+  Row,
+  Col,
+  OverlayTrigger,
+  Tooltip
+} from "react-bootstrap";
 import "./Footer.scss";
 import kaistLogo from "../../static/logo/kaist_logo.png";
 
@@ -14,26 +22,36 @@ const Footer = () => (
       </Nav>
       <Nav>
         <Nav.Item>
-          <img
-            onClick={() =>
-              window.location.assign(
-                "https://www.facebook.com/kaistundergraduateassociation"
-              )
-            }
-            className="social-media-logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
-            alt="instagram"
-          />
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={<Tooltip id="tooltip-top">ua.kaist</Tooltip>}
+          >
+            <img
+              onClick={() =>
+                window.location.assign("https://www.facebook.com/ua.kaist")
+              }
+              className="social-media-logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
+              alt="instagram"
+            />
+          </OverlayTrigger>
         </Nav.Item>
         <Nav.Item>
-          <img
-            onClick={() =>
-              window.location.assign("https://www.instagram.com/kaistua_flex")
-            }
-            className="social-media-logo"
-            src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
-            alt="facebook"
-          />
+          <OverlayTrigger
+            key="top"
+            placement="top"
+            overlay={<Tooltip id="tooltip-top">kaistua_flex</Tooltip>}
+          >
+            <img
+              onClick={() =>
+                window.location.assign("https://www.instagram.com/kaistua_flex")
+              }
+              className="social-media-logo"
+              src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
+              alt="facebook"
+            />
+          </OverlayTrigger>
         </Nav.Item>
       </Nav>
     </Navbar>
