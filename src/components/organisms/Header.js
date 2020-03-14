@@ -19,6 +19,9 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link className="header-item" href="">
+              총학 소개
+            </Nav.Link>
+            <Nav.Link className="header-item" href="">
               공지사항
             </Nav.Link>
             <Nav.Link className="header-item" href="">
@@ -29,7 +32,9 @@ const Header = () => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="">로그인</Nav.Link>
+            <Nav.Link className="header-item" href="">
+              로그인
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
