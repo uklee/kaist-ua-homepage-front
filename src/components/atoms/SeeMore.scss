@@ -1,0 +1,15 @@
+.see-more {
+  color: #555;
+  transition: 0.2s;
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.plus-icon {
+  opacity: 0.9;
+  padding-right: 2px;
+}
