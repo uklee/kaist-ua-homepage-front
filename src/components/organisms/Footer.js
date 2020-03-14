@@ -21,7 +21,7 @@ const Footer = () => (
               )
             }
             className="social-media-logo"
-            src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
             alt="instagram"
           />
         </Nav.Item>
@@ -31,7 +31,7 @@ const Footer = () => (
               window.location.assign("https://www.instagram.com/kaistua_flex")
             }
             className="social-media-logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
+            src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
             alt="facebook"
           />
         </Nav.Item>
