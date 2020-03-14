@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import logo from "../../static/logo/logo.png";
 import "./Header.scss";
 
@@ -33,7 +33,7 @@ const Header = () => {
           </Nav>
           <Nav>
             <Nav.Link className="header-item" href="">
-              로그인
+              <Button variant="outline-dark">로그인</Button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

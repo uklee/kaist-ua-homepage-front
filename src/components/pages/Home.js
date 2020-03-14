@@ -6,7 +6,7 @@ import { HomeContent } from "../templates";
 const Home = () => {
   return (
     <div
-      style={{ height: "100vh", backgroundColor: "#eee" }}
+      style={{ minHeight: "100vh", backgroundColor: "#eee" }}
       className="d-flex flex-column"
     >
       <Header />
