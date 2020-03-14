@@ -1,1 +1,1 @@
-export { default as HomeCarousel } from "./HomeCarousel";
+export { default as CarouselItem } from "./CarouselItem";
