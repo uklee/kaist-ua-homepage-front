@@ -46,24 +46,28 @@ const Footer = () => (
       }}
     >
       <Row>
-        <Col md="1">
+        <Col lg="1" md="2">
           <b>주소</b>
         </Col>
-        <Col md="11">
+        <Col lg="11" md="10">
           대전광역시 유성구 대학로291 | 한국과학기술원 N13-1 301호
         </Col>
       </Row>
       <Row>
-        <Col md="1">
+        <Col lg="1" md="2">
           <b>이메일</b>
         </Col>
-        <Col md="11">kaistua@kaist.ac.kr</Col>
+        <Col lg="11" md="10">
+          kaistua@kaist.ac.kr
+        </Col>
       </Row>
       <Row>
-        <Col md="1">
+        <Col lg="1" md="2">
           <b>전화</b>
         </Col>
-        <Col md="11">042-350-2072</Col>
+        <Col lg="11" md="10">
+          042-350-2072
+        </Col>
       </Row>
     </Container>
   </div>
