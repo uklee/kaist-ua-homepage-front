@@ -4,14 +4,9 @@ import "./BoardModule.scss";
 import { BoardHeader, BoardRow } from "../molecules";
 
 const BoardModule = props => {
-  const testDoc = {
-    author: "집행지원실",
-    title: "[긴급공지] 황지성, 코로나19 백신 개발 성공",
-    date: "12월 31일"
-  };
   let docs = [];
   for (let i = 0; i < 5; i++) {
-    docs.push(testDoc);
+    docs.push(props.doc);
   }
   return (
     <div className={`${props.className} board-module`}>
