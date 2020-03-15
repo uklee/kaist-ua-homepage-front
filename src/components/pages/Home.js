@@ -6,7 +6,11 @@ import { HomeContent } from "../templates";
 const Home = () => {
   return (
     <div
-      style={{ minHeight: "100vh", backgroundColor: "#eee" }}
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#eee",
+        fontFamily: "NanumSquare"
+      }}
       className="d-flex flex-column"
     >
       <Header />
