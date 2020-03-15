@@ -12,7 +12,10 @@ const BoardModule = props => {
     <div className={`${props.className} board-module`}>
       <BoardHeader title={props.boardName} />
       {docs.map(doc => (
-        <BoardRow author={doc.author} title={doc.title} date={doc.date} />
+        <>
+          <BoardRow author={doc.author} title={doc.title} date={doc.date} />
+          <div className="divider" />
+        </>
       ))}
     </div>
   );

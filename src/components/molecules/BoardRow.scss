@@ -1,5 +1,10 @@
+$author-width: 90px;
+$date-width: 80px;
+
 .board-row {
   color: #555;
+  padding-bottom: 5px;
+  padding-top: 5px;
 
   &:hover {
     color: black;
@@ -8,9 +13,9 @@
 }
 
 .row-author {
-  font-weight: bold;
-  margin-right: 5px;
-  width: 90px;
+  text-align: center;
+  font-family: "NanumSquare ExtraBold";
+  width: $author-width;
 }
 
 .row-title {
@@ -20,6 +25,18 @@
 }
 
 .row-date {
-  margin-left: 5px;
-  width: 80px;
+  text-align: right;
+  width: $date-width;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .row-author {
+    height: 0px;
+    visibility: hidden;
+  }
+  .row-date {
+    height: 0px;
+    visibility: hidden;
+  }
 }
