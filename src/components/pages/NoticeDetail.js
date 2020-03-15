@@ -8,7 +8,7 @@ const NoticeDetail = () => {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#eee",
+        // backgroundColor: "#eee",
         fontFamily: "NanumSquare"
       }}
       className="d-flex flex-column"

@@ -12,7 +12,7 @@ import "./Footer.scss";
 import kaistLogo from "../../static/logo/kaist_logo.png";
 
 const Footer = () => (
-  <div style={{ backgroundColor: "#fff" }}>
+  <div style={{ backgroundColor: "#fafafa" }}>
     <Navbar as={Container}>
       <Nav className="mr-auto">
         <Navbar.Brand style={{ color: "#888" }}>
