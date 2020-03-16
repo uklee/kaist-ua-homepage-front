@@ -1,14 +1,16 @@
 import React from 'react';
 
-import {Header, Footer} from '../organisms';
-import {BulletinContent} from '../templates';
+import { Header, Footer } from '../organisms';
+import { BulletinContent } from '../templates';
 
 const BulletinNotice = () => {
   return (
-    <div>
-      <Header/>
-      <BulletinContent/>
-      <Footer/>
+    <div
+      style={{ minHeight: "100vh", backgroundColor: "#eee" }}
+      className="d-flex flex-column">
+      <Header />
+      <BulletinContent />
+      <Footer />
     </div>
   );
 };
