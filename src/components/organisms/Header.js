@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import logo from "../../static/logo/logo.png";
 import "./Header.scss";
 
 const Header = props => {
+  const [hover1, setHover1] = useState(<div />);
+  const [hover2, setHover2] = useState(<div />);
+  const [hover3, setHover3] = useState(<div />);
+  const [hover4, setHover4] = useState(<div />);
+
+  const active = (
+    <div
+      style={{
+        height: "2px",
+        backgroundColor: "#444",
+        marginTop: "-2px"
+      }}
+    />
+  );
+
+  const enter = <div className="tab-hover-enter" />;
+  const leave = <div className="tab-hover-leave" />;
+
   return (
     <div style={{ backgroundColor: "#fff" }}>
       <Navbar as={Container} collapseOnSelect expand="lg">
@@ -18,26 +36,54 @@ const Header = props => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link className="header-item" href="">
+            <Nav.Link
+              className="header-item"
+              href=""
+              onMouseEnter={() => setHover1(enter)}
+              onMouseLeave={() => {
+                setHover1(leave);
+              }}
+            >
               총학 소개
+              {props.tab1 ? active : hover1}
             </Nav.Link>
             <Nav.Link
-              active={props.notice}
-              className="header-item"
+              className={`header-item ${props.notice}`}
               href="/notice-detail"
+              onMouseEnter={() => setHover2(enter)}
+              onMouseLeave={() => {
+                setHover2(leave);
+              }}
             >
               공지사항
+              {props.notice ? active : hover2}
             </Nav.Link>
-            <Nav.Link className="header-item" href="">
+            <Nav.Link
+              className="header-item"
+              href=""
+              onMouseEnter={() => setHover3(enter)}
+              onMouseLeave={() => {
+                setHover3(leave);
+              }}
+            >
               학생 청원
+              {props.tab3 ? active : hover3}
             </Nav.Link>
-            <Nav.Link className="header-item" href="">
+            <Nav.Link
+              className="header-item"
+              href=""
+              onMouseEnter={() => setHover4(enter)}
+              onMouseLeave={() => {
+                setHover4(leave);
+              }}
+            >
               학생 복지
+              {props.tab4 ? active : hover4}
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link className="header-item" href="">
-              <Button variant="outline-dark">로그인</Button>
+            <Nav.Link className="header-login" href="">
+              로그인
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
