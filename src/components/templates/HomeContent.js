@@ -11,7 +11,7 @@ const HomeContent = () => {
     date: "12월 31일"
   };
   const testDoc2 = {
-    author: "넙모씨",
+    author: "충격/공포",
     title: "교내에 최광민을 발견했어요ㅜㅜ",
     date: "12월 31일"
   };
