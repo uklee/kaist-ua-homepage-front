@@ -3,7 +3,7 @@ import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import logo from "../../static/logo/logo.png";
 import "./Header.scss";
 
-const Header = () => {
+const Header = props => {
   return (
     <div style={{ backgroundColor: "#fff" }}>
       <Navbar as={Container} collapseOnSelect expand="lg">
@@ -21,7 +21,11 @@ const Header = () => {
             <Nav.Link className="header-item" href="">
               총학 소개
             </Nav.Link>
-            <Nav.Link className="header-item" href="">
+            <Nav.Link
+              active={props.notice}
+              className="header-item"
+              href="/notice-detail"
+            >
               공지사항
             </Nav.Link>
             <Nav.Link className="header-item" href="">
