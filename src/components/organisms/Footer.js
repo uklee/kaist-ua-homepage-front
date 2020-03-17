@@ -9,15 +9,20 @@ import {
   Tooltip
 } from "react-bootstrap";
 import "./Footer.scss";
-import kaistLogo from "../../static/logo/kaist_logo.png";
+import logo from "../../static/logo/kaist_logo.png";
 
 const Footer = () => (
-  <div style={{ backgroundColor: "#fafafa" }}>
+  <div className="footer">
     <Navbar as={Container}>
       <Nav className="mr-auto">
-        <Navbar.Brand style={{ color: "#888" }}>
-          <img src={kaistLogo} className="kaist-logo" alt="KAIST_logo" />
-          <b>학부 총학생회</b>
+        <Navbar.Brand
+          style={{
+            color: "#888",
+            fontFamily: "NanumSquare ExtraBold"
+          }}
+        >
+          <img src={logo} className="kaist-logo" alt="KAIST_logo" />
+          학부 총학생회
         </Navbar.Brand>
       </Nav>
       <Nav>
