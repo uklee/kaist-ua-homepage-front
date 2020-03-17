@@ -1,29 +1,19 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { EditorHeader } from '../organisms';
-import "./NoticeDetailContent.scss";
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import "./EditorContent.scss";
 
 const EditorContent = () => {
     return (
-        <Container className="flex-grow-1 notice-detail-content border">
+        <Container className="flex-grow-1 border">
             <EditorHeader />
-            <div className="notice-content">
-                여기에 에디터를 만들 예정<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    .<br />
-                    ==========================
+            <div className="flex-1 px-5 pt-3">
+                <Editor 
+                wrapperClassName = "border mb-3"
+                editorClassName = "border Editor"
+                />
                 </div>
         </Container>
     )
