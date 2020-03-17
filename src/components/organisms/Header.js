@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../static/logo/logo.png";
 import "./Header.scss";
 
@@ -9,15 +9,7 @@ const Header = props => {
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
 
-  const active = (
-    <div
-      style={{
-        height: "2px",
-        backgroundColor: "#444",
-        marginTop: "-2px"
-      }}
-    />
-  );
+  const active = <div className="tab-active" />;
 
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
