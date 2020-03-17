@@ -8,12 +8,12 @@ const HomeContent = () => {
   const testDoc = {
     author: "집행지원실",
     title: "[긴급공지] 황지성, 코로나19 백신 개발 성공",
-    date: "12월 31일"
+    date: "2020-12-30"
   };
   const testDoc2 = {
     author: "충격/공포",
     title: "교내에 최광민을 발견했어요ㅜㅜ",
-    date: "12월 31일"
+    date: "2020-12-30"
   };
   return (
     <Container className="flex-grow-1 home-content">

@@ -3,6 +3,7 @@ $date-width: 80px;
 
 .board-row {
   color: #555;
+  font-size: 11pt;
   padding-bottom: 5px;
   padding-top: 5px;
 
@@ -22,6 +23,8 @@ $date-width: 80px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .row-date {
@@ -30,7 +33,7 @@ $date-width: 80px;
   color: #888;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .row-author {
     height: 0px;
     visibility: hidden;
