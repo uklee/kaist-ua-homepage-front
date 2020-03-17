@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import "./NoticeDetailContent.scss";
 
@@ -15,7 +15,10 @@ const NoticeDetailContent = () => {
           </div>
         </div>
         <div className="notice-content">
-          🔥안녕하세요. KAIST 학부 총학생회 <b>FLEX</b>입니다!🔥 <br /> <br />
+          <span role="img" aria-label="fire">
+            🔥
+          </span>
+          안녕하세요. KAIST 학부 총학생회 <b>FLEX</b>입니다!🔥 <br /> <br />
           다름이 아니라 저희가 지금 학교 전체적인 큰 변화로 인해 본래
           진행되었어야 할 리크루팅 일정(3/16부터 지원 시작)에 차질이
           생겨버렸습니다.ㅠ_ㅠ <br />
