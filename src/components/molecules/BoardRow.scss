@@ -23,14 +23,19 @@ $date-width: 80px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
 }
 
 .row-date {
   text-align: right;
   width: $date-width;
   color: #888;
+}
+
+@media (min-width: 768px) {
+  .row-title {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 @media (max-width: 767px) {

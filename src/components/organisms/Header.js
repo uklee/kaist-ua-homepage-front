@@ -50,7 +50,7 @@ const Header = props => {
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
-              href="/notice-detail"
+              href="/notice"
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
@@ -89,6 +89,7 @@ const Header = props => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <div style={{ height: "2px", backgroundColor: "#ddd" }} />
     </div>
   );
 };
