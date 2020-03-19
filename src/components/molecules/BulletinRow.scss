@@ -1,11 +1,9 @@
-@import "~open-color/open-color";
-
 .Bulletin-row{
     margin: 1rem 2rem;
     padding-top: 1rem;
 
     &:hover {
-        background-color: $oc-gray-1;
+        background-color: gray;
     }
 
     .writer{
@@ -14,5 +12,5 @@
 }    
 
 .Bulletin-row + .Bulletin-row {
-    border-top: 1px solid $oc-gray-1;
+    border-top: 1px solid gray;
 }
