@@ -3,7 +3,7 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import { EditorContent } from "../templates";
 
-const Editor = () => {
+const EditPage = () => {
   return (
     <div
       style={{
@@ -20,4 +20,4 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+export default EditPage;

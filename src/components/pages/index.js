@@ -1,7 +1,4 @@
-export { default as Home } from './Home';
-export { default as BulletinNotice } from './BulletinNotice';
-export { default as NoticeDetail } from "./NoticeDetail";
-export { default as Editor } from "./Editor";
-export function dummy() {
-  return null;
-}
+export { default as MainPage } from "./MainPage";
+export { default as BulletinPage } from "./BulletinPage";
+export { default as DetailPage } from "./DetailPage";
+export { default as EditPage } from "./EditPage";

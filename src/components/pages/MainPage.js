@@ -3,7 +3,7 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import { HomeContent } from "../templates";
 
-const Home = () => {
+const MainPage = () => {
   return (
     <div
       style={{
@@ -20,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainPage;

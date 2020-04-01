@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-import "./NoticeDetailContent.scss";
+import "./DetailPageContent.scss";
 
-const NoticeDetailContent = () => {
+const DetailPageContent = () => {
   return (
     <Container className="flex-grow-1 notice-detail-content">
       <div className="notice-detail">
@@ -33,4 +33,4 @@ const NoticeDetailContent = () => {
   );
 };
 
-export default NoticeDetailContent;
+export default DetailPageContent;
