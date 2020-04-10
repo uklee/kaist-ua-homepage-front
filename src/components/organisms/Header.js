@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
-import logo from "../../static/logo/logo.png";
+import { Container, Navbar, Nav } from "react-bootstrap";
+import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
 
 const Header = props => {
@@ -28,9 +28,10 @@ const Header = props => {
         <Navbar.Brand href="/">
           <img
             src={logo}
-            width="120px"
+            width="100px"
+            style={{ padding: "10px 0px" }}
             alt="UA_logo"
-            className="d-inline-block align-top"
+            className="d-inline-block align-top logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -49,7 +50,7 @@ const Header = props => {
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
-              href="/notice-detail"
+              href="/notice"
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
@@ -88,6 +89,7 @@ const Header = props => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <div style={{ height: "2px", backgroundColor: "#ddd" }} />
     </div>
   );
 };

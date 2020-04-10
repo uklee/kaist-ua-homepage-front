@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 
 import "./NoticeDetailContent.scss";
 
@@ -14,8 +14,11 @@ const NoticeDetailContent = () => {
             <b>집행지원실</b> | 조회수 4000 | 2020-12-31 14:00
           </div>
         </div>
-        <div className="notice-content">
-          🔥안녕하세요. KAIST 학부 총학생회 <b>FLEX</b>입니다!🔥 <br /> <br />
+        <Col md="8" lg="7" className="notice-content">
+          <span role="img" aria-label="fire">
+            🔥
+          </span>
+          안녕하세요. KAIST 학부 총학생회 <b>FLEX</b>입니다!🔥 <br /> <br />
           다름이 아니라 저희가 지금 학교 전체적인 큰 변화로 인해 본래
           진행되었어야 할 리크루팅 일정(3/16부터 지원 시작)에 차질이
           생겨버렸습니다.ㅠ_ㅠ <br />
@@ -24,7 +27,7 @@ const NoticeDetailContent = () => {
           <b> 3/18(수)</b>까지 반드시 공지해드릴게요! <br /> <br /> 모두들 몸
           조심하시고 정말 쫌만 기다려주세요!!ㅠㅠ😥😥 리크루팅 진행하긴
           할겁니다! 걱정마세요! 모두들 화이팅~
-        </div>
+        </Col>
       </div>
     </Container>
   );
