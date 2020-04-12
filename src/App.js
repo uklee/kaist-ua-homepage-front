@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import {
@@ -13,12 +13,13 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/main" component={MainPage} />
         <Route path="/post/:postId" component={DetailPage} />
         <Route path="/bulletin/:bulletinId" component={BulletinPage} />
         <Route path="/user/bulletin/:bulletinId" component={BulletinPage} />
         <Route path="/edit" component={EditPage} />
         <Route path="/user/edit" component={EditPage} />
-        <Route path="/" component={MainPage} />
+        <Redirect to="/main" />
       </Switch>
     </BrowserRouter>
   );
