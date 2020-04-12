@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 
 import "./DetailPageContent.scss";
 
@@ -14,7 +14,7 @@ const DetailPageContent = ({ postId }) => {
             <b>집행지원실</b> | 조회수 4000 | 2020-12-31 14:00
           </div>
         </div>
-        <div className="notice-content">
+        <Col md="8" lg="7" className="notice-content">
           <span role="img" aria-label="fire">
             🔥
           </span>
@@ -27,7 +27,7 @@ const DetailPageContent = ({ postId }) => {
           <b> 3/18(수)</b>까지 반드시 공지해드릴게요! <br /> <br /> 모두들 몸
           조심하시고 정말 쫌만 기다려주세요!!ㅠㅠ😥😥 리크루팅 진행하긴
           할겁니다! 걱정마세요! 모두들 화이팅~
-        </div>
+        </Col>
       </div>
     </Container>
   );

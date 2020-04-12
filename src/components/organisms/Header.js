@@ -89,6 +89,7 @@ const Header = props => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <div style={{ height: "2px", backgroundColor: "#ddd" }} />
     </div>
   );
 };
