@@ -3,7 +3,9 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import { DetailPageContent } from "../templates";
 
-const DetailPage = () => {
+const DetailPage = ({ match }) => {
+  const { postId } = match.props;
+
   return (
     <div
       style={{
@@ -14,7 +16,7 @@ const DetailPage = () => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <DetailPageContent />
+      <DetailPageContent postId={postId} />
       <Footer />
     </div>
   );

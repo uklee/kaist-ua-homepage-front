@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import "./DetailPageContent.scss";
 
-const DetailPageContent = () => {
+const DetailPageContent = ({ postId }) => {
   return (
     <Container className="flex-grow-1 notice-detail-content">
       <div className="notice-detail">

@@ -50,7 +50,7 @@ const Header = props => {
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
-              href="/notice-detail"
+              href="/bulletin/1"
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
@@ -72,7 +72,7 @@ const Header = props => {
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href=""
+              href="/bulletin/2"
               onMouseEnter={() => setHover4(enter)}
               onMouseLeave={() => {
                 setHover4(leave);
