@@ -1,9 +1,11 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import { NoticeDetailContent } from "../templates";
+import { DetailPageContent } from "../templates";
 
-const NoticeDetail = () => {
+const DetailPage = ({ match }) => {
+  const { postId } = match.props;
+
   return (
     <div
       style={{
@@ -14,10 +16,10 @@ const NoticeDetail = () => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <NoticeDetailContent />
+      <DetailPageContent postId={postId} />
       <Footer />
     </div>
   );
 };
 
-export default NoticeDetail;
+export default DetailPage;
