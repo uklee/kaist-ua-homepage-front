@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "draft-js": "^0.11.4",
+    "immer": "^6.0.3",
     "material-design-icons": "^3.0.1",
     "node-sass": "^4.13.1",
     "open-color": "^1.7.0",
@@ -16,8 +17,12 @@
     "react-bootstrap": "^1.0.0-beta.17",
     "react-dom": "^16.13.0",
     "react-draft-wysiwyg": "^1.14.4",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
     "start": "react-scripts start",
