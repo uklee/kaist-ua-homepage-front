@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import { BulletinContent } from "../templates";
+import BulletinContentContainer from "../containers/bulletin/BulletinContentContainer";
 
 const BulletinPage = ({ match }) => {
   const { bulletinId } = match.params;
@@ -12,7 +12,7 @@ const BulletinPage = ({ match }) => {
       className="d-flex flex-column"
     >
       <Header />
-      <BulletinContent bulletinId={bulletinId} />
+      <BulletinContentContainer bulletinId={bulletinId} />
       <Footer />
     </div>
   );

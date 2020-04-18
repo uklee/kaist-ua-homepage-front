@@ -2,30 +2,35 @@ import React from "react";
 import "./BulletinList.scss";
 import { BulletinRow } from "../molecules";
 
-const BulletinModule = () => {
-  const test = {
-    title: "글 제목 쓰는 칸인데요오오",
-    hashtags: ["해시", "태그"],
-    date: "2020-03-15",
-    writer: "윤준성"
-  };
+const BulletinList = ({ posts }) => {
+  const tests = [
+    {
+      title: "글 제목 쓰는 칸인데요오오",
+      date: "2020-03-15",
+      author: "윤준성"
+    },
+    {
+      title: "글 제목 쓰는 칸인데요오오",
+      date: "2020-03-15",
+      author: "윤준성"
+    },
+    {
+      title: "글 제목 쓰는 칸인데요오오",
+      date: "2020-03-15",
+      author: "윤준성"
+    },
+    {
+      title: "글 제목 쓰는 칸인데요오오",
+      date: "2020-03-15",
+      author: "윤준성"
+    }
+  ];
 
-  return (
-    <div>
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-      <BulletinRow {...test} />
-    </div>
-  );
+  if (!posts) return <div>로딩중...</div>;
+
+  const rows = posts.map(post => <BulletinRow key={post.id} post={post} />);
+
+  return <div>{rows}</div>;
 };
 
-export default BulletinModule;
+export default BulletinList;
