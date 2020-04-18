@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import { PostViewer } from "../templates";
+import PostViewerContainer from "../containers/viewer/PostViewerContainer";
 import { withRouter } from "react-router-dom";
 
 const PostViewPage = ({ match }) => {
@@ -17,7 +17,7 @@ const PostViewPage = ({ match }) => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <PostViewer postId={postId} />
+      <PostViewerContainer postId={postId} />
       <Footer />
     </div>
   );

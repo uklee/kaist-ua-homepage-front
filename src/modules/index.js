@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import post from "./post";
+import postViewer from "./postViewer";
 
 const rootReducer = combineReducers({
-  post
+  post,
+  postViewer
 });
 
 export default rootReducer;
