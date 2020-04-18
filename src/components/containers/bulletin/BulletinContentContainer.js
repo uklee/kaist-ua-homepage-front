@@ -16,7 +16,7 @@ const samples = [
   }
 ];
 
-const BulletinContentContainer = ({ location, bulletinId }) => {
+const BulletinContentContainer = ({ location, bulletinId, history }) => {
   const dispatch = useDispatch();
   const { posts, bulletins } = useSelector(({ posts, bulletins }) => ({
     posts: posts.posts,
@@ -26,6 +26,10 @@ const BulletinContentContainer = ({ location, bulletinId }) => {
   const { author, title, page } = qs.parse(location.search, {
     ignoreQueryPrefix: true
   });
+
+  useEffect(() => {
+    if (!page) history.push(`${location.pathname}?page=1`);
+  }, []);
 
   useEffect(() => {
     bulletinsAPI
