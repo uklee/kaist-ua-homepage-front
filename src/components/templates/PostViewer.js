@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Col } from "react-bootstrap";
 
-import "./DetailPageContent.scss";
+import "./PostViewer.scss";
 
-const DetailPageContent = ({ postId }) => {
+const DetailContent = ({ postId }) => {
   return (
     <Container className="flex-grow-1 notice-detail-content">
       <div className="notice-detail">
@@ -33,4 +33,4 @@ const DetailPageContent = ({ postId }) => {
   );
 };
 
-export default DetailPageContent;
+export default DetailContent;
