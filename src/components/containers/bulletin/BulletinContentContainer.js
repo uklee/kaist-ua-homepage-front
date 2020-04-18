@@ -23,11 +23,11 @@ const BulletinContentContainer = ({ location, bulletinId }) => {
     bulletins: bulletins.bulletins
   }));
 
-  useEffect(() => {
-    const { author, title, page } = qs.parse(location.search, {
-      ignoreQueryPrefix: true
-    });
+  const { author, title, page } = qs.parse(location.search, {
+    ignoreQueryPrefix: true
+  });
 
+  useEffect(() => {
     bulletinsAPI
       .list()
       .then(res1 => {
@@ -36,7 +36,8 @@ const BulletinContentContainer = ({ location, bulletinId }) => {
         postsAPI
           .listPosts({ author, title, page })
           .then(res2 => {
-            dispatch(listPosts(res2.data));
+            const { posts, lastPage } = res2.data;
+            dispatch(listPosts({ posts, lastPage }));
           })
           .catch(err => console.log(err));
       })
