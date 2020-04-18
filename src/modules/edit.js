@@ -11,7 +11,9 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 
 const initialState = {
   title: "",
-  content: ""
+  author: "",
+  content: "",
+  views: 0
 };
 
 const edit = handleActions(

@@ -4,7 +4,7 @@ import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import "./Editor.scss";
 
-const Editor = () => {
+const Editor = ({ onChangeField, content }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
 
@@ -21,7 +21,13 @@ const Editor = () => {
         ]
       }
     });
-  }, []);
+
+    const quill = quillInstance.current;
+    quill.on("text-change", (delta, oldDelta, source) => {
+      if (source === "user")
+        onChangeField({ key: "content", value: quill.root.innerHTML });
+    });
+  }, [onChangeField]);
 
   return (
     <Container style={{ height: "300px" }}>
