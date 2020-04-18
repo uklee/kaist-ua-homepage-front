@@ -1,10 +1,10 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import { DetailPageContent } from "../templates";
+import PostViewerContainer from "../containers/viewer/PostViewerContainer";
 import { withRouter } from "react-router-dom";
 
-const DetailPage = ({ match }) => {
+const PostViewPage = ({ match }) => {
   const { postId } = match.params;
 
   return (
@@ -17,10 +17,10 @@ const DetailPage = ({ match }) => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <DetailPageContent postId={postId} />
+      <PostViewerContainer postId={postId} />
       <Footer />
     </div>
   );
 };
 
-export default withRouter(DetailPage);
+export default withRouter(PostViewPage);

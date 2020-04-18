@@ -7,7 +7,7 @@ export const write = ({ title, author, content }) =>
 
 export const list = () => posts.get("");
 
-export const read = id => posts.get(`/posts/${id}`);
+export const read = id => posts.get(`/${id}`);
 
 export const update = (id, { title, content }) =>
   posts.patch(`/posts/${id}`, { title, content });
