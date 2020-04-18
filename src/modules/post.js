@@ -1,4 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
+import * as postsAPI from "../lib/api/post";
 
 const INIT = "post/INIT";
 const CHANGE_FIELD = "post/CHANGE_FIELD";
@@ -11,7 +12,7 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 }));
 export const writePost = createAction(
   WRITE_POST,
-  ({ title, author, content }) => ({ title, author, content })
+  ({ id, title, author, content }) => ({ id, title, author, content })
 );
 
 const initialState = {

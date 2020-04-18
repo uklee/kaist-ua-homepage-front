@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeField, init, writePost } from "../../../modules/post";
 import { EditorContent } from "../../templates";
 import { withRouter } from "react-router-dom";
+import * as postsAPI from "../../../lib/api/post";
 
 const EditorContentContainer = ({ history }) => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const EditorContentContainer = ({ history }) => {
   };
 
   const onWrite = () => {
-    dispatch(writePost({ title, author, content }));
+    postsAPI
+      .write({ title, author, content })
+      .then(res => dispatch(writePost(res.data)))
+      .catch(err => console.log(err));
   };
 
   useEffect(() => {

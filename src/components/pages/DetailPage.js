@@ -2,9 +2,10 @@ import React from "react";
 
 import { Header, Footer } from "../organisms";
 import { DetailPageContent } from "../templates";
+import { withRouter } from "react-router-dom";
 
 const DetailPage = ({ match }) => {
-  const { postId } = match.props;
+  const { postId } = match.params;
 
   return (
     <div
@@ -22,4 +23,4 @@ const DetailPage = ({ match }) => {
   );
 };
 
-export default DetailPage;
+export default withRouter(DetailPage);

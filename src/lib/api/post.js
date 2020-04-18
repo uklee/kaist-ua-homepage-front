@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const posts = axios.create();
+const posts = axios.create({ baseURL: "http://localhost:8080/posts" });
 
 export const write = ({ title, author, content }) =>
-  posts.post("/posts", { title, author, content });
+  posts.post("", { title, author, content });
 
-export const list = () => posts.get("/posts");
+export const list = () => posts.get("");
 
 export const read = id => posts.get(`/posts/${id}`);
 
