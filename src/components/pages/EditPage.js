@@ -1,7 +1,6 @@
 import React from "react";
-
 import { Header, Footer } from "../organisms";
-import { EditorContent } from "../templates";
+import EditorContentContainer from "../containers/editor/EditorContentContainer";
 
 const EditPage = () => {
   return (
@@ -14,7 +13,7 @@ const EditPage = () => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <EditorContent />
+      <EditorContentContainer />
       <Footer />
     </div>
   );
