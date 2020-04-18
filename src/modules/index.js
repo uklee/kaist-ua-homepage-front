@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import edit from "./edit";
+import post from "./post";
 
 const rootReducer = combineReducers({
-  edit
+  post
 });
 
 export default rootReducer;

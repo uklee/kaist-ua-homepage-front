@@ -5,7 +5,14 @@ import { Editor } from "../organisms";
 
 import "./EditorContent.scss";
 
-const EditorContent = ({ onChangeField, content, title, author }) => {
+const EditorContent = ({
+  onChangeField,
+  onWrite,
+  onCancel,
+  content,
+  title,
+  author
+}) => {
   return (
     <Container className="flex-grow-1 border my-5">
       <EditorHeader
@@ -14,7 +21,7 @@ const EditorContent = ({ onChangeField, content, title, author }) => {
         author={author}
       />
       <Editor onChangeField={onChangeField} content={content} />
-      <EditorFooter />
+      <EditorFooter onWrite={onWrite} onCancel={onCancel} />
     </Container>
   );
 };
