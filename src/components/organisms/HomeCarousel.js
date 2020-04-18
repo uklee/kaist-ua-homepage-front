@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import axios from "axios";
 import usePromise from "../../lib/usePromise";
+import { axios } from "../../lib";
 
 import { CarouselItem } from "../molecules";
 
@@ -16,15 +16,18 @@ const sample = {
 
 const HomeCarousel = props => {
   const [loading, response, error] = usePromise(() => {
-    return axios.get("http://localhost:8080/banners");
+    return axios.get("/banners");
   }, []);
 
   if (loading) return <Carousel>로딩중...</Carousel>;
-  if (error) return <Carousel>에러발생</Carousel>;
+  if (error) {
+    console.log(error);
+    return <Carousel>에러발생</Carousel>;
+  }
 
   if (!response) return null;
 
-  const { banners } = response.data;
+  const banners = response.data;
 
   const CarouselItemList = banners.map(banner => (
     <CarouselItem src={banner.url} />
