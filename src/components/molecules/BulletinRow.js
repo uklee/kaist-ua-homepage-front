@@ -1,15 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BulletinRow.scss";
 
-const BulletinRow = ({ title, hashtags, date, writer }) => {
+const BulletinRow = ({ post }) => {
+  const { title, date, author, id } = post;
+
   return (
     <div className="Bulletin-row">
-      <h5 className="">{title}</h5>
-      <div className="d-flex">
-        <h6 className="text-black-50 font-weight-light">
-          {date + " | " + writer}
-        </h6>
-      </div>
+      <Link to={`/post/${id}`}>
+        <h5 className="">{title}</h5>
+        <div className="d-flex">
+          <h6 className="text-black-50 font-weight-light">
+            {date + " | " + author}
+          </h6>
+        </div>
+      </Link>
     </div>
   );
 };

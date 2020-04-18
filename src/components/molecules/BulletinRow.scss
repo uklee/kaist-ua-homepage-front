@@ -1,16 +1,17 @@
-.Bulletin-row{
-    margin: 1rem 2rem;
-    padding-top: 1rem;
+.Bulletin-row {
+  margin: 1rem 2rem;
+  padding-top: 1rem;
+  cursor: pointer;
 
-    &:hover {
-        background-color: gray;
-    }
+  &:hover {
+    text-decoration: none;
+  }
 
-    .writer{
-        margin-left: 1rem;
-    }
-}    
+  .writer {
+    margin-left: 1rem;
+  }
+}
 
 .Bulletin-row + .Bulletin-row {
-    border-top: 1px solid gray;
+  border-top: 1px solid gray;
 }
