@@ -23,9 +23,9 @@ const sample = {
     "할겁니다! 걱정마세요! 모두들 화이팅~"
 };
 
-const DetailContent = ({ post }) => {
+const PostViewer = ({ post }) => {
   if (!post) return <div>로딩중...</div>;
-  const { title, author, views, createdAt, content } = post;
+  const { title, author, views, created_at, content } = post;
 
   return (
     <Container className="flex-grow-1 notice-detail-content">
@@ -35,7 +35,7 @@ const DetailContent = ({ post }) => {
         <div className="d-flex flex-row">
           <div className="details">
             <b>{author}</b> | 조회수 {views} |{" "}
-            {new Date(createdAt).toLocaleDateString()}
+            {new Date(created_at).toLocaleString()}
           </div>
         </div>
         <Col md="8" lg="7" className="notice-content">
@@ -46,4 +46,4 @@ const DetailContent = ({ post }) => {
   );
 };
 
-export default DetailContent;
+export default PostViewer;
