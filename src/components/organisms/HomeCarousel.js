@@ -27,7 +27,7 @@ const HomeCarousel = props => {
 
   if (!response) return null;
 
-  const banners = response.data;
+  const banners = response.error ? sample.banners : response.data;
 
   const CarouselItemList = banners.map(banner => (
     <CarouselItem src={banner.url} />
