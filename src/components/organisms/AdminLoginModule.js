@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
+import * as adminsAPI from "../../lib/api/admin";
+
 import "./AdminLoginModule.scss";
 import logo from "../../static/logo/ua_logo.png";
+import { withRouter } from "react-router-dom";
 
-const AdminLoginModule = () => {
+const AdminLoginModule = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    console.log(email);
-    console.log(password);
-  });
-
-  const handleClick = async () => {};
+  const handleClick = async () => {
+    let res;
+    try {
+      res = await adminsAPI.login({ email, password });
+    } catch (err) {
+      console.log(err.message);
+      return;
+    }
+    console.log(res.accessToken);
+    history.push("/");
+  };
 
   return (
     <div className="flex-grow-1 login-module d-flex flex-column">
@@ -36,12 +44,7 @@ const AdminLoginModule = () => {
             onChange={value => setPassword(value.target.value)}
           />
         </Form.Group>
-        <Button
-          className="login-button"
-          variant="dark"
-          type="submit"
-          onClick={handleClick}
-        >
+        <Button className="login-button" variant="dark" onClick={handleClick}>
           로그인
         </Button>
       </Form>
@@ -49,4 +52,4 @@ const AdminLoginModule = () => {
   );
 };
 
-export default AdminLoginModule;
+export default withRouter(AdminLoginModule);
