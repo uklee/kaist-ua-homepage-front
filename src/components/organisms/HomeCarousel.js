@@ -15,7 +15,7 @@ const sample = {
 };
 
 const HomeCarousel = props => {
-  const [loading, response, error] = usePromise(() => {
+  const [loading, response] = usePromise(() => {
     return axios.get("/banners");
   }, []);
 

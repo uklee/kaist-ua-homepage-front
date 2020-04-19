@@ -1,5 +1,4 @@
 import baseURL from "../baseURL";
-import qs from "qs";
 import axios from "axios";
 
 const admins = axios.create({ baseURL: `${baseURL}/admins` });

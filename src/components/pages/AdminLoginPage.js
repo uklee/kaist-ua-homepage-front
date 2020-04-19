@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Header, Footer } from "../organisms";
 import { AdminLoginContent } from "../templates";
 
 const AdminLoginPage = () => {
