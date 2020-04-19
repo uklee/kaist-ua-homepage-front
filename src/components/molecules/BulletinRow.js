@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./BulletinRow.scss";
 
 const BulletinRow = ({ post }) => {
-  const { title, date, author, id } = post;
+  const { title, date, author, id, created_at } = post;
 
   return (
     <div className="Bulletin-row">
@@ -11,7 +11,7 @@ const BulletinRow = ({ post }) => {
         <h5 className="">{title}</h5>
         <div className="d-flex">
           <h6 className="text-black-50 font-weight-light">
-            {date + " | " + author}
+            {new Date(created_at).toLocaleDateString() + " | " + author}
           </h6>
         </div>
       </Link>
