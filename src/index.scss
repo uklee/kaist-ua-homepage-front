@@ -8,3 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+$theme-colors: (
+  "primary": #1a365a,
+  "danger": #ff4136
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";

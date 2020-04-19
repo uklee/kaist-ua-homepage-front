@@ -8,7 +8,6 @@ const MainPage = () => {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#eee",
         fontFamily: "NanumSquare"
       }}
       className="d-flex flex-column"
