@@ -12,13 +12,20 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 }));
 export const writePost = createAction(
   WRITE_POST,
-  ({ id, title, author, content }) => ({ id, title, author, content })
+  ({ id, title, author, content, bulletinId }) => ({
+    id,
+    title,
+    author,
+    content,
+    bulletinId
+  })
 );
 
 const initialState = {
   title: "",
   author: "",
   content: "",
+  bulletinId: 1,
   views: 0,
   post: null
 };

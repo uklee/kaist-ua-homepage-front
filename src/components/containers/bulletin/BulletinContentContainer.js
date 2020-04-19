@@ -29,7 +29,7 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
 
   useEffect(() => {
     if (!page) history.push(`${location.pathname}?page=1`);
-  }, []);
+  }, [location.pathname, bulletinId]);
 
   useEffect(() => {
     bulletinsAPI
@@ -38,7 +38,7 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
         dispatch(listBulletins(res1.data));
 
         postsAPI
-          .listPosts({ author, title, page })
+          .listPosts({ author, title, page, bulletinId })
           .then(res2 => {
             const { posts, lastPage } = res2.data;
             dispatch(listPosts({ posts, lastPage }));
