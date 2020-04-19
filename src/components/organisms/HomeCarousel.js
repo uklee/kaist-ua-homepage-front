@@ -20,14 +20,14 @@ const HomeCarousel = props => {
   }, []);
 
   if (loading) return <Carousel>로딩중...</Carousel>;
-  if (error) {
-    console.log(error);
-    return <Carousel>에러발생</Carousel>;
-  }
+  // if (error) {
+  //   console.log(error);
+  //   return <Carousel>에러발생</Carousel>;
+  // }
 
-  if (!response) return null;
+  // if (!response) return null;
 
-  const banners = response.error ? sample.banners : response.data;
+  const banners = response ? response.data : sample.banners;
 
   const CarouselItemList = banners.map(banner => (
     <CarouselItem src={banner.url} />
