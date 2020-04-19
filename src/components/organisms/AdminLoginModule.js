@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import * as adminsAPI from "../../lib/api/admin";

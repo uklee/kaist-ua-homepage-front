@@ -1,5 +1,4 @@
 .Bulletin-header {
-
   margin-top: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -9,7 +8,19 @@
   }
 
   .Bulletin-desc {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
+}
 
+.bulletin-header-title {
+  font-size: 25pt;
+  font-family: "NanumSquare ExtraBold";
+}
+
+.bulletin-description {
+  font-size: 10pt;
+  font-family: "NanumSquare Light";
+  padding-bottom: 15px;
+  margin-bottom: 15px !important;
+  border-bottom: solid 1px #555;
 }

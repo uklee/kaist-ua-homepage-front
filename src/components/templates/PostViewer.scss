@@ -1,17 +1,17 @@
-.notice-detail-content {
+.post-view {
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-.notice {
+.bulletin-title {
   font-size: 12pt;
   font-family: "NanumSquare ExtraBold";
   padding-bottom: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 15px !important;
   border-bottom: solid 1px #555;
 }
 
-.notice-title {
+.post-title {
   font-family: "NanumSquare ExtraBold";
   font-size: 20pt;
   color: #444;
@@ -22,7 +22,7 @@
   color: #666;
 }
 
-.notice-content {
+.post-content {
   padding-top: 15px;
   padding-left: 0 !important;
   padding-right: 0 !important;

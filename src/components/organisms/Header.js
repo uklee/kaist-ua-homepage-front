@@ -46,7 +46,7 @@ const Header = props => {
               }}
             >
               총학 소개
-              {props.tab1 ? active : hover1}
+              {props.active === "0" ? active : hover1}
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
@@ -57,7 +57,7 @@ const Header = props => {
               }}
             >
               공지사항
-              {props.notice ? active : hover2}
+              {props.active === "1" ? active : hover2}
             </Nav.Link>
             <Nav.Link
               className="header-item"
@@ -79,7 +79,7 @@ const Header = props => {
               }}
             >
               학생 복지
-              {props.tab4 ? active : hover4}
+              {props.active === "2" ? active : hover4}
             </Nav.Link>
           </Nav>
           <Nav>
@@ -89,7 +89,7 @@ const Header = props => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <div style={{ height: "2px", backgroundColor: "#ddd" }} />
+      <div style={{ height: "1px", backgroundColor: "#ddd" }} />
     </div>
   );
 };
