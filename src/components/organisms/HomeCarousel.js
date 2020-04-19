@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import usePromise from "../../lib/usePromise";
-import { axios } from "../../lib";
+import axios from "axios";
 
 import { CarouselItem } from "../molecules";
 
