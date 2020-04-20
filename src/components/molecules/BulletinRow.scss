@@ -1,0 +1,13 @@
+.bulletin-row {
+  margin-top: 30px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bulletin-row-shell {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

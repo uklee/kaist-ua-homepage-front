@@ -1,16 +1,26 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import "./App.css";
-import { Home } from "./components/pages";
+import { Route, Switch, Redirect } from "react-router-dom";
+import {
+  BulletinPage,
+  EditPage,
+  AdminLoginPage,
+  MainPage,
+  PostViewPage
+} from "./components/pages";
 
 function App() {
+  console.log(process.env.DEVELOPMENT_URL);
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/main" component={MainPage} />
+      <Route path="/admin" component={AdminLoginPage} />
+      <Route path="/post/:postId" component={PostViewPage} />
+      <Route path="/bulletin/:bulletinId" component={BulletinPage} />
+      <Route path="/user/bulletin/:bulletinId" component={BulletinPage} />
+      <Route path="/edit" component={EditPage} />
+      <Route path="/user/edit" component={EditPage} />
+      <Redirect to="/main" />
+    </Switch>
   );
 }
 

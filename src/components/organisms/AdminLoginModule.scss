@@ -1,0 +1,21 @@
+.login-module {
+  background-color: white;
+  height: 100vh;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .login-module {
+    height: 100%;
+    margin: 45px 15px;
+  }
+}
+
+.logo {
+  padding-bottom: 50px;
+}
+
+.login-button {
+  margin-top: 15px !important;
+  float: right;
+}

@@ -3,10 +3,13 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import { HomeContent } from "../templates";
 
-const Home = () => {
+const MainPage = () => {
   return (
     <div
-      style={{ height: "100vh", backgroundColor: "#eee" }}
+      style={{
+        minHeight: "100vh",
+        fontFamily: "NanumSquare"
+      }}
       className="d-flex flex-column"
     >
       <Header />
@@ -16,4 +19,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainPage;
