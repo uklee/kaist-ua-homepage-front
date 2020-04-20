@@ -3,7 +3,7 @@ import "./BulletinList.scss";
 import { BulletinRow } from "../molecules";
 
 const BulletinList = ({ posts }) => {
-  if (!posts) return <div>로딩중...</div>;
+  if (!posts) return <div className="bulletin-list"></div>;
 
   const rows = posts.map(post => <BulletinRow key={post.id} post={post} />);
 
