@@ -9,7 +9,7 @@ import {
 } from "./components/pages";
 
 function App() {
-  console.log(process.env.DEVELOPMENT_URL);
+  // console.log(process.env.DEVELOPMENT_URL);
   return (
     <Switch>
       <Route path="/main" component={MainPage} />
