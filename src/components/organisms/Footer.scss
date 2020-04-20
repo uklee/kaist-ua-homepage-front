@@ -23,3 +23,15 @@
   filter: grayscale(100%);
   opacity: 0.5;
 }
+
+.creators {
+  text-align: right;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
