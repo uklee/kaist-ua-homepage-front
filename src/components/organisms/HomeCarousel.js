@@ -30,7 +30,7 @@ const HomeCarousel = props => {
   const banners = response ? response.data : sample.banners;
 
   const CarouselItemList = banners.map(banner => (
-    <CarouselItem src={banner.url} />
+    <CarouselItem key={banner.url} src={banner.url} />
   ));
 
   return (

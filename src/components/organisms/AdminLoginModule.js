@@ -11,16 +11,18 @@ const AdminLoginModule = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleClick = async () => {
-    let res;
-    try {
-      res = await adminsAPI.login({ email, password });
-    } catch (err) {
-      console.log(err.message);
-      return;
-    }
-    console.log(res.accessToken);
-    history.push("/");
+  const tryLogin = () => {
+    adminsAPI
+      .login({ email, password })
+      .then(res => {
+        console.log(res.data.accessToken);
+        window.sessionStorage.accessToken = res.data.accessToken;
+        window.sessionStorage.email = res.data.email;
+        history.push("/");
+      })
+      .catch(err => {
+        alert("로그인 정보가 일치하지 않습니다.");
+      });
   };
 
   return (
@@ -28,7 +30,7 @@ const AdminLoginModule = ({ history }) => {
       <a href="/" className="align-self-center">
         <img src={logo} className="logo" width="120px" alt="UA_logo" />
       </a>
-      <Form className="login-form">
+      <Form className="login-form" onSubmit={tryLogin}>
         <Form.Group>
           <Form.Label>이메일</Form.Label>
           <Form.Control
@@ -44,7 +46,7 @@ const AdminLoginModule = ({ history }) => {
             onChange={value => setPassword(value.target.value)}
           />
         </Form.Group>
-        <Button className="login-button" variant="dark" onClick={handleClick}>
+        <Button onClick={tryLogin} className="login-button" variant="dark">
           로그인
         </Button>
       </Form>

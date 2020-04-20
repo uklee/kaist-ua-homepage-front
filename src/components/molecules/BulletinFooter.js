@@ -15,13 +15,18 @@ const BulletinFooter = ({ author, title, page, lastPage, history }) => {
         lastPage={lastPage}
       />
       <div className="d-flex justify-content-between">
-        <Button
-          variant="outline-primary"
-          className="h-100 d-inline-block"
-          onClick={() => history.push("/edit")}
-        >
-          글 작성하기
-        </Button>
+        {window.sessionStorage.accessToken ? (
+          <Button
+            variant="outline-primary"
+            className="h-100 d-inline-block"
+            onClick={() => history.push("/edit")}
+          >
+            글 작성하기
+          </Button>
+        ) : (
+          <div />
+        )}
+
         <SearchBar className="d-inline-block" />
       </div>
     </div>

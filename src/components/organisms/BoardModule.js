@@ -12,10 +12,10 @@ const BoardModule = props => {
     <div className={`${props.className} board-module`}>
       <BoardHeader title={props.boardName} />
       {docs.map(doc => (
-        <>
+        <React.Fragment key={Math.random()}>
           <BoardRow author={doc.author} title={doc.title} date={doc.date} />
           <div className="divider" />
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
