@@ -1,1 +1,1 @@
-export default `${process.env.DEVELOPMENT_URL || "http://localhost:8080"}`;
+export default `${process.env.SERVER_HOST || "http://localhost:8080"}`;
