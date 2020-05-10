@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import "./SeeMore.scss";
 
-const SeeMore = props => {
+const SeeMore = ({ to }) => {
   return (
-    <Link className="d-flex align-items-center see-more">
+    <Link className="d-flex align-items-center see-more" to={to}>
       <i className="material-icons plus-icon">add</i>
       더보기
     </Link>

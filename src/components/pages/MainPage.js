@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import { HomeContent } from "../templates";
+import HomeContentContainer from "../containers/home/HomeContentContainer";
 
 const MainPage = () => {
   return (
@@ -14,7 +14,7 @@ const MainPage = () => {
       className="d-flex flex-column"
     >
       <Header />
-      <HomeContent />
+      <HomeContentContainer />
       <Footer />
     </div>
   );

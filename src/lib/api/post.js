@@ -6,7 +6,15 @@ const posts = axios.create({ baseURL: "http://localhost:8080/posts" });
 export const write = ({ title, author, content, bulletinId }) =>
   posts.post("", { title, author, content, bulletinId });
 
-export const list = () => posts.get("");
+export const list = ({ bulletin }) => {
+  const page = 1;
+  const bulletinId = bulletin.id;
+  const queryString = qs.stringify({
+    page,
+    bulletinId
+  });
+  return posts.get(`?${queryString}`);
+};
 
 export const read = id => posts.get(`/${id}`);
 

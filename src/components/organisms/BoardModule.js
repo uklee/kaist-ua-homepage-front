@@ -2,21 +2,27 @@ import React from "react";
 
 import "./BoardModule.scss";
 import { BoardHeader, BoardRow } from "../molecules";
+import { isEmpty } from "lodash";
 
-const BoardModule = props => {
-  let docs = [];
-  for (let i = 0; i < 5; i++) {
-    docs.push(props.doc);
-  }
+const BoardModule = ({ className, boardName, posts, bulletinId }) => {
+  while (posts.length < 5)
+    posts = posts.concat({
+      author: "",
+      title: "",
+      date: ""
+    });
+
+  const rows = posts.slice(0, 5).map(post => (
+    <>
+      <BoardRow author={post.author} title={post.title} date={post.date} />
+      <div className="divider" />
+    </>
+  ));
+
   return (
-    <div className={`${props.className} board-module`}>
-      <BoardHeader title={props.boardName} />
-      {docs.map(doc => (
-        <>
-          <BoardRow author={doc.author} title={doc.title} date={doc.date} />
-          <div className="divider" />
-        </>
-      ))}
+    <div className={`${className} board-module`}>
+      <BoardHeader title={boardName} to={`/bulletin/${bulletinId}`} />
+      {rows}
     </div>
   );
 };
