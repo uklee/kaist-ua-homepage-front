@@ -8,7 +8,7 @@ import { isEmpty } from "lodash";
 const BulletinContent = ({ bulletins, bulletinId, posts }) => {
   if (isEmpty(bulletins)) return <div>로딩중...</div>;
 
-  const bulletin = bulletins.find(bulletin => bulletin.id == bulletinId);
+  const bulletin = bulletins.find(bulletin => `${bulletin.id}` === bulletinId);
 
   const { title, description } = bulletin;
 

@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import "./BulletinRow.scss";
 
 const BulletinRow = ({ post }) => {
-  const { title, date, author, id, created_at } = post;
+  const { title, author, id, createdAt } = post;
+  console.log(createdAt);
 
   return (
-    <div className="Bulletin-row">
-      <Link to={`/post/${id}`}>
+    <div className="bulletin-row-shell">
+      <Link className="bulletin-row" to={`/post/${id}`}>
         <h5 className="">{title}</h5>
         <div className="d-flex">
           <h6 className="text-black-50 font-weight-light">
-            {new Date(created_at).toLocaleDateString() + " | " + author}
+            {`${createdAt.split(/T|.000Z/).join(" ")} | ${author}`}
           </h6>
         </div>
       </Link>

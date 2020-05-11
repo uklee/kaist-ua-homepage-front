@@ -1,17 +1,13 @@
-.Bulletin-row {
-  margin: 1rem 2rem;
-  padding-top: 1rem;
+.bulletin-row {
+  margin-top: 30px;
   cursor: pointer;
 
   &:hover {
     text-decoration: none;
   }
-
-  .writer {
-    margin-left: 1rem;
-  }
 }
 
-.Bulletin-row + .Bulletin-row {
-  border-top: 1px solid gray;
+.bulletin-row-shell {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

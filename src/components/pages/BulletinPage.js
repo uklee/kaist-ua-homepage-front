@@ -8,10 +8,10 @@ const BulletinPage = ({ match }) => {
 
   return (
     <div
-      style={{ minHeight: "100vh", backgroundColor: "#eee" }}
+      style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}
       className="d-flex flex-column"
     >
-      <Header />
+      <Header active={bulletinId} />
       <BulletinContentContainer bulletinId={bulletinId} />
       <Footer />
     </div>

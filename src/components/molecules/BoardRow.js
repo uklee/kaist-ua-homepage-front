@@ -10,10 +10,10 @@ const BoardRow = props => {
       <Col md="2" lg="3" className="row-author">
         {props.author}
       </Col>
-      <Col md="8" lg="6" className="row-title">
+      <Col md="8" lg="5" className="row-title">
         {props.title}
       </Col>
-      <Col md="2" lg="3" className="row-date">
+      <Col md="2" lg="4" className="row-date">
         {props.date}
       </Col>
     </Row>

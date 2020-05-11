@@ -36,7 +36,7 @@ const EditorContentContainer = ({ history }) => {
       .catch(err => console.log(err));
   };
 
-  useEffect(() => {
+  const getBulletinsList = useCallback(() => {
     bulletinsAPI
       .list()
       .then(res1 => {
@@ -44,7 +44,11 @@ const EditorContentContainer = ({ history }) => {
         console.log(res1.data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [dispatch]);
+
+  useEffect(() => {
+    getBulletinsList();
+  }, [getBulletinsList]);
 
   useEffect(() => {
     return () => {

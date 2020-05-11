@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+  .login-content {
+    margin: auto;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    width: 450px;
+  }
+}
+@media (max-width: 767px) {
+  .login-content {
+    width: 100vw;
+    padding: 30px 50px;
+  }
+}

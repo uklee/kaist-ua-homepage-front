@@ -10,7 +10,10 @@ export default ({ author, title, page, lastPage }) => {
 
   return (
     <Pagination className="d-flex justify-content-center">
-      <Pagination.First href={buildUrl(author, title, 1)} />
+      <Pagination.First
+        style={{ fontFamily: "arial" }}
+        href={buildUrl(author, title, 1)}
+      />
       {page > 1 && (
         <Pagination.Item href={buildUrl(author, title, page - 1)}>
           {page - 1}
@@ -22,7 +25,10 @@ export default ({ author, title, page, lastPage }) => {
           {parseInt(page) + 1}
         </Pagination.Item>
       )}
-      <Pagination.Last href={buildUrl(author, title, lastPage)} />
+      <Pagination.Last
+        style={{ fontFamily: "arial" }}
+        href={buildUrl(author, title, lastPage)}
+      />
     </Pagination>
   );
 };

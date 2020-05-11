@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+
+import React, { useCallback, useEffect } from "react";
 import qs from "qs";
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,14 +8,6 @@ import * as bulletinsAPI from "../../../lib/api/bulletin";
 import * as postsAPI from "../../../lib/api/post";
 import { listBulletins } from "../../../modules/bulletins";
 import { listPosts } from "../../../modules/posts";
-
-const samples = [
-  {
-    id: 1,
-    title: "공지사항",
-    description: "공지사항 입니다 ㅎㅎ"
-  }
-];
 
 const BulletinContentContainer = ({ location, bulletinId, history }) => {
   const dispatch = useDispatch();
@@ -27,11 +20,15 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
     ignoreQueryPrefix: true
   });
 
-  useEffect(() => {
+  const redirect = useCallback(() => {
     if (!page) history.push(`${location.pathname}?page=1`);
-  }, [location.pathname, bulletinId]);
+  }, [page, history, location.pathname]);
 
   useEffect(() => {
+    redirect();
+  }, [location.pathname, bulletinId, redirect]);
+
+  const getBulletinsList = useCallback(() => {
     bulletinsAPI
       .list()
       .then(res1 => {
@@ -46,7 +43,11 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
           .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
-  }, [dispatch, location.search]);
+  }, [dispatch, author, bulletinId, page, title]);
+
+  useEffect(() => {
+    getBulletinsList();
+  }, [dispatch, location.search, getBulletinsList]);
 
   return (
     <BulletinContent

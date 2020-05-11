@@ -1,7 +1,7 @@
+import baseURL from "../baseURL";
 import axios from "axios";
-import qs from "qs";
 
-const bulletins = axios.create({ baseURL: "http://localhost:8080/bulletins" });
+const bulletins = axios.create({ baseURL: `${baseURL}/bulletins` });
 
 export const open = ({ title, description }) =>
   bulletins.post("", { title, description });

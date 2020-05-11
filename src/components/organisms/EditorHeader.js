@@ -31,7 +31,7 @@ const EditorHeader = ({
     <Container className="border-bottom mt-3">
       <Form>
         <Form.Group className="d-flex  align-items-center">
-          <Form.Label className="mb-0  Label">카테고리</Form.Label>
+          <Form.Label className="mb-0  Label">게시판</Form.Label>
           <Form.Control
             className="flex-1"
             as="select"

@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
+import { withRouter } from "react-router-dom";
 
-const Header = props => {
+const Header = ({ history, ...props }) => {
   const [hover1, setHover1] = useState(<div />);
   const [hover2, setHover2] = useState(<div />);
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
+  const [auth, setAuth] = useState(window.sessionStorage.accessToken);
+  const [loginButton, setLoginButton] = useState(
+    <Nav>
+      <Nav.Link className="header-login" href="">
+        로그인
+      </Nav.Link>
+    </Nav>
+  );
 
   const active = (
     <div
@@ -18,6 +27,32 @@ const Header = props => {
       }}
     />
   );
+
+  const tryLogout = useCallback(() => {
+    setAuth(false);
+    delete window.sessionStorage["accessToken"];
+    delete window.sessionStorage["email"];
+    history.push("/");
+  }, [history]);
+
+  useEffect(() => {
+    if (auth)
+      setLoginButton(
+        <Nav>
+          <div className="header-logout" onClick={tryLogout}>
+            어드민 로그아웃
+          </div>
+        </Nav>
+      );
+    else
+      setLoginButton(
+        <Nav>
+          <Nav.Link className="header-login" href="">
+            로그인
+          </Nav.Link>
+        </Nav>
+      );
+  }, [auth, tryLogout]);
 
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
@@ -46,7 +81,7 @@ const Header = props => {
               }}
             >
               총학 소개
-              {props.tab1 ? active : hover1}
+              {props.active === "0" ? active : hover1}
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
@@ -57,7 +92,7 @@ const Header = props => {
               }}
             >
               공지사항
-              {props.notice ? active : hover2}
+              {props.active === "1" ? active : hover2}
             </Nav.Link>
             <Nav.Link
               className="header-item"
@@ -79,19 +114,15 @@ const Header = props => {
               }}
             >
               학생 복지
-              {props.tab4 ? active : hover4}
+              {props.active === "2" ? active : hover4}
             </Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link className="header-login" href="">
-              로그인
-            </Nav.Link>
-          </Nav>
+          {loginButton}
         </Navbar.Collapse>
       </Navbar>
-      <div style={{ height: "2px", backgroundColor: "#ddd" }} />
+      <div style={{ height: "1px", backgroundColor: "#ddd" }} />
     </div>
   );
 };
 
-export default Header;
+export default withRouter(Header);

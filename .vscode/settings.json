@@ -1,5 +1,8 @@
 {
   "eslint.enable": false,
   "editor.fontSize": 14,
-  "files.autoSave": "onWindowChange"
+  "files.autoSave": "onWindowChange",
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true
 }

@@ -9,6 +9,17 @@
   transition: 0.3s;
 }
 
+.header-logout {
+  margin-left: 10px;
+  color: #ff0000;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(255, 72, 72);
+  }
+}
+
 .tab-hover-enter {
   height: 2px;
   margin-top: -2px;
