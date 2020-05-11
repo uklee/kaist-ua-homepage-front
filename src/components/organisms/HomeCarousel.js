@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
-import usePromise from "../../lib/usePromise";
-import axios from "axios";
+import * as bannersAPI from "../../lib/api/banner";
 
 import { CarouselItem } from "../molecules";
 
@@ -21,19 +20,13 @@ const sample = {
 };
 
 const HomeCarousel = props => {
-  const [loading, response] = usePromise(() => {
-    return axios.get("/banners");
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    bannersAPI.list().then(res => {
+      setBanners(res.data);
+    });
   }, []);
-
-  if (loading) return <Carousel>로딩중...</Carousel>;
-  // if (error) {
-  //   console.log(error);
-  //   return <Carousel>에러발생</Carousel>;
-  // }
-
-  // if (!response) return null;
-
-  const banners = response ? response.data : sample.banners;
 
   const CarouselItemList = banners.map(banner => (
     <CarouselItem key={banner.id} src={banner.url} />
