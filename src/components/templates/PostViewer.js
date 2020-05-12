@@ -25,7 +25,7 @@ import "./PostViewer.scss";
 
 const PostViewer = ({ post }) => {
   if (!post) return <div>로딩중...</div>;
-  const { title, author, views, createdAt, content } = post;
+  const { title, author, views, created_at, content } = post;
 
   return (
     <Container className="flex-grow-1 post-view">
@@ -34,7 +34,7 @@ const PostViewer = ({ post }) => {
       <div className="d-flex flex-row">
         <div className="details">
           <b>{author}</b> | 조회수 {views} |{" "}
-          {new Date(createdAt).toLocaleString()}
+          {new Date(created_at).toLocaleString()}
         </div>
       </div>
       <Col md="8" lg="7" className="post-content">

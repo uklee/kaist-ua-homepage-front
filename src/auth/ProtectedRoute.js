@@ -12,7 +12,7 @@ const ProtectedRoute = ({ path, component: Component, email, ...rest }) => {
             return (
               <Redirect
                 to={{
-                  pathname: "/main",
+                  pathname: "/web/main",
                   state: {
                     from: props.location
                   }

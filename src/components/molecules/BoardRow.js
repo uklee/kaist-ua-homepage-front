@@ -14,7 +14,7 @@ const BoardRow = props => {
         {props.title}
       </Col>
       <Col md="2" lg="4" className="row-date">
-        {props.date}
+        {props.createdAt}
       </Col>
     </Row>
   );
