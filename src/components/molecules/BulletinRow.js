@@ -4,6 +4,7 @@ import "./BulletinRow.scss";
 
 const BulletinRow = ({ post }) => {
   const { title, author, id, created_at } = post;
+
   return (
     <div className="bulletin-row-shell">
       <Link className="bulletin-row" to={`/web/post/${id}`}>
