@@ -6,7 +6,7 @@ import "./BoardRow.scss";
 
 const BoardRow = props => {
   return (
-    <Row as={Link} to="/" className="board-row">
+    <Row as={Link} to={`/web/post/${props.id}`} className="board-row">
       <Col md="2" lg="3" className="row-author">
         {props.author}
       </Col>
@@ -14,7 +14,7 @@ const BoardRow = props => {
         {props.title}
       </Col>
       <Col md="2" lg="4" className="row-date">
-        {props.createdAt}
+        {props.createdAt.split(/T|.000Z/)[0]}
       </Col>
     </Row>
   );
