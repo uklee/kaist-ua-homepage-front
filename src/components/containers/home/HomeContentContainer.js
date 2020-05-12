@@ -27,6 +27,7 @@ const HomeContentContainer = () => {
             bulletin: bulletin,
             aboutPosts: res.data
           };
+          ret = ret.concat(boardInfo);
         } catch (err) {
           console.log(err);
         }

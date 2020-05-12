@@ -7,6 +7,7 @@ import { isEmpty } from "lodash";
 const BoardModule = ({ className, boardName, posts, bulletinId }) => {
   while (posts.length < 5)
     posts = posts.concat({
+      id: "",
       author: "",
       title: "",
       date: "",
@@ -17,6 +18,7 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
   const rows = posts.slice(0, 5).map(post => (
     <>
       <BoardRow
+        id={post.id}
         author={post.author}
         title={post.title}
         date={post.date}
