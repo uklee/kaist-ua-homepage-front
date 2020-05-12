@@ -9,19 +9,26 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
     posts = posts.concat({
       author: "",
       title: "",
-      date: ""
+      date: "",
+      created_at: ""
     });
+  console.log(posts);
 
   const rows = posts.slice(0, 5).map(post => (
     <>
-      <BoardRow author={post.author} title={post.title} date={post.date} />
+      <BoardRow
+        author={post.author}
+        title={post.title}
+        date={post.date}
+        createdAt={post.created_at}
+      />
       <div className="divider" />
     </>
   ));
 
   return (
     <div className={`${className} board-module`}>
-      <BoardHeader title={boardName} to={`/bulletin/${bulletinId}`} />
+      <BoardHeader title={boardName} to={`/web/bulletin/${bulletinId}`} />
       {rows}
     </div>
   );

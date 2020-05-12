@@ -1,4 +1,3 @@
-
 import React, { useCallback, useEffect } from "react";
 import qs from "qs";
 import { withRouter } from "react-router-dom";
@@ -37,6 +36,7 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
         postsAPI
           .listPosts({ author, title, page, bulletinId })
           .then(res2 => {
+            console.log(res2.data);
             const { posts, lastPage } = res2.data;
             dispatch(listPosts({ posts, lastPage }));
           })

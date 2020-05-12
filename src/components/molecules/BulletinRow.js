@@ -7,7 +7,7 @@ const BulletinRow = ({ post }) => {
 
   return (
     <div className="bulletin-row-shell">
-      <Link className="bulletin-row" to={`/post/${id}`}>
+      <Link className="bulletin-row" to={`/web/post/${id}`}>
         <h5 className="">{title}</h5>
         <div className="d-flex">
           <h6 className="text-black-50 font-weight-light">

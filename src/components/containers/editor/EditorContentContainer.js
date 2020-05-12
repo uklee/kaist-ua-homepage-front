@@ -59,7 +59,7 @@ const EditorContentContainer = ({ history }) => {
   useEffect(() => {
     if (post) {
       const { id } = post;
-      history.push(`/post/${id}`);
+      history.push(`/web/post/${id}`);
     }
   }, [history, post]);
 
