@@ -60,7 +60,7 @@ const Header = ({ history, ...props }) => {
   return (
     <div style={{ backgroundColor: "#fff" }}>
       <Navbar as={Container} collapseOnSelect expand="lg">
-        <Navbar.Brand href="/web">
+        <Navbar.Brand href="/web/main">
           <img
             src={logo}
             width="100px"
