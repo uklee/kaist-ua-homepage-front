@@ -12,7 +12,10 @@ const Header = ({ history, ...props }) => {
   const [auth, setAuth] = useState(window.sessionStorage.accessToken);
   const [loginButton, setLoginButton] = useState(
     <Nav>
-      <Nav.Link className="header-login" href="">
+      <Nav.Link
+        className="header-login"
+        href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=https://student.kaist.ac.kr/auth/signup`}
+      >
         로그인
       </Nav.Link>
     </Nav>
@@ -47,7 +50,10 @@ const Header = ({ history, ...props }) => {
     else
       setLoginButton(
         <Nav>
-          <Nav.Link className="header-login" href="">
+          <Nav.Link
+            className="header-login"
+            href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=https://student.kaist.ac.kr/auth/signup`}
+          >
             로그인
           </Nav.Link>
         </Nav>
