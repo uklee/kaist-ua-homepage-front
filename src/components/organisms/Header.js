@@ -12,7 +12,10 @@ const Header = ({ history, ...props }) => {
   const [auth, setAuth] = useState(window.sessionStorage.accessToken);
   const [loginButton, setLoginButton] = useState(
     <Nav>
-      <Nav.Link className="header-login" href="">
+      <Nav.Link
+        className="header-login"
+        href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=https://student.kaist.ac.kr/auth/signup`}
+      >
         로그인
       </Nav.Link>
     </Nav>
@@ -60,7 +63,7 @@ const Header = ({ history, ...props }) => {
   return (
     <div style={{ backgroundColor: "#fff" }}>
       <Navbar as={Container} collapseOnSelect expand="lg">
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/web/main">
           <img
             src={logo}
             width="100px"

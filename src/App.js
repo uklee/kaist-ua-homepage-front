@@ -9,6 +9,10 @@ import {
 } from "./components/pages";
 
 function App() {
+  React.useEffect(() => {
+    console.log("hihihi");
+  }, []);
+
   return (
     <Switch>
       <Route path="/web/main" component={MainPage} />
