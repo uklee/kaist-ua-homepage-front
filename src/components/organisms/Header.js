@@ -50,10 +50,7 @@ const Header = ({ history, ...props }) => {
     else
       setLoginButton(
         <Nav>
-          <Nav.Link
-            className="header-login"
-            href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=https://student.kaist.ac.kr/auth/signup`}
-          >
+          <Nav.Link className="header-login" href="/web/api/auth/login">
             로그인
           </Nav.Link>
         </Nav>
