@@ -47,7 +47,7 @@ const Header = ({ history, ...props }) => {
     else
       setLoginButton(
         <Nav>
-          <Nav.Link className="header-login" href="">
+          <Nav.Link className="header-login" href="/web/api/auth/login">
             로그인
           </Nav.Link>
         </Nav>
