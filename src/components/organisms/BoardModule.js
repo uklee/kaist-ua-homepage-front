@@ -22,7 +22,7 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
         author={post.author}
         title={post.title}
         date={post.date}
-        createdAt={post.created_at}
+        createdAt={post.createdAt}
       />
       <div className="divider" />
     </>

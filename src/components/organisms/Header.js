@@ -99,14 +99,14 @@ const Header = ({ history, ...props }) => {
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href=""
+              href="/web/user/bulletin/1"
               onMouseEnter={() => setHover3(enter)}
               onMouseLeave={() => {
                 setHover3(leave);
               }}
             >
               학생 청원
-              {props.tab3 ? active : hover3}
+              {props.active === "1001" ? active : hover2}
             </Nav.Link>
             <Nav.Link
               className="header-item"

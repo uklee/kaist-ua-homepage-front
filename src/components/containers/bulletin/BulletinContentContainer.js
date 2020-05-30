@@ -8,7 +8,12 @@ import * as postsAPI from "../../../lib/api/post";
 import { listBulletins } from "../../../modules/bulletins";
 import { listPosts } from "../../../modules/posts";
 
-const BulletinContentContainer = ({ location, bulletinId, history }) => {
+const BulletinContentContainer = ({
+  location,
+  bulletinId,
+  history,
+  isUser
+}) => {
   const dispatch = useDispatch();
   const { posts, bulletins } = useSelector(({ posts, bulletins }) => ({
     posts: posts.posts,
@@ -51,6 +56,7 @@ const BulletinContentContainer = ({ location, bulletinId, history }) => {
 
   return (
     <BulletinContent
+      isUser
       bulletins={bulletins}
       bulletinId={bulletinId}
       posts={posts}
