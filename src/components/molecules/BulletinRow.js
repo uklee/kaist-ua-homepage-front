@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./BulletinRow.scss";
 
 const BulletinRow = ({ post, isUser }) => {
-  const { title, author, id, createdAt, views } = post;
+  const { title, author, id, created_at, views } = post;
 
   return (
     <div className="bulletin-row-shell">
@@ -16,7 +16,7 @@ const BulletinRow = ({ post, isUser }) => {
           <h6 className="details text-black-50">
             <b>{author}</b>
             {` | 조회수 ${views} | ${
-              createdAt ? createdAt.split(/T|.000Z/)[0] : null
+              created_at ? created_at.split(/T|.000Z/)[0] : null
             }`}
           </h6>
         </div>
