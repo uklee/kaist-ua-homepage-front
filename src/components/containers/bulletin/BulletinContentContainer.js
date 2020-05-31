@@ -41,7 +41,6 @@ const BulletinContentContainer = ({
         postsAPI
           .listPosts({ author, title, page, bulletinId })
           .then(res2 => {
-            console.log(res2.data);
             const { posts, lastPage } = res2.data;
             dispatch(listPosts({ posts, lastPage }));
           })

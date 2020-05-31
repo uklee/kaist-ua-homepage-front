@@ -1,1 +1,1 @@
-export default `${process.env.REACT_APP_HOST || "http://localhost"}:8080`;
+export default "https://student.kaist.ac.kr/web/api";

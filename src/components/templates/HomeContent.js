@@ -48,7 +48,6 @@ const testDoc2 = [
 
 const HomeContent = ({ BoardInfos }) => {
   if (!BoardInfos) return <div>로딩중...</div>;
-  console.log(BoardInfos);
 
   const boards = isEmpty(BoardInfos) ? (
     <div></div>
