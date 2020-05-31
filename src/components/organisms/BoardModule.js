@@ -13,7 +13,6 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
       date: "",
       created_at: ""
     });
-  console.log(posts);
 
   const rows = posts.slice(0, 5).map(post => (
     <>

@@ -41,7 +41,6 @@ const EditorContentContainer = ({ history }) => {
       .list()
       .then(res1 => {
         dispatch(listBulletins(res1.data));
-        console.log(res1.data);
       })
       .catch(err => console.log(err));
   }, [dispatch]);
