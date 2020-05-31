@@ -14,7 +14,7 @@ const BoardRow = props => {
         {props.title}
       </Col>
       <Col md="2" lg="4" className="row-date">
-        {props.createdAt.split(/T|.000Z/)[0]}
+        {props.createdAt ? props.createdAt.split(/T|.000Z/)[0] : null}
       </Col>
     </Row>
   );
