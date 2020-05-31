@@ -77,7 +77,7 @@ const Header = ({ history, ...props }) => {
           <Nav className="mr-auto">
             <Nav.Link
               className="header-item"
-              href=""
+              href="/web/introduction"
               onMouseEnter={() => setHover1(enter)}
               onMouseLeave={() => {
                 setHover1(leave);

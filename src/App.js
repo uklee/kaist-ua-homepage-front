@@ -5,7 +5,8 @@ import {
   EditPage,
   AdminLoginPage,
   MainPage,
-  PostViewPage
+  PostViewPage,
+  IntroductionPage
 } from "./components/pages";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       />
       <Route path="/web/edit" component={EditPage} />
       <Route path="/web/user/edit" component={EditPage} />
+      <Route path="/web/introduction" component={IntroductionPage} />
       <Redirect to="/web/main" />
     </Switch>
   );
