@@ -1,7 +1,7 @@
 import React from "react";
 import "./BulletinHeader.scss";
 
-const BulletinHeader = ({ title, description }) => {
+const BulletinHeader = ({ title, description, isUser }) => {
   return (
     <>
       <div className="bulletin-header-title">{title}</div>

@@ -5,7 +5,7 @@ import { BulletinList } from "../organisms";
 import { BulletinHeader, BulletinFooter } from "../molecules";
 import { isEmpty } from "lodash";
 
-const BulletinContent = ({ bulletins, bulletinId, posts }) => {
+const BulletinContent = ({ bulletins, bulletinId, posts, isUser }) => {
   if (isEmpty(bulletins)) return <div>로딩중...</div>;
 
   const bulletin = bulletins.find(bulletin => `${bulletin.id}` === bulletinId);
@@ -14,8 +14,8 @@ const BulletinContent = ({ bulletins, bulletinId, posts }) => {
 
   return (
     <Container className="flex-grow-1 bulletin-content">
-      <BulletinHeader title={title} description={description} />
-      <BulletinList posts={posts} />
+      <BulletinHeader title={title} description={description} isUser />
+      <BulletinList posts={posts} isUser />
       <BulletinFooter />
     </Container>
   );

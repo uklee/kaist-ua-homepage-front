@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import HomeContent from "../../templates/HomeContent";
 import * as bulletinsAPI from "../../../lib/api/bulletin";
 import * as postsAPI from "../../../lib/api/post";
