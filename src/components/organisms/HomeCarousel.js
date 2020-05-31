@@ -28,9 +28,9 @@ const HomeCarousel = props => {
     });
   }, []);
 
-  const CarouselItemList = banners.map(banner => (
-    <CarouselItem key={banner.id} src={banner.url} />
-  ));
+  const CarouselItemList = banners.length
+    ? banners.map(banner => <CarouselItem key={banner.id} src={banner.url} />)
+    : null;
 
   return (
     <Carousel className={props.className} indicators={false}>
