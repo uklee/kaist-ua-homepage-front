@@ -15,7 +15,6 @@ const AdminLoginModule = ({ history }) => {
     adminsAPI
       .login({ email, password })
       .then(res => {
-        console.log(res.data.accessToken);
         window.sessionStorage.accessToken = res.data.accessToken;
         window.sessionStorage.email = res.data.email;
         history.push("/");
