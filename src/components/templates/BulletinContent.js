@@ -15,7 +15,7 @@ const BulletinContent = ({ bulletins, bulletinId, posts, isUser }) => {
   return (
     <Container className="flex-grow-1 bulletin-content">
       <BulletinHeader title={title} description={description} isUser />
-      <BulletinList posts={posts} isUser />
+      <BulletinList posts={posts} isUser={isUser} />
       <BulletinFooter />
     </Container>
   );

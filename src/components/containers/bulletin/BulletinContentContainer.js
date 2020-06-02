@@ -55,7 +55,7 @@ const BulletinContentContainer = ({
 
   return (
     <BulletinContent
-      isUser
+      isUser={isUser}
       bulletins={bulletins}
       bulletinId={bulletinId}
       posts={posts}

@@ -11,7 +11,7 @@ const BulletinPage = props => {
       className="d-flex flex-column"
     >
       <Header active={props.isUser ? 100 + bulletinId : bulletinId} />
-      <BulletinContentContainer isUser bulletinId={bulletinId} />
+      <BulletinContentContainer isUser={props.isUser} bulletinId={bulletinId} />
       <Footer />
     </div>
   );

@@ -106,7 +106,7 @@ const Header = ({ history, ...props }) => {
               }}
             >
               학생 청원
-              {props.active === "1001" ? active : hover2}
+              {props.active === "1001" ? active : hover3}
             </Nav.Link>
             <Nav.Link
               className="header-item"
