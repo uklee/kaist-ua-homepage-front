@@ -6,7 +6,8 @@ import {
   AdminLoginPage,
   MainPage,
   PostViewPage,
-  IntroductionPage
+  IntroductionPage,
+  AuthAgreementPage
 } from "./components/pages";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Switch>
       <Route path="/web/main" component={MainPage} />
       <Route path="/web/admin" component={AdminLoginPage} />
+      <Route path="/web/auth/agreement" component={AuthAgreementPage} />
       <Route path="/web/post/:postId" component={PostViewPage} />
       <Route path="/web/bulletin/:bulletinId" component={BulletinPage} />
       <Route
