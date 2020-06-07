@@ -10,16 +10,7 @@ const Header = ({ history, ...props }) => {
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
   const [auth, setAuth] = useState(window.sessionStorage.accessToken);
-  const [loginButton, setLoginButton] = useState(
-    <Nav>
-      <Nav.Link
-        className="header-login"
-        href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=https://student.kaist.ac.kr/auth/signup`}
-      >
-        로그인
-      </Nav.Link>
-    </Nav>
-  );
+  const [authButtonBar, setAuthButtonBar] = useState(<div />);
 
   const active = (
     <div
@@ -40,20 +31,29 @@ const Header = ({ history, ...props }) => {
 
   useEffect(() => {
     if (auth)
-      setLoginButton(
-        <Nav>
-          <div className="header-logout" onClick={tryLogout}>
-            어드민 로그아웃
-          </div>
-        </Nav>
+      setAuthButtonBar(
+        <div className="d-flex">
+          <Nav>
+            <div className="header-logout" onClick={tryLogout}>
+              어드민 로그아웃
+            </div>
+          </Nav>
+        </div>
       );
     else
-      setLoginButton(
-        <Nav>
-          <Nav.Link className="header-login" href="/web/api/auth/login">
-            로그인
-          </Nav.Link>
-        </Nav>
+      setAuthButtonBar(
+        <div className="d-flex">
+          <Nav>
+            <Nav.Link className="header-login" href="/web/api/auth/login">
+              로그인
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link className="header-login" href="/web/auth/agreement">
+              회원가입
+            </Nav.Link>
+          </Nav>
+        </div>
       );
   }, [auth, tryLogout]);
 
@@ -77,7 +77,7 @@ const Header = ({ history, ...props }) => {
           <Nav className="mr-auto">
             <Nav.Link
               className="header-item"
-              href="/web/introduction"
+              href=""
               onMouseEnter={() => setHover1(enter)}
               onMouseLeave={() => {
                 setHover1(leave);
@@ -88,7 +88,7 @@ const Header = ({ history, ...props }) => {
             </Nav.Link>
             <Nav.Link
               className={`header-item ${props.notice}`}
-              href="/web/bulletin/1?page=1"
+              href="/web/bulletin/1"
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
@@ -99,18 +99,18 @@ const Header = ({ history, ...props }) => {
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href="/web/user/bulletin/1"
+              href=""
               onMouseEnter={() => setHover3(enter)}
               onMouseLeave={() => {
                 setHover3(leave);
               }}
             >
               학생 청원
-              {props.active === "1001" ? active : hover2}
+              {props.tab3 ? active : hover3}
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href="/web/bulletin/2?page=1"
+              href="/web/bulletin/2"
               onMouseEnter={() => setHover4(enter)}
               onMouseLeave={() => {
                 setHover4(leave);
@@ -120,7 +120,7 @@ const Header = ({ history, ...props }) => {
               {props.active === "2" ? active : hover4}
             </Nav.Link>
           </Nav>
-          {loginButton}
+          {authButtonBar}
         </Navbar.Collapse>
       </Navbar>
       <div style={{ height: "1px", backgroundColor: "#ddd" }} />
