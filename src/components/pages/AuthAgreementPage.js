@@ -2,8 +2,9 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import { Header, Footer } from "../organisms";
 import { AuthAgreementContent } from "../templates";
+import { withRouter } from "react-router-dom";
 
-const AuthAgreementPage = () => {
+const AuthAgreementPage = ({ history }) => {
   const [isAgree, setIsAgree] = React.useState(false);
 
   const HandleSubmit = () => {};
@@ -34,7 +35,11 @@ const AuthAgreementPage = () => {
               <span>동의합니다.</span>
             </div>
             <div className="d-flex justify-content-end">
-              <Button variant="info" disabled={!isAgree}>
+              <Button
+                variant="info"
+                disabled={!isAgree}
+                onClick={() => history.push("/web/api/auth/register")}
+              >
                 회원가입
               </Button>
             </div>
@@ -46,4 +51,4 @@ const AuthAgreementPage = () => {
   );
 };
 
-export default AuthAgreementPage;
+export default withRouter(AuthAgreementPage);
