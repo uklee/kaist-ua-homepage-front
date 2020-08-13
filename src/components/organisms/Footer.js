@@ -28,34 +28,34 @@ const Footer = () => {
         </Nav>
         <Nav>
           <Nav.Item>
-            <OverlayTrigger
-              key="top"
-              placement="top"
-              overlay={<Tooltip id="tooltip-top">ua.kaist</Tooltip>}
-            >
-              <a href="https://www.facebook.com/ua.kaist">
+            <a href="https://www.facebook.com/ua.kaist">
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">ua.kaist</Tooltip>}
+              >
                 <img
                   className="social-media-logo"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
                   alt="instagram"
                 />
-              </a>
-            </OverlayTrigger>
+              </OverlayTrigger>
+            </a>
           </Nav.Item>
           <Nav.Item>
-            <OverlayTrigger
-              key="top"
-              placement="top"
-              overlay={<Tooltip id="tooltip-top">kaistua_flex</Tooltip>}
-            >
-              <a href="https://www.instagram.com/kaistua_flex">
+            <a href="https://www.instagram.com/kaistua_flex">
+              <OverlayTrigger
+                key="top"
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">kaistua_flex</Tooltip>}
+              >
                 <img
                   className="social-media-logo"
                   src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
                   alt="facebook"
                 />
-              </a>
-            </OverlayTrigger>
+              </OverlayTrigger>
+            </a>
           </Nav.Item>
         </Nav>
       </Navbar>
