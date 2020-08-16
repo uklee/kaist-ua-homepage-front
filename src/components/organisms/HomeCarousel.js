@@ -24,7 +24,11 @@ const HomeCarousel = props => {
 
   useEffect(() => {
     bannersAPI.list().then(res => {
-      setBanners(res.data);
+      if (res.data) {
+        setBanners(res.data);
+      } else {
+        setBanners(sample);
+      }
     });
   }, []);
 

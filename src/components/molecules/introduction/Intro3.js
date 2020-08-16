@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Row, Col, Tab, Tabs } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 
 import "./IntroductionMaterial.scss";
 
@@ -242,7 +242,7 @@ const Intro5 = () => {
       <br />
       KAMF에 대해 궁금하신 사항이 있으시면 다음 페이스북 페이지 링크에서 자세히
       확인하실 수 있습니다! <br />
-      <a herf="https://www.facebook.com/2019kamf/">
+      <a href="https://www.facebook.com/2019kamf/">
         https://www.facebook.com/2019kamf/
       </a>
       <br />
@@ -277,7 +277,7 @@ const Intro5 = () => {
       STadium에 대해 궁금하신 사항이 있으시면 다음 페이스북 페이지 링크에서
       자세히 확인하실 수 있습니다!
       <br />
-      <a herf="https://www.facebook.com/pages/category/School/2019-STadium-116203329772097/">
+      <a href="https://www.facebook.com/pages/category/School/2019-STadium-116203329772097/">
         https://www.facebook.com/pages/category/School/2019-STadium-116203329772097/
       </a>
       <br />

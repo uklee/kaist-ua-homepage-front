@@ -2,9 +2,9 @@ import React from "react";
 
 import "./BoardModule.scss";
 import { BoardHeader, BoardRow } from "../molecules";
-import { isEmpty } from "lodash";
 
 const BoardModule = ({ className, boardName, posts, bulletinId }) => {
+  if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
       id: "",

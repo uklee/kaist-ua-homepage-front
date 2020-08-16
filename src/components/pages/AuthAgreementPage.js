@@ -7,8 +7,6 @@ import { withRouter } from "react-router-dom";
 const AuthAgreementPage = ({ history }) => {
   const [isAgree, setIsAgree] = React.useState(false);
 
-  const HandleSubmit = () => {};
-
   return (
     <div
       style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}
