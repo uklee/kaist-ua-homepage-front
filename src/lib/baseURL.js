@@ -1,1 +1,1 @@
-export default "https://student.kaist.ac.kr/web/api";
+export default process.env.REACT_APP_API_URL;
