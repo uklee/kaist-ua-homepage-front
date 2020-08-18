@@ -1,29 +1,25 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 
 import "./HomeContent.scss";
 import { HomeCarousel, BoardModule } from "../organisms";
 import { isEmpty } from "lodash";
 
 const HomeContent = ({ BoardInfos }) => {
-  if (!BoardInfos) return <div>로딩중...</div>;
+  let boards;
+  if (!BoardInfos || isEmpty(BoardInfos))
+    boards = <Spinner animation="border" />;
 
-  const boards = isEmpty(BoardInfos) ? (
-    <Col lg="6">
-      <BoardModule />
+  boards = BoardInfos.map(boardInfo => (
+    <Col id={boardInfo.bulletin.id} lg="6">
+      <BoardModule
+        posts={boardInfo.aboutPosts.posts}
+        className="module"
+        boardName={boardInfo.bulletin.title}
+        bulletinId={boardInfo.bulletin.id}
+      />
     </Col>
-  ) : (
-    BoardInfos.map(boardInfo => (
-      <Col lg="6">
-        <BoardModule
-          posts={boardInfo.aboutPosts.posts}
-          className="module"
-          boardName={boardInfo.bulletin.title}
-          bulletinId={boardInfo.bulletin.id}
-        />
-      </Col>
-    ))
-  );
+  ));
 
   return (
     <Container className="flex-grow-1 home-content">
