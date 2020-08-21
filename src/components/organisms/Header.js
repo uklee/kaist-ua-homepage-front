@@ -3,13 +3,14 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
 import { withRouter } from "react-router-dom";
+import * as adminsAPI from "../../lib/api/admin";
 
 const Header = ({ history, ...props }) => {
   const [hover1, setHover1] = useState(<div />);
   const [hover2, setHover2] = useState(<div />);
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
-  const [auth, setAuth] = useState(window.sessionStorage.accessToken);
+  const [adminAuth, setAdminAuth] = useState(false);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
 
   const active = (
@@ -22,15 +23,29 @@ const Header = ({ history, ...props }) => {
     />
   );
 
-  const tryLogout = useCallback(() => {
-    setAuth(false);
-    delete window.sessionStorage["accessToken"];
-    delete window.sessionStorage["email"];
-    history.push("/");
-  }, [history]);
+  const checkAdminAuth = async () => {
+    const access = await adminsAPI.checkAdmin(
+      window.sessionStorage.accessToken
+    );
+    console.log(access);
+    setAdminAuth(access.data.access);
+  };
 
   useEffect(() => {
-    if (auth)
+    checkAdminAuth();
+  }, []);
+
+  const enter = <div className="tab-hover-enter" />;
+  const leave = <div className="tab-hover-leave" />;
+
+  const tryLogout = useCallback(() => {
+    setAdminAuth(false);
+    delete window.sessionStorage["accessToken"];
+    delete window.sessionStorage["email"];
+  }, []);
+
+  useEffect(() => {
+    if (adminAuth)
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
@@ -55,10 +70,7 @@ const Header = ({ history, ...props }) => {
           </Nav>
         </div>
       );
-  }, [auth, tryLogout]);
-
-  const enter = <div className="tab-hover-enter" />;
-  const leave = <div className="tab-hover-leave" />;
+  }, [adminAuth, tryLogout]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>

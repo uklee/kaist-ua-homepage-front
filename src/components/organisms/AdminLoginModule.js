@@ -18,6 +18,7 @@ const AdminLoginModule = ({ history }) => {
       .then(res => {
         window.sessionStorage.accessToken = res.data.accessToken;
         window.sessionStorage.email = res.data.email;
+        setAuth(true);
       })
       .catch(err => {
         alert("로그인 정보가 일치하지 않습니다.");
