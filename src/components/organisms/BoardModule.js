@@ -7,7 +7,7 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
   if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
-      id: "",
+      id: posts.length,
       author: "",
       title: "",
       date: "",
@@ -15,7 +15,7 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
     });
 
   const rows = posts.slice(0, 5).map(post => (
-    <>
+    <React.Fragment key={post.id}>
       <BoardRow
         id={post.id}
         author={post.author}
@@ -24,7 +24,7 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
         createdAt={post.createdAt}
       />
       <div className="divider" />
-    </>
+    </React.Fragment>
   ));
 
   return (

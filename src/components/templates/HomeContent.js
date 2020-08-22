@@ -11,7 +11,7 @@ const HomeContent = ({ BoardInfos }) => {
     boards = <Spinner animation="border" />;
 
   boards = BoardInfos.map(boardInfo => (
-    <Col id={boardInfo.bulletin.id} lg="6">
+    <Col key={boardInfo.bulletin.id} lg="6">
       <BoardModule
         posts={boardInfo.aboutPosts.posts}
         className="module"

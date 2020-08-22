@@ -23,13 +23,16 @@ const HomeCarousel = props => {
   const [banners, setBanners] = useState([]);
 
   useEffect(() => {
-    bannersAPI.list().then(res => {
-      if (res.data) {
-        setBanners(res.data);
-      } else {
-        setBanners(sample);
-      }
-    });
+    bannersAPI
+      .list()
+      .then(res => {
+        if (res.data) {
+          setBanners(res.data);
+        } else {
+          setBanners(sample);
+        }
+      })
+      .catch(() => setBanners(sample));
   }, []);
 
   const CarouselItemList = banners.length
