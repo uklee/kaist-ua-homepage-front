@@ -3,14 +3,15 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
 import { withRouter } from "react-router-dom";
-import * as adminsAPI from "../../lib/api/admin";
+// import * as adminsAPI from "../../lib/api/admin";
+import * as authAPI from "../../lib/api/auth";
 
 const Header = ({ history, ...props }) => {
   const [hover1, setHover1] = useState(<div />);
   const [hover2, setHover2] = useState(<div />);
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
-  const [adminAuth, setAdminAuth] = useState(false);
+  const [auth, setAuth] = useState(false);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
 
   const active = (
@@ -23,35 +24,41 @@ const Header = ({ history, ...props }) => {
     />
   );
 
-  const checkAdminAuth = async () => {
-    const access = await adminsAPI.checkAdmin(
-      window.sessionStorage.accessToken
-    );
-    console.log(access);
-    setAdminAuth(access.data.access);
+  const checkAuth = async () => {
+    const res = await authAPI.checkUser();
+    setAuth(res.data.auth);
   };
 
   useEffect(() => {
-    checkAdminAuth();
+    checkAuth();
   }, []);
 
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
 
-  const tryLogout = useCallback(() => {
-    setAdminAuth(false);
-    delete window.sessionStorage["accessToken"];
-    delete window.sessionStorage["email"];
+  const tryUserLogout = useCallback(async () => {
+    authAPI.logout().then(res => setAuth(false));
   }, []);
 
   useEffect(() => {
-    if (adminAuth)
+    if (auth === "admin")
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
-            <div className="header-logout" onClick={tryLogout}>
-              어드민 로그아웃
-            </div>
+            <div className="header-logout">어드민 로그아웃</div>
+          </Nav>
+        </div>
+      );
+    else if (auth === "user")
+      setAuthButtonBar(
+        <div className="d-flex">
+          <Nav>
+            <Nav.Link className="header-login">마이페이지</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link className="header-login" onClick={tryUserLogout}>
+              로그아웃
+            </Nav.Link>
           </Nav>
         </div>
       );
@@ -59,7 +66,12 @@ const Header = ({ history, ...props }) => {
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
-            <Nav.Link className="header-login" href="/web/api/auth/login">
+            <Nav.Link
+              className="header-login"
+              href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=${encodeURI(
+                `${process.env.REACT_APP_API_URL}/auth/signup`
+              )}`}
+            >
               로그인
             </Nav.Link>
           </Nav>
@@ -70,7 +82,7 @@ const Header = ({ history, ...props }) => {
           </Nav>
         </div>
       );
-  }, [adminAuth, tryLogout]);
+  }, [auth, tryUserLogout, history]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>
