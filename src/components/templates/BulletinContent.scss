@@ -3,7 +3,9 @@
   margin-bottom: 30px;
 }
 
-.loading {
-  width: fit-content;
-  margin: 0;
+.bulletin-loading {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
