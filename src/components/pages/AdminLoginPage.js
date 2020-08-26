@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import { AdminLoginContent } from "../templates";
 
@@ -17,4 +18,4 @@ const AdminLoginPage = () => {
   );
 };
 
-export default AdminLoginPage;
+export default withRouter(AdminLoginPage);

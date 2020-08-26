@@ -3,7 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
 import { withRouter } from "react-router-dom";
-// import * as adminsAPI from "../../lib/api/admin";
+import * as adminsAPI from "../../lib/api/admin";
 import * as authAPI from "../../lib/api/auth";
 
 const Header = ({ history, ...props }) => {
@@ -25,8 +25,9 @@ const Header = ({ history, ...props }) => {
   );
 
   const checkAuth = async () => {
-    const res = await authAPI.checkUser();
-    setAuth(res.data.auth);
+    const user = await authAPI.check();
+    const admin = await adminsAPI.check();
+    setAuth(admin.data.auth ? "admin" : user.data.auth ? "user" : false);
   };
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const Header = ({ history, ...props }) => {
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
 
-  const tryUserLogout = useCallback(async () => {
+  const tryLogout = useCallback(async () => {
     authAPI.logout().then(res => setAuth(false));
   }, []);
 
@@ -45,7 +46,9 @@ const Header = ({ history, ...props }) => {
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
-            <div className="header-logout">어드민 로그아웃</div>
+            <Nav.Link className="header-admin-logout" onClick={tryLogout}>
+              어드민 로그아웃
+            </Nav.Link>
           </Nav>
         </div>
       );
@@ -56,7 +59,7 @@ const Header = ({ history, ...props }) => {
             <Nav.Link className="header-login">마이페이지</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link className="header-login" onClick={tryUserLogout}>
+            <Nav.Link className="header-login" onClick={tryLogout}>
               로그아웃
             </Nav.Link>
           </Nav>
@@ -82,7 +85,7 @@ const Header = ({ history, ...props }) => {
           </Nav>
         </div>
       );
-  }, [auth, tryUserLogout, history]);
+  }, [auth, tryLogout, history]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>
