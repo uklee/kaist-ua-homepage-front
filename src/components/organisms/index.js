@@ -8,3 +8,5 @@ export { default as EditorHeader } from "./EditorHeader";
 export { default as EditorFooter } from "./EditorFooter";
 export { default as HomeCarousel } from "./HomeCarousel";
 export { default as AdminLoginModule } from "./AdminLoginModule";
+
+export { default as CustomModal } from "./CustomModal";

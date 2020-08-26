@@ -13,11 +13,9 @@ const AdminLoginModule = ({ history }) => {
   const [auth, setAuth] = useState(false);
 
   const tryLogin = async () => {
-    await adminsAPI
+    adminsAPI
       .login({ email, password })
       .then(res => {
-        window.sessionStorage.accessToken = res.data.accessToken;
-        window.sessionStorage.email = res.data.email;
         setAuth(true);
       })
       .catch(err => {
@@ -26,11 +24,13 @@ const AdminLoginModule = ({ history }) => {
   };
 
   useEffect(() => {
-    if (window.sessionStorage.accessToken) setAuth(true);
+    adminsAPI.check().then(res => {
+      if (res.data.auth === "admin") setAuth(true);
+    });
   }, [auth]);
 
   return auth ? (
-    <Redirect to="/" />
+    <Redirect to="/web/main" />
   ) : (
     <div className="flex-grow-1 login-module d-flex flex-column">
       <a href="/" className="align-self-center">

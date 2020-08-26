@@ -7,5 +7,5 @@ const auth = axios.create({
 });
 
 export const getUser = () => auth.get(`/getUser`);
-export const checkUser = () => auth.get(`/checkUser`);
+export const check = () => auth.get(`/check`);
 export const logout = () => auth.get(`/logout`);

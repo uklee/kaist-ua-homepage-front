@@ -7,7 +7,6 @@ import { withRouter } from "react-router-dom";
 const AuthAgreementPage = ({ history, ...props }) => {
   const { login } = props.match.params;
   const [isAgree, setIsAgree] = React.useState(false);
-  console.log(process.env);
   return (
     <div
       style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}

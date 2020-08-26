@@ -1,42 +1,26 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import isTokenValid from "./util/isTokenValid";
+import * as adminAPI from "../lib/api/admin";
 
-const ProtectedRoute = ({ path, component: Component, email, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props => {
-        if (isTokenValid()) {
-          if (path === "/") {
-            return (
-              <Redirect
-                to={{
-                  pathname: "/web/main",
-                  state: {
-                    from: props.location
-                  }
-                }}
-              />
-            );
-          }
-          return <Component {...props} />;
-        } else {
-          auth.logout();
-          return (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: {
-                  from: props.location
-                }
-              }}
-            />
-          );
-        }
-      }}
-    />
-  );
+const checkAdmin = () => {
+  adminAPI
+    .check()
+    .then(res => {
+      if (res.auth === "admin") {
+        return true;
+      }
+      return false;
+    })
+    .catch(err => false);
 };
+
+const ProtectedRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      checkAdmin() ? <Component {...props} /> : <Redirect to="/web/main" />
+    }
+  />
+);
 
 export default ProtectedRoute;

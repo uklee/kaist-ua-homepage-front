@@ -1,31 +1,34 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import {
-  BulletinPage,
-  EditPage,
-  AdminLoginPage,
-  MainPage,
-  PostViewPage,
-  IntroductionPage,
-  AuthAgreementPage
-} from "./components/pages";
+import * as pages from "./components/pages";
+
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
   return (
     <Switch>
-      <Route path="/web/main" component={MainPage} />
-      <Route path="/web/admin" component={AdminLoginPage} />
-      <Route path="/web/auth/agreement/:login" component={AuthAgreementPage} />
-      <Route path="/web/auth/agreement" component={AuthAgreementPage} />
-      <Route path="/web/post/:postId" component={PostViewPage} />
-      <Route path="/web/bulletin/:bulletinId" component={BulletinPage} />
+      <Route path="/web/main" component={pages.MainPage} />
+      <Route
+        path="/web/auth/agreement/:login"
+        component={pages.AuthAgreementPage}
+      />
+      <Route path="/web/auth/agreement" component={pages.AuthAgreementPage} />
+      <Route path="/web/post/:postId" component={pages.PostViewPage} />
+      <Route path="/web/bulletin/:bulletinId" component={pages.BulletinPage} />
       <Route
         path="/web/user/bulletin/:bulletinId"
-        render={props => <BulletinPage {...props} isUser={true} />}
+        render={props => <pages.BulletinPage {...props} isUser={true} />}
       />
-      <Route path="/web/edit" component={EditPage} />
-      <Route path="/web/user/edit" component={EditPage} />
-      <Route path="/web/introduction" component={IntroductionPage} />
+      <Route path="/web/edit" component={pages.EditPage} />
+      <Route path="/web/user/edit" component={pages.EditPage} />
+      <Route path="/web/introduction" component={pages.IntroductionPage} />
+
+      <Route path="/web/admin/login" component={pages.AdminLoginPage} />
+      <ProtectedRoute
+        path="/web/admin/payment"
+        component={pages.AdminPaymentPage}
+      />
+
       <Redirect to="/web/main" />
     </Switch>
   );
