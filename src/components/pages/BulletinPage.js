@@ -10,8 +10,8 @@ const BulletinPage = props => {
       style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}
       className="d-flex flex-column"
     >
-      <Header active={props.isUser ? 100 + bulletinId : bulletinId} />
-      <BulletinContentContainer isUser={props.isUser} bulletinId={bulletinId} />
+      <Header active={bulletinId} />
+      <BulletinContentContainer bulletinId={bulletinId} />
       <Footer />
     </div>
   );

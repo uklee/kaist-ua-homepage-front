@@ -37,7 +37,8 @@ const AdminPaymentPage = () => {
     setShowFailModal(current === "fail");
   };
 
-  const options = years.map(option => <option>{option}</option>);
+  var c = 0;
+  const options = years.map(option => <option key={c++}>{option}</option>);
 
   const verifyIdList = fileContent => {
     const studentIds = [];
@@ -84,7 +85,6 @@ const AdminPaymentPage = () => {
       })
       .catch(err => handleModalOpen("fail"));
   };
-  console.log(showConfirmModal);
 
   return (
     <div

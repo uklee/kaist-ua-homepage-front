@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Route, Redirect } from "react-router-dom";
-import * as adminAPI from "../lib/api/admin";
+import * as authAPI from "../lib/api/auth";
 
 const UserRoute = ({ component: Component, ...rest }) => {
   const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useState(false);
 
   const checkUser = () => {
-    adminAPI
+    authAPI
       .check()
       .then(res => {
-        if (res.data.auth === "admin") {
+        if (res.data.auth === "user") {
           setAuth(true);
           setLoading(false);
         }

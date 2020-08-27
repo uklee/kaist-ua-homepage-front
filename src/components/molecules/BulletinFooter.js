@@ -19,7 +19,7 @@ const BulletinFooter = ({ author, title, page, lastPage, history }) => {
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"
-            onClick={() => history.push("/web/edit")}
+            onClick={() => history.push("/web/admin/edit")}
           >
             글 작성하기
           </Button>

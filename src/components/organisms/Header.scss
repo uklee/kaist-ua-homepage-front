@@ -1,7 +1,7 @@
 .header-item {
   font-family: "NanumSquare Bold";
   color: black !important;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .header-login {
@@ -9,8 +9,7 @@
   transition: 0.3s;
 }
 
-.header-admin-logout {
-  margin-left: 10px;
+.header-logout {
   color: #ff0000;
   transition: 0.3s;
   cursor: pointer;
@@ -56,4 +55,8 @@
   to {
     width: 0%;
   }
+}
+
+#user-name {
+  font-family: "NanumSquare Bold";
 }

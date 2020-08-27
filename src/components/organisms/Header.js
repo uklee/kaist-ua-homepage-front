@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link, Redirect } from "react-router-dom";
 import * as adminsAPI from "../../lib/api/admin";
 import * as authAPI from "../../lib/api/auth";
 
@@ -12,6 +12,8 @@ const Header = ({ history, ...props }) => {
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
   const [auth, setAuth] = useState(false);
+  const [name, setName] = useState();
+  const [loading, setLoading] = useState(true);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
 
   const active = (
@@ -26,8 +28,10 @@ const Header = ({ history, ...props }) => {
 
   const checkAuth = async () => {
     const user = await authAPI.check();
+    if (user) setName(user.data.name);
     const admin = await adminsAPI.check();
-    setAuth(admin.data.auth ? "admin" : user.data.auth ? "user" : false);
+    setAuth(admin.data.auth || user.data.auth || false);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -38,7 +42,9 @@ const Header = ({ history, ...props }) => {
   const leave = <div className="tab-hover-leave" />;
 
   const tryLogout = useCallback(async () => {
-    authAPI.logout().then(res => setAuth(false));
+    authAPI.logout().then(res => {
+      window.location.reload(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -56,12 +62,15 @@ const Header = ({ history, ...props }) => {
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
-            <Nav.Link className="header-login">마이페이지</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link className="header-login" onClick={tryLogout}>
-              로그아웃
-            </Nav.Link>
+            <NavDropdown alignRight title={name} id="user-name">
+              <NavDropdown.Item as={Link} to="/web/user/studentFee">
+                학생회비
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={tryLogout} className="header-logout">
+                로그아웃
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </div>
       );
@@ -71,7 +80,9 @@ const Header = ({ history, ...props }) => {
           <Nav>
             <Nav.Link
               className="header-login"
-              href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=${encodeURI(
+              href={`${process.env.REACT_APP_SSO}?client_id=${
+                process.env.REACT_APP_CLIENT_ID
+              }&redirect_url=${encodeURI(
                 `${process.env.REACT_APP_API_URL}/auth/signup`
               )}`}
             >
@@ -85,7 +96,7 @@ const Header = ({ history, ...props }) => {
           </Nav>
         </div>
       );
-  }, [auth, tryLogout, history]);
+  }, [auth, tryLogout, history, name]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>
@@ -114,26 +125,26 @@ const Header = ({ history, ...props }) => {
               {props.active === "0" ? active : hover1}
             </Nav.Link>
             <Nav.Link
-              className={`header-item ${props.notice}`}
-              href="/web/bulletin/1"
+              className="header-item"
+              href=""
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
               }}
             >
-              공지사항
-              {props.active === "1" ? active : hover2}
+              학생청원
+              {props.tab3 ? active : hover2}
             </Nav.Link>
             <Nav.Link
-              className="header-item"
-              href=""
+              className={`header-item ${props.notice}`}
+              href="/web/bulletin/1"
               onMouseEnter={() => setHover3(enter)}
               onMouseLeave={() => {
                 setHover3(leave);
               }}
             >
-              학생 청원
-              {props.tab3 ? active : hover3}
+              공지사항
+              {props.active === "1" ? active : hover3}
             </Nav.Link>
             <Nav.Link
               className="header-item"
@@ -147,7 +158,7 @@ const Header = ({ history, ...props }) => {
               {props.active === "2" ? active : hover4}
             </Nav.Link>
           </Nav>
-          {authButtonBar}
+          {loading ? null : authButtonBar}
         </Navbar.Collapse>
       </Navbar>
       <div style={{ height: "1px", backgroundColor: "#ddd" }} />
