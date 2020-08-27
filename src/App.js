@@ -28,7 +28,7 @@ function App() {
       <Route path="/web/auth/agreement" component={pages.AuthAgreementPage} />
 
       <UserRoute path="/web/user/studentFee" component={pages.StudentFeePage} />
-
+      <Route path="/web/user/cancelRequest" component={CancelRequestPage} />
       <Redirect to="/web/main" />
     </Switch>
   );
