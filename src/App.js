@@ -9,6 +9,7 @@ import {
   IntroductionPage,
   AuthAgreementPage
 } from "./components/pages";
+import CancelRequestPage from "./components/pages/CancelRequestPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/web/edit" component={EditPage} />
       <Route path="/web/user/edit" component={EditPage} />
       <Route path="/web/introduction" component={IntroductionPage} />
+      <Route path="/web/user/cancelRequest" component={CancelRequestPage} />
       <Redirect to="/web/main" />
     </Switch>
   );
