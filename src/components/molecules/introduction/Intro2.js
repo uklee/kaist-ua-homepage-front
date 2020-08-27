@@ -6,10 +6,16 @@ const IntroductionMaterial = () => {
   return (
     <div>
       <img src={profile} className="profile" alt="profile" />
-      안녕하세요, 제33대 KAIST 학부 총학생회 &lt;FLEX&gt; 총학생회장 윤현식,
-      부총학생회장 박규원입니다. <br />
+      <span style={{ fontSize: "15pt" }}>
+        안녕하세요, 제33대 KAIST 학부 총학생회{" "}
+        <span style={{ fontFamily: "NanumSquare ExtraBold" }}>FLEX</span>{" "}
+        총학생회장 윤현식, 부총학생회장 박규원입니다.
+      </span>{" "}
       <br />
-      <b>자랑하고 싶은 여러분의 총학생회 FLEX가 되겠습니다.</b>
+      <br />
+      <span className="title-2">
+        자랑하고 싶은 여러분의 총학생회 FLEX가 되겠습니다.
+      </span>
       <br />
       총학생회가 학우분들의 것이라는 당연한 사실이 공감되고 있는지를 고민합니다.
       마음을 움직이지 못하는 정책, 1년간의 공백으로 총학생회가 멀어지고
@@ -22,7 +28,9 @@ const IntroductionMaterial = () => {
       약속드립니다.
       <br />
       <br />
-      <b>모두가 고개를 끄덕일 수 있는 총학생회가 되겠습니다.</b>
+      <span className="title-2">
+        모두가 고개를 끄덕일 수 있는 총학생회가 되겠습니다.
+      </span>
       <br />
       허울뿐인 말로 여러분들에게 다가가지 않겠습니다. 학우분들의 삶에 밀접한
       문제부터 하나씩 해결하며 보여드리겠습니다. 만족을 드리는 결과로
@@ -35,7 +43,9 @@ const IntroductionMaterial = () => {
       하겠습니다.
       <br />
       <br />
-      <b>알기 쉽게 전해드리고 귀 기울여 듣겠습니다.</b>
+      <span className="title-2">
+        알기 쉽게 전해드리고 귀 기울여 듣겠습니다.
+      </span>
       <br />
       학우 여러분은 총학생회가 무슨 일을 하고 있고, 소중한 학생회비가 어떻게
       쓰이는지 알 권리가 있습니다. 이 권리를 보장하기 위해 사업의 의도부터 진행,
