@@ -7,3 +7,4 @@ export { default as IntroductionPage } from "./IntroductionPage";
 export { default as AuthAgreementPage } from "./AuthAgreementPage";
 export { default as AdminPaymentPage } from "./AdminPaymentPage";
 export { default as StudentFeePage } from "./StudentFeePage";
+export { default as CancelRequestPage } from "./CancelRequestPage";

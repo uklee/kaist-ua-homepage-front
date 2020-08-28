@@ -104,7 +104,7 @@ const AdminPaymentPage = () => {
         handleConfirm={handleModalClose}
       />
       <CustomModal
-        body={`⚠️등록 중 오류가 발생했습니다.`}
+        title={`⚠️등록 중 오류가 발생했습니다.`}
         show={showFailModal}
         handleConfirm={handleModalClose}
       />
