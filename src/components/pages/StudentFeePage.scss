@@ -1,0 +1,11 @@
+.modal-toggle {
+  height: 80px;
+  font-size: 18pt;
+  font-family: "NanumSquare Bold";
+  transition: 0.1s;
+  color: #555;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+  }
+}

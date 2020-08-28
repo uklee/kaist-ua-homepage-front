@@ -67,19 +67,19 @@ const AdminPaymentPage = () => {
 
   const handleSemester = event => {
     setSelectedOption(event.target.value);
-    const { year, semester } = semesterMap[selectedOption];
+    const { year, semester } = semesterMap[event.target.value];
     setYear(year);
     setSemester(semester);
   };
 
   const handleSubmit = () => {
     const body = {
-      ku_std_no_list: idList,
+      studentNumberList: idList,
       year,
       semester
     };
     paymentAPI
-      .upload(body)
+      .bulkUpload(body)
       .then(res => {
         handleModalOpen("success");
       })

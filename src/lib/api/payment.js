@@ -6,5 +6,5 @@ const payments = axios.create({
   withCredentials: true
 });
 
-export const upload = body => payments.post("", body);
+export const bulkUpload = body => payments.post("/admin", body);
 export const list = body => payments.get("", body);

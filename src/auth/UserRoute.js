@@ -10,7 +10,7 @@ const UserRoute = ({ component: Component, ...rest }) => {
     authAPI
       .check()
       .then(res => {
-        if (res.data.auth === "user") {
+        if (res.data.auth === "student") {
           setAuth(true);
           setLoading(false);
         }

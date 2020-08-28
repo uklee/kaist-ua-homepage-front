@@ -1,7 +1,7 @@
 import baseURL from "../baseURL";
 import axios from "axios";
 
-const bulletins = axios.create({ baseURL: `${baseURL}/bulletins` });
+const bulletins = axios.create({ baseURL: `${baseURL}/boards` });
 
 export const open = ({ title, description }) =>
   bulletins.post("", { title, description });

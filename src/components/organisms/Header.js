@@ -26,11 +26,24 @@ const Header = ({ history, ...props }) => {
     />
   );
 
-  const checkAuth = async () => {
-    const user = await authAPI.check();
-    if (user) setName(user.data.name);
-    const admin = await adminsAPI.check();
-    setAuth(admin.data.auth || user.data.auth || false);
+  const checkAuth = () => {
+    authAPI
+      .check()
+      .then(res => {
+        setName(res.data.name);
+        setAuth(res.data.auth);
+      })
+      .catch(err => {
+        setLoading(false);
+      });
+    adminsAPI
+      .check()
+      .then(res => {
+        setAuth(res.data.auth);
+      })
+      .catch(err => {
+        setLoading(false);
+      });
     setLoading(false);
   };
 
@@ -58,7 +71,7 @@ const Header = ({ history, ...props }) => {
           </Nav>
         </div>
       );
-    else if (auth === "user")
+    else if (auth === "student")
       setAuthButtonBar(
         <div className="d-flex">
           <Nav>
