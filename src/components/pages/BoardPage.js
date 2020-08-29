@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Header, Footer } from "../organisms";
-import BoardContainer from "../containers/board/BoardContainer";
+import BoardContentContainer from "../containers/board/BoardContentContainer";
 
 const BoardPage = props => {
   const { boardId } = props.match.params;
@@ -11,7 +11,7 @@ const BoardPage = props => {
       className="d-flex flex-column"
     >
       <Header active={boardId} />
-      <BoardContainer boardId={boardId} />
+      <BoardContentContainer boardId={boardId} />
       <Footer />
     </div>
   );

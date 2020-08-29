@@ -19,7 +19,7 @@ const BoardModule = ({ className, boardModuleName, posts, boardId }) => {
       <BoardModuleRow
         id={post.id}
         author={post.author}
-        title={post.title}
+        title={post.korTitle}
         date={post.date}
         createdAt={post.createdAt}
       />

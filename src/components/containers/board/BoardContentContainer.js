@@ -8,7 +8,7 @@ import * as postsAPI from "../../../lib/api/post";
 import { listBoards } from "../../../modules/boards";
 import { listPosts } from "../../../modules/posts";
 
-const BoardContainer = ({ location, boardId, history, isUser }) => {
+const BoardContentContainer = ({ location, boardId, history, isUser }) => {
   const dispatch = useDispatch();
   const { posts, boards } = useSelector(({ posts, boards }) => ({
     posts: posts.posts,
@@ -58,4 +58,4 @@ const BoardContainer = ({ location, boardId, history, isUser }) => {
   );
 };
 
-export default withRouter(BoardContainer);
+export default withRouter(BoardContentContainer);

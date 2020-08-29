@@ -10,7 +10,10 @@ const HomeContentContainer = () => {
   useEffect(() => {
     boardsAPI
       .list()
-      .then(res => setBoards(res.data))
+      .then(res => {
+        console.log(res.data);
+        setBoards(res.data);
+      })
       .catch(err => console.log(err));
   }, []);
 
@@ -22,9 +25,10 @@ const HomeContentContainer = () => {
         const page = 1;
         try {
           const res = await postsAPI.listPosts({ boardId, page });
+          console.log(res.data);
           const boardModuleInfo = {
             board: board,
-            aboutPosts: res.data
+            posts: res.data.posts
           };
           ret = ret.concat(boardModuleInfo);
         } catch (err) {
