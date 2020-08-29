@@ -22,9 +22,7 @@ const AuthAgreementPage = ({ history, ...props }) => {
             KAIST 학부 총학생회 개인정보 처리방침
           </div>
           {login ? (
-            <Alert variant="primary">
-              처음 사용자는 회원가입을 먼저 해주세요.
-            </Alert>
+            <Alert variant="primary">초기 회원가입을 먼저 해주세요.</Alert>
           ) : null}
           <AuthAgreementContent />
           <div>

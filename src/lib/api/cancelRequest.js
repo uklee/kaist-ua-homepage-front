@@ -9,9 +9,7 @@ const cancelRequest = axios.create({
 export const write = ({ year, semester }) =>
   cancelRequest.post("", { year, semester });
 
-export const list = () => cancelRequest.get();
-
-export const read = id => cancelRequest.get(`/${id}`);
+export const getOne = () => cancelRequest.get();
 
 export const remove = ({ year, semester }) =>
   cancelRequest.delete(`/`, { params: { year, semester } });

@@ -3,7 +3,6 @@ import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../../static/logo/ua_logo.png";
 import "./Header.scss";
 import { withRouter, Link } from "react-router-dom";
-import * as adminsAPI from "../../lib/api/admin";
 import * as authAPI from "../../lib/api/auth";
 
 const Header = ({ history, ...props }) => {
@@ -36,14 +35,6 @@ const Header = ({ history, ...props }) => {
       .catch(err => {
         setLoading(false);
       });
-    adminsAPI
-      .check()
-      .then(res => {
-        setAuth(res.data.auth);
-      })
-      .catch(err => {
-        setLoading(false);
-      });
     setLoading(false);
   };
 
@@ -63,51 +54,43 @@ const Header = ({ history, ...props }) => {
   useEffect(() => {
     if (auth === "admin")
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <Nav.Link className="header-admin-logout" onClick={tryLogout}>
-              어드민 로그아웃
-            </Nav.Link>
-          </Nav>
-        </div>
+        <Nav>
+          <Nav.Link className="header-admin-logout" onClick={tryLogout}>
+            어드민 로그아웃
+          </Nav.Link>
+        </Nav>
       );
     else if (auth === "student")
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <NavDropdown alignRight title={name} id="user-name">
-              <NavDropdown.Item as={Link} to="/web/user/studentFee">
-                학생회비
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={tryLogout} className="header-logout">
-                로그아웃
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </div>
+        <Nav>
+          <NavDropdown alignRight title={name} id="user-name">
+            <NavDropdown.Item as={Link} to="/web/user/studentFee">
+              학생회비
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={tryLogout} className="header-logout">
+              로그아웃
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       );
     else
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <Nav.Link
-              className="header-login"
-              href={`${process.env.REACT_APP_SSO}?client_id=${
-                process.env.REACT_APP_CLIENT_ID
-              }&redirect_url=${encodeURI(
-                `${process.env.REACT_APP_API_URL}/auth/signup`
-              )}`}
-            >
-              로그인
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link className="header-login" href="/web/auth/agreement">
-              회원가입
-            </Nav.Link>
-          </Nav>
-        </div>
+        <Nav>
+          <Nav.Link
+            className="header-login"
+            href={`${process.env.REACT_APP_SSO}?client_id=${
+              process.env.REACT_APP_CLIENT_ID
+            }&redirect_url=${encodeURI(
+              `${process.env.REACT_APP_API_URL}/auth/signup`
+            )}`}
+          >
+            로그인
+          </Nav.Link>
+          <Nav.Link className="header-login" href="/web/auth/agreement">
+            회원가입
+          </Nav.Link>
+        </Nav>
       );
   }, [auth, tryLogout, history, name]);
 

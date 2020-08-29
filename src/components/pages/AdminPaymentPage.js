@@ -97,16 +97,20 @@ const AdminPaymentPage = () => {
         show={showConfirmModal}
         handleConfirm={handleSubmit}
         handleClose={handleModalClose}
+        closeMessage="취소"
+        confirmMessage="확인"
       />
       <CustomModal
         title={`등록이 완료되었습니다.`}
         show={showSuccessModal}
         handleConfirm={handleModalClose}
+        confirmMessage="확인"
       />
       <CustomModal
         title={`⚠️등록 중 오류가 발생했습니다.`}
         show={showFailModal}
         handleConfirm={handleModalClose}
+        confirmMessage="확인"
       />
       <Header />
       <Container className="flex-grow-1 p-3">

@@ -9,3 +9,25 @@
     color: #000;
   }
 }
+
+.divider {
+  margin: 20px 0px;
+  width: 100%;
+  border-top: solid 1px #ddd;
+}
+
+.request-button {
+  width: 70px;
+}
+
+.comment {
+  color: #888;
+  font-size: 10pt;
+}
+
+.payments-loading {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
