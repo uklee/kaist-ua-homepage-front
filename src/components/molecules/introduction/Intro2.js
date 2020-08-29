@@ -6,6 +6,8 @@ const IntroductionMaterial = () => {
   return (
     <div>
       <img src={profile} className="profile" alt="profile" />
+      <br />
+      <br />
       <span style={{ fontSize: "15pt" }}>
         안녕하세요, 제33대 KAIST 학부 총학생회{" "}
         <span style={{ fontFamily: "NanumSquare ExtraBold" }}>FLEX</span>{" "}

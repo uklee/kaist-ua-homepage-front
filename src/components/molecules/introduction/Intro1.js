@@ -4,7 +4,7 @@ import "./IntroductionMaterial.scss";
 const IntroductionMaterial = () => {
   return (
     <div className="text">
-      <h3 className="title">KAIST 학부 총학생회</h3>
+      <h3 className="title-1">KAIST 학부 총학생회</h3>
       <br />
       KAIST 학부생이라면 누구나 학부 총학생회의 회원입니다. <br />
       총학생회는 4천학우를 대변하고 이들의 생각을 모아 실현시키는 단체입니다.{" "}

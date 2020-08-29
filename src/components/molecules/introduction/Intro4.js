@@ -3,11 +3,12 @@ import React from "react";
 const IntroductionMaterial = () => {
   return (
     <div>
-      <span style={{ fontSize: "15pt", fontFamily: "NanumSquare Bold" }}>
-        의결기구는 학생 사회의 중요한 안건에 대해 결정하는 역할을 하며,
-        집행기구의 업무에 대한 보고와 피드백이 이루어지는 곳입니다.
-        총학생회에서의 의사 결정은 주로 대의성을 지닌 의결기구에서 진행됩니다.
-      </span>
+      <span className="title-1">의결기구</span>
+      <br />
+      <br />
+      의결기구는 학생 사회의 중요한 안건에 대해 결정하는 역할을 하며, 집행기구의
+      업무에 대한 보고와 피드백이 이루어지는 곳입니다. 총학생회에서의 의사
+      결정은 주로 대의성을 지닌 의결기구에서 진행됩니다.
       <br />
       <br />
       <span className="title-2">중앙운영위원회</span>
