@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 import post from "./post";
 import posts from "./posts";
-import bulletins from "./bulletins";
+import boards from "./boards";
 import postViewer from "./postViewer";
 
 const rootReducer = combineReducers({
   post,
   posts,
-  bulletins,
+  boards,
   postViewer
 });
 

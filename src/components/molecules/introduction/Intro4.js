@@ -51,8 +51,8 @@ const IntroductionMaterial = () => {
       <br />
       2019년 이전 기록은 카이스트 ARA를 통해서 확인할 수 있습니다.
       <br />
-      <a href="https://ara.kaist.ac.kr/board/Notice/">
-        https://ara.kaist.ac.kr/board/Notice/
+      <a href="https://ara.kaist.ac.kr/boardModule/Notice/">
+        https://ara.kaist.ac.kr/boardModule/Notice/
       </a>
     </div>
   );

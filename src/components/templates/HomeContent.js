@@ -5,18 +5,18 @@ import "./HomeContent.scss";
 import { HomeCarousel, BoardModule } from "../organisms";
 import { isEmpty } from "lodash";
 
-const HomeContent = ({ BoardInfos }) => {
-  let boards;
-  if (!BoardInfos || isEmpty(BoardInfos))
-    boards = <Spinner animation="border" />;
+const HomeContent = ({ BoardModuleInfos }) => {
+  let boardModules;
+  if (!BoardModuleInfos || isEmpty(BoardModuleInfos))
+    boardModules = <Spinner animation="border" />;
 
-  boards = BoardInfos.map(boardInfo => (
-    <Col key={boardInfo.bulletin.id} lg="6">
+  boardModules = BoardModuleInfos.map(boardModuleInfo => (
+    <Col key={boardModuleInfo.board.id} lg="6">
       <BoardModule
-        posts={boardInfo.aboutPosts.posts}
+        posts={boardModuleInfo.aboutPosts.posts}
         className="module"
-        boardName={boardInfo.bulletin.title}
-        bulletinId={boardInfo.bulletin.id}
+        boardModuleName={boardModuleInfo.board.title}
+        boardId={boardModuleInfo.board.id}
       />
     </Col>
   ));
@@ -24,7 +24,7 @@ const HomeContent = ({ BoardInfos }) => {
   return (
     <Container className="flex-grow-1 home-content">
       <HomeCarousel className="module" />
-      <Row>{boards}</Row>
+      <Row>{boardModules}</Row>
     </Container>
   );
 };

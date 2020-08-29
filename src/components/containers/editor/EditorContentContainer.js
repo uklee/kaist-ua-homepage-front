@@ -1,23 +1,23 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, init, writePost } from "../../../modules/post";
-import { listBulletins } from "../../../modules/bulletins";
+import { listBoards } from "../../../modules/boards";
 import { EditorContent } from "../../templates";
 import { withRouter } from "react-router-dom";
 import * as postsAPI from "../../../lib/api/post";
-import * as bulletinsAPI from "../../../lib/api/bulletin";
+import * as boardsAPI from "../../../lib/api/board";
 
 const EditorContentContainer = ({ history }) => {
   const dispatch = useDispatch();
 
-  const { title, author, content, post, bulletins, bulletinId } = useSelector(
-    ({ post, bulletins }) => ({
+  const { title, author, content, post, boards, boardId } = useSelector(
+    ({ post, boards }) => ({
       title: post.title,
       author: post.author,
       content: post.content,
       post: post.post,
-      bulletins: bulletins.bulletins,
-      bulletinId: post.bulletinId
+      boards: boards.boards,
+      boardId: post.boardId
     })
   );
 
@@ -31,23 +31,23 @@ const EditorContentContainer = ({ history }) => {
 
   const onWrite = async () => {
     await postsAPI
-      .write({ title, author, content, bulletinId })
+      .write({ title, author, content, boardId })
       .then(res => dispatch(writePost(res.data)))
       .catch(err => console.log(err));
   };
 
-  const getBulletinsList = useCallback(() => {
-    bulletinsAPI
+  const getBoardsList = useCallback(() => {
+    boardsAPI
       .list()
       .then(res1 => {
-        dispatch(listBulletins(res1.data));
+        dispatch(listBoards(res1.data));
       })
       .catch(err => console.log(err));
   }, [dispatch]);
 
   useEffect(() => {
-    getBulletinsList();
-  }, [getBulletinsList]);
+    getBoardsList();
+  }, [getBoardsList]);
 
   useEffect(() => {
     return () => {
@@ -70,8 +70,8 @@ const EditorContentContainer = ({ history }) => {
       content={content}
       title={title}
       author={author}
-      bulletins={bulletins}
-      bulletinId={bulletinId}
+      boards={boards}
+      boardId={boardId}
     />
   );
 };

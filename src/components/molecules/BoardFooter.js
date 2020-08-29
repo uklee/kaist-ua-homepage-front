@@ -1,13 +1,13 @@
 import React from "react";
 import { SearchBar } from "../atoms";
 import { Button } from "react-bootstrap";
-import "./BulletinFooter.scss";
-import PaginationContainer from "../containers/bulletin/PaginationContainer";
+import "./BoardFooter.scss";
+import PaginationContainer from "../containers/board/PaginationContainer";
 import { withRouter } from "react-router-dom";
 
-const BulletinFooter = ({ author, title, page, lastPage, history }) => {
+const BoardFooter = ({ author, title, page, lastPage, history }) => {
   return (
-    <div className="d-flex flex-column justify-content-center Bulletin-footer">
+    <div className="d-flex flex-column justify-content-center Board-footer">
       <PaginationContainer
         author={author}
         title={title}
@@ -33,4 +33,4 @@ const BulletinFooter = ({ author, title, page, lastPage, history }) => {
   );
 };
 
-export default withRouter(BulletinFooter);
+export default withRouter(BoardFooter);

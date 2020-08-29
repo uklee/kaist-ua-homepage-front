@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { Header, Footer, CustomModal } from "../organisms";
 import { withRouter } from "react-router-dom";
-import { BulletinHeader } from "../molecules";
+import { BoardHeader } from "../molecules";
 
 import * as paymentAPI from "../../lib/api/payment";
 import * as cancelRequestAPI from "../../lib/api/cancelRequest";
@@ -146,7 +146,7 @@ const StudentFeePage = () => {
       </Modal>
       <Header />
       <Container className="flex-grow-1 p-3">
-        <BulletinHeader title="학생회비" />
+        <BoardHeader title="학생회비" />
         <Row>
           <Col sm={5} md={4} lg={3} className="d-flex flex-column">
             <div style={{ fontSize: "14pt" }}>학생회비 납부 횟수</div>

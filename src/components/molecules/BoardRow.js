@@ -1,27 +1,28 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 import "./BoardRow.scss";
 
-const BoardRow = props => {
-  if (props.title) {
-    return (
-      <Row as={Link} to={`/web/post/${props.id}`} className="board-row">
-        <Col md="2" lg="3" className="row-author">
-          {props.author}
-        </Col>
-        <Col md="8" lg="5" className="row-title">
-          {props.title}
-        </Col>
-        <Col md="2" lg="4" className="row-date">
-          {props.createdAt ? props.createdAt.split(/T|.000Z/)[0] : null}
-        </Col>
-      </Row>
-    );
-  } else {
-    return <Row className="board-row" />;
-  }
+const BoardRow = ({ post, isUser }) => {
+  const { title, author, id, created_at, views } = post;
+
+  return (
+    <div className="board-row-shell">
+      <Link className="board-row" to={`/web/post/${id}`}>
+        <div className="d-flex flex-row justify-content-between">
+          <h5 className="">{title}</h5>
+          {isUser ? "참여인원 4000명" : null}
+        </div>
+        <div className="d-flex">
+          <h6 className="details text-black-50">
+            <b>{author}</b>
+            {` | 조회수 ${views} | ${
+              created_at ? created_at.split(/T|.000Z/)[0] : null
+            }`}
+          </h6>
+        </div>
+      </Link>
+    </div>
+  );
 };
 
 export default BoardRow;

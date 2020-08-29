@@ -11,12 +11,12 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 }));
 export const writePost = createAction(
   WRITE_POST,
-  ({ id, title, author, content, bulletinId }) => ({
+  ({ id, title, author, content, boardId }) => ({
     id,
     title,
     author,
     content,
-    bulletinId
+    boardId
   })
 );
 
@@ -24,7 +24,7 @@ const initialState = {
   title: "",
   author: "",
   content: "",
-  bulletinId: 1,
+  boardId: 1,
   views: 0,
   post: null
 };

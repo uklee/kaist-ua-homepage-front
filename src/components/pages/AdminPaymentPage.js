@@ -3,7 +3,7 @@ import { Container, Button, Form } from "react-bootstrap";
 import ReactFileReader from "react-file-reader";
 import { Header, Footer, CustomModal } from "../organisms";
 import { withRouter } from "react-router-dom";
-import { BulletinHeader } from "../molecules";
+import { BoardHeader } from "../molecules";
 
 import * as paymentAPI from "../../lib/api/payment";
 
@@ -114,7 +114,7 @@ const AdminPaymentPage = () => {
       />
       <Header />
       <Container className="flex-grow-1 p-3">
-        <BulletinHeader title="학생회비 납부자 등록" />
+        <BoardHeader title="학생회비 납부자 등록" />
         <Form>
           <Form.Group>
             <Form.Label>학기 선택</Form.Label>

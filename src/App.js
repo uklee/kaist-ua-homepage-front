@@ -11,7 +11,7 @@ function App() {
       <Route path="/web/main" component={pages.MainPage} />
 
       <Route path="/web/introduction" component={pages.IntroductionPage} />
-      <Route path="/web/bulletin/:bulletinId" component={pages.BulletinPage} />
+      <Route path="/web/board/:boardId" component={pages.BoardPage} />
       <Route path="/web/post/:postId" component={pages.PostViewPage} />
 
       <Route path="/web/admin/login" component={pages.AdminLoginPage} />

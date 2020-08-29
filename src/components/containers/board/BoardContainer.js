@@ -2,22 +2,17 @@ import React, { useCallback, useEffect } from "react";
 import qs from "qs";
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import BulletinContent from "../../templates/BulletinContent";
-import * as bulletinsAPI from "../../../lib/api/bulletin";
+import BoardContent from "../../templates/BoardContent";
+import * as boardsAPI from "../../../lib/api/board";
 import * as postsAPI from "../../../lib/api/post";
-import { listBulletins } from "../../../modules/bulletins";
+import { listBoards } from "../../../modules/boards";
 import { listPosts } from "../../../modules/posts";
 
-const BulletinContentContainer = ({
-  location,
-  bulletinId,
-  history,
-  isUser
-}) => {
+const BoardContainer = ({ location, boardId, history, isUser }) => {
   const dispatch = useDispatch();
-  const { posts, bulletins } = useSelector(({ posts, bulletins }) => ({
+  const { posts, boards } = useSelector(({ posts, boards }) => ({
     posts: posts.posts,
-    bulletins: bulletins.bulletins
+    boards: boards.boards
   }));
 
   const { author, title, page } = qs.parse(location.search, {
@@ -30,16 +25,16 @@ const BulletinContentContainer = ({
 
   useEffect(() => {
     redirect();
-  }, [location.pathname, bulletinId, redirect]);
+  }, [location.pathname, boardId, redirect]);
 
-  const getBulletinsList = useCallback(() => {
-    bulletinsAPI
+  const getBoardsList = useCallback(() => {
+    boardsAPI
       .list()
       .then(res1 => {
-        dispatch(listBulletins(res1.data));
+        dispatch(listBoards(res1.data));
 
         postsAPI
-          .listPosts({ author, title, page, bulletinId })
+          .listPosts({ author, title, page, boardId })
           .then(res2 => {
             const { posts, lastPage } = res2.data;
             dispatch(listPosts({ posts, lastPage }));
@@ -47,20 +42,20 @@ const BulletinContentContainer = ({
           .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
-  }, [dispatch, author, bulletinId, page, title]);
+  }, [dispatch, author, boardId, page, title]);
 
   useEffect(() => {
-    getBulletinsList();
-  }, [dispatch, location.search, getBulletinsList]);
+    getBoardsList();
+  }, [dispatch, location.search, getBoardsList]);
 
   return (
-    <BulletinContent
+    <BoardContent
       isUser={isUser}
-      bulletins={bulletins}
-      bulletinId={bulletinId}
+      boards={boards}
+      boardId={boardId}
       posts={posts}
     />
   );
 };
 
-export default withRouter(BulletinContentContainer);
+export default withRouter(BoardContainer);

@@ -1,9 +1,9 @@
 import React from "react";
 
 import "./BoardModule.scss";
-import { BoardHeader, BoardRow } from "../molecules";
+import { BoardModuleHeader, BoardModuleRow } from "../molecules";
 
-const BoardModule = ({ className, boardName, posts, bulletinId }) => {
+const BoardModule = ({ className, boardModuleName, posts, boardId }) => {
   if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
@@ -16,20 +16,20 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
 
   const rows = posts.slice(0, 5).map(post => (
     <React.Fragment key={post.id}>
-      <BoardRow
+      <BoardModuleRow
         id={post.id}
         author={post.author}
         title={post.title}
         date={post.date}
         createdAt={post.createdAt}
       />
-      <div className="divider" />
+      <div className="board-module-divider" />
     </React.Fragment>
   ));
 
   return (
-    <div className={`${className} board-module`}>
-      <BoardHeader title={boardName} to={`/web/bulletin/${bulletinId}`} />
+    <div className={`${className} boardModule-module`}>
+      <BoardModuleHeader title={boardModuleName} to={`/web/board/${boardId}`} />
       {rows}
     </div>
   );

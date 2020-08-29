@@ -29,7 +29,7 @@ const PostViewer = ({ post }) => {
 
   return (
     <Container className="flex-grow-1 post-view">
-      <div className="bulletin-title">공지사항</div>
+      <div className="board-title">공지사항</div>
       <div className="post-title">{title}</div>
       <div className="d-flex flex-row">
         <div className="details">
