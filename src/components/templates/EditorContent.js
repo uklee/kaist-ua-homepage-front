@@ -12,15 +12,15 @@ const EditorContent = ({
   content,
   title,
   author,
-  bulletins,
-  bulletinId
+  boards,
+  boardId
 }) => {
   return (
     <Container className="flex-grow-1 border my-5">
       <EditorHeader
         onChangeField={onChangeField}
-        bulletins={bulletins}
-        bulletinId={bulletinId}
+        boards={boards}
+        boardId={boardId}
         title={title}
         author={author}
       />

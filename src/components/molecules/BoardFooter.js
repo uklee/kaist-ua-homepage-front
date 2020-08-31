@@ -1,13 +1,18 @@
 import React from "react";
-import { SearchBar } from "../atoms";
-import { Button } from "react-bootstrap";
-import "./BulletinFooter.scss";
-import PaginationContainer from "../containers/bulletin/PaginationContainer";
 import { withRouter } from "react-router-dom";
 
-const BulletinFooter = ({ author, title, page, lastPage, history }) => {
+import { SearchBar } from "../atoms";
+import { Button } from "react-bootstrap";
+import PaginationContainer from "../containers/board/PaginationContainer";
+import "./BoardFooter.scss";
+
+import { useSelector } from "react-redux";
+
+const BoardFooter = ({ author, title, page, lastPage, history }) => {
+  const { auth } = useSelector(state => state.auth);
+
   return (
-    <div className="d-flex flex-column justify-content-center Bulletin-footer">
+    <div className="d-flex flex-column justify-content-center Board-footer">
       <PaginationContainer
         author={author}
         title={title}
@@ -15,11 +20,11 @@ const BulletinFooter = ({ author, title, page, lastPage, history }) => {
         lastPage={lastPage}
       />
       <div className="d-flex justify-content-between">
-        {window.sessionStorage.accessToken ? (
+        {auth === "admin" ? (
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"
-            onClick={() => history.push("/web/edit")}
+            onClick={() => history.push("/web/admin/edit")}
           >
             글 작성하기
           </Button>
@@ -33,4 +38,4 @@ const BulletinFooter = ({ author, title, page, lastPage, history }) => {
   );
 };
 
-export default withRouter(BulletinFooter);
+export default withRouter(BoardFooter);

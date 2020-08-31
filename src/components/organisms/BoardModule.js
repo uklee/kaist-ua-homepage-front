@@ -1,9 +1,15 @@
 import React from "react";
 
 import "./BoardModule.scss";
-import { BoardHeader, BoardRow } from "../molecules";
+import { BoardModuleHeader, BoardModuleRow } from "../molecules";
 
-const BoardModule = ({ className, boardName, posts, bulletinId }) => {
+import { useTranslation } from "react-i18next";
+
+const BoardModule = ({ className, board, posts }) => {
+  const { t } = useTranslation(["BoardModule"]);
+
+  console.log(board);
+
   if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
@@ -11,25 +17,28 @@ const BoardModule = ({ className, boardName, posts, bulletinId }) => {
       author: "",
       title: "",
       date: "",
-      created_at: ""
+      createdAt: ""
     });
 
-  const rows = posts.slice(0, 5).map(post => (
+  const rows = posts.map(post => (
     <React.Fragment key={post.id}>
-      <BoardRow
+      <BoardModuleRow
         id={post.id}
         author={post.author}
-        title={post.title}
+        title={post.korTitle}
         date={post.date}
         createdAt={post.createdAt}
       />
-      <div className="divider" />
+      <div className="board-module-divider" />
     </React.Fragment>
   ));
 
   return (
-    <div className={`${className} board-module`}>
-      <BoardHeader title={boardName} to={`/web/bulletin/${bulletinId}`} />
+    <div className={`${className} boardModule-module`}>
+      <BoardModuleHeader
+        title={t("title", { board })}
+        to={`/web/board/${board.id}`}
+      />
       {rows}
     </div>
   );

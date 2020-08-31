@@ -1,31 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import {
-  BulletinPage,
-  EditPage,
-  AdminLoginPage,
-  MainPage,
-  PostViewPage,
-  IntroductionPage,
-  AuthAgreementPage
-} from "./components/pages";
+
+import * as pages from "./components/pages";
+
+import * as authAPI from "./lib/api/auth";
+import ProtectedRoute from "./auth/ProtectedRoute";
+import UserRoute from "./auth/UserRoute";
+
+import { useDispatch } from "react-redux";
+import { setAuth } from "./modules/auth";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const checkAuth = () => {
+      authAPI
+        .check()
+        .then(res => {
+          const newAuth = res.data;
+          dispatch(setAuth(newAuth));
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    checkAuth();
+  }, [dispatch]);
+
   return (
     <Switch>
-      <Route path="/web/main" component={MainPage} />
-      <Route path="/web/admin" component={AdminLoginPage} />
-      <Route path="/web/auth/agreement/:login" component={AuthAgreementPage} />
-      <Route path="/web/auth/agreement" component={AuthAgreementPage} />
-      <Route path="/web/post/:postId" component={PostViewPage} />
-      <Route path="/web/bulletin/:bulletinId" component={BulletinPage} />
-      <Route
-        path="/web/user/bulletin/:bulletinId"
-        render={props => <BulletinPage {...props} isUser={true} />}
+      <Route path="/web/main" component={pages.MainPage} />
+
+      <Route path="/web/introduction" component={pages.IntroductionPage} />
+      <Route path="/web/board/:boardId" component={pages.BoardPage} />
+      <Route path="/web/post/:postId" component={pages.PostViewPage} />
+
+      <Route path="/web/admin/login" component={pages.AdminLoginPage} />
+      <ProtectedRoute
+        path="/web/admin/payment"
+        component={pages.AdminPaymentPage}
       />
-      <Route path="/web/edit" component={EditPage} />
-      <Route path="/web/user/edit" component={EditPage} />
-      <Route path="/web/introduction" component={IntroductionPage} />
+      <Route path="/web/admin/edit" component={pages.EditPage} />
+
+      <Route
+        path="/web/auth/agreement/:login"
+        component={pages.AuthAgreementPage}
+      />
+      <Route path="/web/auth/agreement" component={pages.AuthAgreementPage} />
+
+      <UserRoute path="/web/user/studentFee" component={pages.StudentFeePage} />
       <Redirect to="/web/main" />
     </Switch>
   );

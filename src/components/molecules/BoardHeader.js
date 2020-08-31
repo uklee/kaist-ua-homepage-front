@@ -1,14 +1,23 @@
 import React from "react";
-
 import "./BoardHeader.scss";
-import { SeeMore } from "../atoms";
 
-const BoardHeader = ({ title, to }) => {
+import { useTranslation } from "react-i18next";
+
+const BoardHeader = ({ title, description }) => {
+  const { t } = useTranslation(["BoardHeader"]);
+
+  const actualTitle = typeof title === "string" ? title : t("title", { title });
+  const actualDescription =
+    typeof description === "string"
+      ? description
+      : t("description", { description });
+
   return (
-    <div className="d-flex justify-content-between align-items-center board-header">
-      <h4 className="board-title">{title}</h4>
-      <SeeMore to={to} />
-    </div>
+    <>
+      <div className="board-header-title">{actualTitle}</div>
+      <div className="board-description">{actualDescription}</div>
+    </>
   );
 };
+
 export default BoardHeader;

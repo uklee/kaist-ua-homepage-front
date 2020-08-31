@@ -11,7 +11,10 @@ import {
 import "./Footer.scss";
 import logo from "../../static/logo/kaist_logo.png";
 
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+  const { t } = useTranslation(["Footer"]);
   return (
     <div className="footer">
       <Navbar as={Container}>
@@ -23,7 +26,7 @@ const Footer = () => {
             }}
           >
             <img src={logo} className="kaist-logo" alt="KAIST_logo" />
-            학부 총학생회
+            {t("학부 총학생회")}
           </Navbar.Brand>
         </Nav>
         <Nav>
@@ -69,15 +72,15 @@ const Footer = () => {
       >
         <Row>
           <Col lg="1" md="2">
-            <b>주소</b>
+            <b>{t("주소")}</b>
           </Col>
           <Col lg="11" md="10">
-            대전광역시 유성구 대학로 291 | 카이스트 N13-1 301호
+            {t("대전광역시 유성구 대학로 291 | 카이스트 N13-1 301호")}
           </Col>
         </Row>
         <Row>
           <Col lg="1" md="2">
-            <b>이메일</b>
+            <b>{t("이메일")}</b>
           </Col>
           <Col lg="11" md="10">
             kaistua@kaist.ac.kr
@@ -85,7 +88,7 @@ const Footer = () => {
         </Row>
         <Row>
           <Col lg="1" md="2">
-            <b>전화</b>
+            <b>{t("전화")}</b>
           </Col>
           <Col lg="8" md="6">
             042-350-2072
