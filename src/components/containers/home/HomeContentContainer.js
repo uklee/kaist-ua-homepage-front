@@ -11,7 +11,6 @@ const HomeContentContainer = () => {
     boardsAPI
       .list()
       .then(res => {
-        console.log(res.data);
         setBoards(res.data);
       })
       .catch(err => console.log(err));
@@ -25,10 +24,9 @@ const HomeContentContainer = () => {
         const page = 1;
         try {
           const res = await postsAPI.listPosts({ boardId, page });
-          console.log(res.data);
           const boardModuleInfo = {
-            board: board,
-            posts: res.data.posts
+            board,
+            posts: res.data.posts.concat(0, 5)
           };
           ret = ret.concat(boardModuleInfo);
         } catch (err) {

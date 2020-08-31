@@ -4,7 +4,11 @@
     "description": "{{description.engDescription}}"
   },
   "BoardModule": {
-    "title": "{{boardInfo.engTitle}}"
+    "title": "{{board.engTitle}}"
+  },
+  "BoardRow": {
+    "title": "{{title.engTitle}}",
+    "views": "{{views}} views"
   },
   "Footer": {
     "학부 총학생회": "Undergraduate Association",
@@ -25,6 +29,12 @@
     "공지사항": "Announcements",
     "학생 복지": "Student Welfare",
     "name": "{{name.engName}}"
+  },
+  "PostViewer": {
+    "title": "{{title.engTitle}}",
+    "content": "{{content.engContent}}",
+    "views": "{{views}} views",
+    "공지사항": "Announcements"
   },
   "SeeMore": {
     "더보기": "Expand"

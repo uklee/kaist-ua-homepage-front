@@ -59,3 +59,15 @@
 #user-name {
   font-family: "NanumSquare Bold";
 }
+
+.language-selector {
+  font-size: 10pt;
+  // padding-left: 8px;
+  padding-right: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    color: #000;
+    cursor: pointer;
+  }
+}

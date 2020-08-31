@@ -9,10 +9,9 @@ const HomeContent = ({ BoardModuleInfos }) => {
   const boardModules = BoardModuleInfos.map(boardModuleInfo => (
     <Col key={boardModuleInfo.board.id} lg="6">
       <BoardModule
-        posts={boardModuleInfo.posts}
         className="module"
-        boardModuleName={boardModuleInfo.board.korTitle}
-        boardId={boardModuleInfo.board.id}
+        posts={boardModuleInfo.posts}
+        board={boardModuleInfo.board}
       />
     </Col>
   ));

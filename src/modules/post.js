@@ -1,44 +1,35 @@
-import { createAction, handleActions } from "redux-actions";
+import { createActions, handleActions } from "redux-actions";
 
-const INIT = "post/INIT";
-const CHANGE_FIELD = "post/CHANGE_FIELD";
-const WRITE_POST = "post/WRITE_POST";
-
-export const init = createAction(INIT);
-export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
-  key,
-  value
-}));
-export const writePost = createAction(
-  WRITE_POST,
-  ({ id, title, author, content, boardId }) => ({
-    id,
-    title,
-    author,
-    content,
-    boardId
+const { init, setPost, changeField } = createActions({
+  INIT: () => {},
+  // post: {id, author, korTitle, engTitle, korContent, engContent, isActive, boardId}
+  SET_POST: post => post,
+  CHANGE_FIELD: ({ key, value }) => ({
+    key,
+    value
   })
-);
+});
+
+export { init, setPost, changeField };
 
 const initialState = {
-  title: "",
   author: "",
-  content: "",
-  boardId: 1,
-  views: 0,
-  post: null
+  korTitle: "",
+  engTitle: "",
+  korContent: "",
+  engContent: "",
+  isActive: false,
+  isNew: false,
+  views: 0
 };
 
 const post = handleActions(
   {
-    [INIT]: state => initialState,
-    [CHANGE_FIELD]: (state, { payload: { key, value } }) => ({
+    [init]: () => initialState,
+    [setPost]: (state, { payload: post }) => ({ ...state, ...post }),
+    [changeField]: (state, { payload: { key, value } }) => ({
       ...state,
       [key]: value
-    }),
-    [WRITE_POST]: (state, { payload: post }) => ({
-      ...state,
-      post
     })
   },
   initialState

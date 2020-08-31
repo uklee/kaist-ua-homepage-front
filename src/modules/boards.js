@@ -1,16 +1,16 @@
 import { createAction, handleActions } from "redux-actions";
 
-const LIST_BULLETINS = "boards/LIST_BULLETINS";
+const GET_BOARDS = "boards/GET_BOARDS";
 
-export const listBoards = createAction(LIST_BULLETINS, boards => boards);
+export const getBoards = createAction(GET_BOARDS, boards => boards);
 
 const initialState = {
-  boards: null
+  boards: []
 };
 
 const boards = handleActions(
   {
-    [LIST_BULLETINS]: (state, { payload: boards }) => ({
+    [GET_BOARDS]: (state, { payload: boards }) => ({
       ...state,
       boards
     })

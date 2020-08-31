@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, init, writePost } from "../../../modules/post";
-import { listBoards } from "../../../modules/boards";
+import { changeField, init, setPost } from "../../../modules/post";
+import { getBoards } from "../../../modules/boards";
 import { EditorContent } from "../../templates";
 import { withRouter } from "react-router-dom";
 import * as postsAPI from "../../../lib/api/post";
@@ -32,7 +32,7 @@ const EditorContentContainer = ({ history }) => {
   const onWrite = async () => {
     await postsAPI
       .write({ title, author, content, boardId })
-      .then(res => dispatch(writePost(res.data)))
+      .then(res => dispatch(setPost(res.data)))
       .catch(err => console.log(err));
   };
 
@@ -40,7 +40,7 @@ const EditorContentContainer = ({ history }) => {
     boardsAPI
       .list()
       .then(res1 => {
-        dispatch(listBoards(res1.data));
+        dispatch(getBoards(res1.data));
       })
       .catch(err => console.log(err));
   }, [dispatch]);

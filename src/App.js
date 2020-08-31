@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+
 import * as pages from "./components/pages";
 
+import * as authAPI from "./lib/api/auth";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import UserRoute from "./auth/UserRoute";
 
+import { useDispatch } from "react-redux";
+import { setAuth } from "./modules/auth";
+
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const checkAuth = () => {
+      authAPI
+        .check()
+        .then(res => {
+          const newAuth = res.data;
+          dispatch(setAuth(newAuth));
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    checkAuth();
+  }, [dispatch]);
+
   return (
     <Switch>
       <Route path="/web/main" component={pages.MainPage} />

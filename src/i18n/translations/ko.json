@@ -4,7 +4,11 @@
     "description": "{{description.korDescription}}"
   },
   "BoardModule": {
-    "title": "{{boardInfo.korTitle}}"
+    "title": "{{board.korTitle}}"
+  },
+  "BoardRow": {
+    "title": "{{title.korTitle}}",
+    "views": "조회수 {{views}}"
   },
   "Footer": {
     "학부 총학생회": "학부 총학생회",
@@ -25,5 +29,10 @@
     "공지사항": "공지사항",
     "학생 복지": "학생 복지",
     "name": "{{name.korName}}"
+  },
+  "PostViewer": {
+    "title": "{{title.korTitle}}",
+    "content": "{{content.korContent}}",
+    "views": "조회수 {{views}}"
   }
 }

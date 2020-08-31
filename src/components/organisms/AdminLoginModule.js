@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+
 import { Button, Form } from "react-bootstrap";
+import logo from "../../static/logo/ua_logo_kor.png";
+import "./AdminLoginModule.scss";
 
 import * as adminsAPI from "../../lib/api/admin";
 
-import "./AdminLoginModule.scss";
-import logo from "../../static/logo/ua_logo.png";
-import { Redirect, withRouter } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setAuth } from "../../modules/auth";
 
 const AdminLoginModule = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState(false);
+
+  const { auth } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
 
   const tryLogin = async () => {
     adminsAPI
       .login({ email, password })
       .then(res => {
-        setAuth(true);
+        dispatch(setAuth(res.data));
       })
       .catch(err => {
         alert("로그인 정보가 일치하지 않습니다.");
@@ -24,14 +29,12 @@ const AdminLoginModule = ({ history }) => {
   };
 
   useEffect(() => {
-    adminsAPI.check().then(res => {
-      if (res.data.auth === "admin") setAuth(true);
-    });
-  }, [auth]);
+    if (auth === "admin") {
+      history.push("/web/main");
+    }
+  }, [auth, history]);
 
-  return auth ? (
-    <Redirect to="/web/main" />
-  ) : (
+  return (
     <div className="flex-grow-1 login-module d-flex flex-column">
       <a href="/" className="align-self-center">
         <img src={logo} className="logo" width="120px" alt="UA_logo" />

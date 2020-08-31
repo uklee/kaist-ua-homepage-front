@@ -1,11 +1,16 @@
 import React from "react";
-import { SearchBar } from "../atoms";
-import { Button } from "react-bootstrap";
-import "./BoardFooter.scss";
-import PaginationContainer from "../containers/board/PaginationContainer";
 import { withRouter } from "react-router-dom";
 
+import { SearchBar } from "../atoms";
+import { Button } from "react-bootstrap";
+import PaginationContainer from "../containers/board/PaginationContainer";
+import "./BoardFooter.scss";
+
+import { useSelector } from "react-redux";
+
 const BoardFooter = ({ author, title, page, lastPage, history }) => {
+  const { auth } = useSelector(state => state.auth);
+
   return (
     <div className="d-flex flex-column justify-content-center Board-footer">
       <PaginationContainer
@@ -15,7 +20,7 @@ const BoardFooter = ({ author, title, page, lastPage, history }) => {
         lastPage={lastPage}
       />
       <div className="d-flex justify-content-between">
-        {window.sessionStorage.accessToken ? (
+        {auth === "admin" ? (
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"

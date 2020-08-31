@@ -1,17 +1,32 @@
-.board-row {
-  margin-top: 30px;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .board-row-shell {
-  padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .details {
   font-size: 15pt;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 16pt;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.new-tag {
+  display: flex;
+  justify-items: center;
+  font-family: "NanumSquare Bold";
+  font-size: 7pt;
+  color: white;
+  background-color: rgb(194, 72, 72);
+  padding: 1px 3px;
+  border-radius: 3px;
+  margin-right: 5px;
 }

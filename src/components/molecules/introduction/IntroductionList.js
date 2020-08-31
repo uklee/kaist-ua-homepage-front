@@ -122,7 +122,6 @@ const IntroductionList = () => {
       {tabList.map(tab => (
         <ListGroup.Item
           active={tab.active}
-          subTabs={tab.subTabs}
           id={tab.link}
           action
           key={tab.link}

@@ -3,7 +3,13 @@ import React from "react";
 import "./BoardModule.scss";
 import { BoardModuleHeader, BoardModuleRow } from "../molecules";
 
-const BoardModule = ({ className, boardModuleName, posts, boardId }) => {
+import { useTranslation } from "react-i18next";
+
+const BoardModule = ({ className, board, posts }) => {
+  const { t } = useTranslation(["BoardModule"]);
+
+  console.log(board);
+
   if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
@@ -11,10 +17,10 @@ const BoardModule = ({ className, boardModuleName, posts, boardId }) => {
       author: "",
       title: "",
       date: "",
-      created_at: ""
+      createdAt: ""
     });
 
-  const rows = posts.slice(0, 5).map(post => (
+  const rows = posts.map(post => (
     <React.Fragment key={post.id}>
       <BoardModuleRow
         id={post.id}
@@ -29,7 +35,10 @@ const BoardModule = ({ className, boardModuleName, posts, boardId }) => {
 
   return (
     <div className={`${className} boardModule-module`}>
-      <BoardModuleHeader title={boardModuleName} to={`/web/board/${boardId}`} />
+      <BoardModuleHeader
+        title={t("title", { board })}
+        to={`/web/board/${board.id}`}
+      />
       {rows}
     </div>
   );
