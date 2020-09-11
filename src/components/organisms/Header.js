@@ -49,6 +49,10 @@ const Header = ({ history, ...props }) => {
     />
   );
 
+  const state = {
+    redirect: window.location.href
+  };
+
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
 
@@ -83,7 +87,8 @@ const Header = ({ history, ...props }) => {
             className="header-login"
             href={`${process.env.REACT_APP_SSO}?client_id=${
               process.env.REACT_APP_CLIENT_ID
-            }&redirect_url=${encodeURI(
+            }&state=${JSON.stringify(state)}
+            &redirect_url=${encodeURI(
               `${process.env.REACT_APP_API_URL}/auth/signup`
             )}`}
           >
