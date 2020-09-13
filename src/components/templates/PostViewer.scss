@@ -3,12 +3,23 @@
   margin-bottom: 30px;
 }
 
-.bulletin-title {
-  font-size: 12pt;
-  font-family: "NanumSquare ExtraBold";
-  padding-bottom: 15px;
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
   margin-bottom: 15px !important;
   border-bottom: solid 1px #555;
+}
+
+.board-title {
+  font-size: 10pt;
+  font-family: "NanumSquare ExtraBold";
+  color: #888;
+  transition: 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: #444;
+  }
 }
 
 .post-title {

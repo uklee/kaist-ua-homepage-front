@@ -1,0 +1,67 @@
+{
+  "BoardHeader": {
+    "title": "{{title.engTitle}}",
+    "description": "{{description.engDescription}}"
+  },
+  "BoardModule": {
+    "title": "{{board.engTitle}}"
+  },
+  "BoardRow": {
+    "title": "{{title.engTitle}}",
+    "views": "{{views}} views"
+  },
+  "Footer": {
+    "학부 총학생회": "Undergraduate Association",
+    "주소": "Address",
+    "대전광역시 유성구 대학로 291 | 카이스트 N13-1 301호": "291, Daehak-ro, Yuseong-gu, Daejeon | KAIST N13-1 Room 301",
+    "이메일": "E-mail",
+    "전화": "Phone"
+  },
+  "Header": {
+    "logoWidth": "79px",
+    "어드민 로그아웃": "Admin Logout",
+    "로그인": "Login",
+    "로그아웃": "Logout",
+    "회원가입": "Sign Up",
+    "학생회비": "Student Fee",
+    "총학 소개": "About Us",
+    "학생청원": "Student Petitions",
+    "공지사항": "Announcements",
+    "학생 복지": "Student Welfare",
+    "name": "{{name.engName}}"
+  },
+  "PostViewer": {
+    "title": "{{title.engTitle}}",
+    "content": "{{content.engContent}}",
+    "views": "{{views}} views",
+    "공지사항": "Announcements"
+  },
+  "SeeMore": {
+    "더보기": "Expand"
+  },
+  "StudentFeePage": {
+    "학생회비": "Student Fee",
+    "년": "",
+    "학기": "",
+    "가을": "Fall",
+    "2020년 가을학기": "2020 Fall",
+    "봄": "Spring",
+    "납부 완료": "Paid",
+    "변경하기": "Change decision",
+    "2020년도 가을학기 학생회비 납부": "2020 Fall Student Fee Payment",
+    "저장": "Save",
+    "납부": "Yes",
+    "미납부": "No",
+    "그 외 기록이 누락 된 경우 kaistua@kaist.ac.kr로 문의해 주십시오.": "Contact kaistua@kaist.ac.kr for other past payments that are missing.",
+    "2015년 가을까지 모든 재적학기는 회비를 납부한 것으로 인정되며, 현재 기록에 포함되어 있지 않습니다.": "You will be acknowledged as having paid the student fee for each enrolled semester before 2016. (Not included here.)",
+    "9월 6일까지 변경 가능": "Changes accepted until Sept. 6",
+    "납부 안함": "Will not pay",
+    "9월 17일 납부 예정": "Will be charged on Sept. 17",
+    "저장되었습니다.": "Your changes have been saved.",
+    "확인": "OK",
+    "학생회비 납부 횟수": "Number of payments",
+    "회": "",
+    "학생회비를 납부하시겠습니까?": "Will you pay this semester's student fee?",
+    "납부를 선택하시면 이번 학기 첫 달(9월) 학자금에서 20,200원이 공제됩니다.": "If you choose Yes, an amount of ₩20200 will be deducted from your first monthly scholarship for this semester."
+  }
+}

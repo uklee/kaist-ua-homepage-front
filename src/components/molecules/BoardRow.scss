@@ -1,51 +1,32 @@
-$author-width: 90px;
-$date-width: 80px;
+.board-row-shell {
+  padding-bottom: 15px;
+}
 
-.board-row {
-  color: #555;
-  font-size: 11pt;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  min-height: 32px;
+.details {
+  font-size: 15pt;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 16pt;
 
   &:hover {
-    color: black;
-    text-decoration: none;
+    cursor: pointer;
   }
 }
 
-.row-author {
-  text-align: center;
-  font-family: "NanumSquare ExtraBold";
-  width: $author-width;
-}
-
-.row-title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.row-date {
-  text-align: right;
-  width: $date-width;
-  color: #888;
-}
-
-@media (min-width: 768px) {
-  .row-title {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .row-author {
-    height: 0px;
-    visibility: hidden;
-  }
-  .row-date {
-    height: 0px;
-    visibility: hidden;
-  }
+.new-tag {
+  display: flex;
+  justify-items: center;
+  font-family: "NanumSquare Bold";
+  font-size: 7pt;
+  color: white;
+  background-color: rgb(194, 72, 72);
+  padding: 1px 3px;
+  border-radius: 3px;
+  margin-right: 5px;
 }

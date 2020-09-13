@@ -1,0 +1,38 @@
+{
+  "BoardHeader": {
+    "title": "{{title.korTitle}}",
+    "description": "{{description.korDescription}}"
+  },
+  "BoardModule": {
+    "title": "{{board.korTitle}}"
+  },
+  "BoardRow": {
+    "title": "{{title.korTitle}}",
+    "views": "조회수 {{views}}"
+  },
+  "Footer": {
+    "학부 총학생회": "학부 총학생회",
+    "주소": "주소",
+    "대전광역시 유성구 대학로 291 | 카이스트 N13-1 301호": "대전광역시 유성구 대학로 291 | 카이스트 N13-1 301호",
+    "이메일": "이메일",
+    "전화": "전화"
+  },
+  "Header": {
+    "logoWidth": "100px",
+    "어드민 로그아웃": "어드민 로그아웃",
+    "로그인": "로그인",
+    "로그아웃": "로그아웃",
+    "회원가입": "회원가입",
+    "학생회비": "학생회비",
+    "총학 소개": "총학 소개",
+    "학생청원": "학생청원",
+    "공지사항": "공지사항",
+    "학생 복지": "학생 복지",
+    "name": "{{name.korName}}"
+  },
+  "PostViewer": {
+    "title": "{{title.korTitle}}",
+    "content": "{{content.korContent}}",
+    "views": "조회수 {{views}}"
+  }
+}

@@ -1,8 +1,26 @@
-.board-header {
-  padding-bottom: 15px;
+.Board-header {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  .Board-title {
+    margin-top: 1rem;
+  }
+
+  .Board-desc {
+    margin-top: 0.5rem;
+  }
 }
 
-.board-title {
+.board-header-title {
+  font-size: 25pt;
   font-family: "NanumSquare ExtraBold";
-  margin-bottom: 0 !important;
+}
+
+.board-description {
+  font-size: 10pt;
+  font-family: "NanumSquare Light";
+  padding-bottom: 15px;
+  margin-bottom: 15px !important;
+  border-bottom: solid 1px #555;
 }

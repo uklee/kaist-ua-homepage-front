@@ -2,13 +2,7 @@ import React from "react";
 import { Container, Form } from "react-bootstrap";
 import "./EditorHeader.scss";
 
-const EditorHeader = ({
-  onChangeField,
-  title,
-  author,
-  bulletins,
-  bulletinId
-}) => {
+const EditorHeader = ({ onChangeField, title, author, boards, boardId }) => {
   const onChangeTitle = e => {
     onChangeField({ key: "title", value: e.target.value });
   };
@@ -17,14 +11,14 @@ const EditorHeader = ({
     onChangeField({ key: "author", value: e.target.value });
   };
 
-  const onChangeBulletin = e => {
-    onChangeField({ key: "bulletinId", value: e.target.value });
+  const onChangeBoard = e => {
+    onChangeField({ key: "boardId", value: e.target.value });
   };
 
-  if (!bulletins) return <div>로딩중...</div>;
+  if (!boards) return <div>로딩중...</div>;
 
-  const options = bulletins.map((bulletin, index) => (
-    <option value={index + 1}>{bulletin.title}</option>
+  const options = boards.map((board, index) => (
+    <option value={index + 1}>{board.title}</option>
   ));
 
   return (
@@ -35,8 +29,8 @@ const EditorHeader = ({
           <Form.Control
             className="flex-1"
             as="select"
-            value={bulletinId}
-            onChange={onChangeBulletin}
+            value={boardId}
+            onChange={onChangeBoard}
           >
             {options}
           </Form.Control>

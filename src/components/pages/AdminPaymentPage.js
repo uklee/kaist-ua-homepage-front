@@ -3,7 +3,7 @@ import { Container, Button, Form } from "react-bootstrap";
 import ReactFileReader from "react-file-reader";
 import { Header, Footer, CustomModal } from "../organisms";
 import { withRouter } from "react-router-dom";
-import { BulletinHeader } from "../molecules";
+import { BoardHeader } from "../molecules";
 
 import * as paymentAPI from "../../lib/api/payment";
 
@@ -37,7 +37,8 @@ const AdminPaymentPage = () => {
     setShowFailModal(current === "fail");
   };
 
-  const options = years.map(option => <option>{option}</option>);
+  var c = 0;
+  const options = years.map(option => <option key={c++}>{option}</option>);
 
   const verifyIdList = fileContent => {
     const studentIds = [];
@@ -66,25 +67,24 @@ const AdminPaymentPage = () => {
 
   const handleSemester = event => {
     setSelectedOption(event.target.value);
-    const { year, semester } = semesterMap[selectedOption];
+    const { year, semester } = semesterMap[event.target.value];
     setYear(year);
     setSemester(semester);
   };
 
   const handleSubmit = () => {
     const body = {
-      ku_std_no_list: idList,
+      studentNumberList: idList,
       year,
       semester
     };
     paymentAPI
-      .upload(body)
+      .bulkUpload(body)
       .then(res => {
         handleModalOpen("success");
       })
       .catch(err => handleModalOpen("fail"));
   };
-  console.log(showConfirmModal);
 
   return (
     <div
@@ -97,20 +97,24 @@ const AdminPaymentPage = () => {
         show={showConfirmModal}
         handleConfirm={handleSubmit}
         handleClose={handleModalClose}
+        closeMessage="취소"
+        confirmMessage="확인"
       />
       <CustomModal
         title={`등록이 완료되었습니다.`}
         show={showSuccessModal}
         handleConfirm={handleModalClose}
+        confirmMessage="확인"
       />
       <CustomModal
-        body={`⚠️등록 중 오류가 발생했습니다.`}
+        title={`⚠️등록 중 오류가 발생했습니다.`}
         show={showFailModal}
         handleConfirm={handleModalClose}
+        confirmMessage="확인"
       />
       <Header />
       <Container className="flex-grow-1 p-3">
-        <BulletinHeader title="학생회비 납부자 등록" />
+        <BoardHeader title="학생회비 납부자 등록" />
         <Form>
           <Form.Group>
             <Form.Label>학기 선택</Form.Label>

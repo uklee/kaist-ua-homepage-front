@@ -1,42 +1,44 @@
 import React, { useEffect, useState } from "react";
 import HomeContent from "../../templates/HomeContent";
-import * as bulletinsAPI from "../../../lib/api/bulletin";
+import * as boardsAPI from "../../../lib/api/board";
 import * as postsAPI from "../../../lib/api/post";
 
 const HomeContentContainer = () => {
-  const [bulletins, setBulletins] = useState([]);
-  const [boardInfos, setBoardInfos] = useState([]);
+  const [boards, setBoards] = useState([]);
+  const [boardModuleInfos, setBoardModuleInfos] = useState([]);
 
   useEffect(() => {
-    bulletinsAPI
+    boardsAPI
       .list()
-      .then(res => setBulletins(res.data))
+      .then(res => {
+        setBoards(res.data);
+      })
       .catch(err => console.log(err));
   }, []);
 
   useEffect(() => {
     async function fetchData() {
       var ret = [];
-      for (const bulletin of bulletins) {
-        const bulletinId = bulletin.id;
+      for (const board of boards) {
+        const boardId = board.id;
         const page = 1;
         try {
-          const res = await postsAPI.listPosts({ bulletinId, page });
-          const boardInfo = {
-            bulletin: bulletin,
-            aboutPosts: res.data
+          const res = await postsAPI.listPosts({ boardId, page });
+          const boardModuleInfo = {
+            board,
+            posts: res.data.posts.concat(0, 5)
           };
-          ret = ret.concat(boardInfo);
+          ret = ret.concat(boardModuleInfo);
         } catch (err) {
           console.log(err);
         }
       }
       return ret;
     }
-    fetchData().then(res => setBoardInfos(res));
-  }, [bulletins]);
+    fetchData().then(res => setBoardModuleInfos(res));
+  }, [boards]);
 
-  return <HomeContent BoardInfos={boardInfos} />;
+  return <HomeContent BoardModuleInfos={boardModuleInfos} />;
 };
 
 export default HomeContentContainer;

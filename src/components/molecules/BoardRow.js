@@ -1,22 +1,34 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
 import "./BoardRow.scss";
 
-const BoardRow = props => {
+import { useTranslation } from "react-i18next";
+
+const BoardRow = ({ post }) => {
+  const { id, author, korTitle, engTitle, createdAt, views, isNew } = post;
+
+  const { t } = useTranslation(["BoardRow"]);
+
+  const title = { korTitle, engTitle };
+
+  const newTag = isNew ? <div className="new-tag">NEW</div> : null;
+
   return (
-    <Row as={Link} to={`/web/post/${props.id}`} className="board-row">
-      <Col md="2" lg="3" className="row-author">
-        {props.author}
-      </Col>
-      <Col md="8" lg="5" className="row-title">
-        {props.title}
-      </Col>
-      <Col md="2" lg="4" className="row-date">
-        {props.createdAt ? props.createdAt.split(/T|.000Z/)[0] : null}
-      </Col>
-    </Row>
+    <div className="board-row-shell">
+      <div className="title-row">
+        {newTag}
+        <a className="title" href={`/web/post/${id}`}>
+          {t("title", { title })}
+        </a>
+      </div>
+      <div className="d-flex">
+        <h6 className="details text-black-50">
+          <b>{author}</b>
+          {` | ${t("views", { views })} | ${
+            createdAt ? createdAt.split(/T|.000Z/)[0] : null
+          }`}
+        </h6>
+      </div>
+    </div>
   );
 };
 

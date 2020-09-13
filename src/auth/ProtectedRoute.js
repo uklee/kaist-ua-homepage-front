@@ -1,26 +1,24 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import * as adminAPI from "../lib/api/admin";
 
-const checkAdmin = () => {
-  adminAPI
-    .check()
-    .then(res => {
-      if (res.auth === "admin") {
-        return true;
+import { useSelector } from "react-redux";
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { auth } = useSelector(state => state.auth);
+  console.log(auth);
+  if (auth === "loading") return <div />;
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        auth === "admin" ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/web/main" />
+        )
       }
-      return false;
-    })
-    .catch(err => false);
+    />
+  );
 };
-
-const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      checkAdmin() ? <Component {...props} /> : <Redirect to="/web/main" />
-    }
-  />
-);
 
 export default ProtectedRoute;

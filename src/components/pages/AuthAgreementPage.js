@@ -7,6 +7,9 @@ import { withRouter } from "react-router-dom";
 const AuthAgreementPage = ({ history, ...props }) => {
   const { login } = props.match.params;
   const [isAgree, setIsAgree] = React.useState(false);
+  const state = {
+    key: process.env.REACT_APP_REGISTER_KEY
+  };
   return (
     <div
       style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}
@@ -22,9 +25,7 @@ const AuthAgreementPage = ({ history, ...props }) => {
             KAIST 학부 총학생회 개인정보 처리방침
           </div>
           {login ? (
-            <Alert variant="primary">
-              처음 사용자는 회원가입을 먼저 해주세요.
-            </Alert>
+            <Alert variant="primary">초기 회원가입을 먼저 해주세요.</Alert>
           ) : null}
           <AuthAgreementContent />
           <div>
@@ -41,9 +42,9 @@ const AuthAgreementPage = ({ history, ...props }) => {
               <Button
                 variant="info"
                 disabled={!isAgree}
-                href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&state=${
-                  process.env.REACT_APP_REGISTER_KEY
-                }&redirect_url=${encodeURI(
+                href={`${process.env.REACT_APP_SSO}?client_id=${
+                  process.env.REACT_APP_CLIENT_ID
+                }&state=${JSON.stringify(state)}&redirect_url=${encodeURI(
                   `${process.env.REACT_APP_API_URL}/auth/signup`
                 )}`}
               >

@@ -1,18 +1,43 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import logo from "../../static/logo/ua_logo.png";
+import React, { useState, useEffect, useRef } from "react";
+import { withRouter, Link } from "react-router-dom";
+
+import {
+  Container,
+  Navbar,
+  Nav,
+  NavDropdown,
+  Overlay,
+  Tooltip
+} from "react-bootstrap";
+import korLogo from "../../static/logo/ua_logo_kor.png";
+import engLogo from "../../static/logo/ua_logo_eng.png";
 import "./Header.scss";
-import { withRouter } from "react-router-dom";
-import * as adminsAPI from "../../lib/api/admin";
+
 import * as authAPI from "../../lib/api/auth";
 
+import { useTranslation } from "react-i18next";
+
+import { useSelector } from "react-redux";
+
 const Header = ({ history, ...props }) => {
+  const { t, i18n } = useTranslation(["Header"]);
+
   const [hover1, setHover1] = useState(<div />);
   const [hover2, setHover2] = useState(<div />);
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
-  const [auth, setAuth] = useState(false);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
+  const target = useRef(null);
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const { auth, name } = useSelector(state => state.auth);
+  const [lang, setLang] = useState(i18n.language);
+  const toggleLang = () => {
+    const newLang = lang === "ko" ? "en" : "ko";
+    setLang(newLang);
+    i18n.changeLanguage(newLang);
+  };
 
   const active = (
     <div
@@ -24,76 +49,65 @@ const Header = ({ history, ...props }) => {
     />
   );
 
-  const checkAuth = async () => {
-    const user = await authAPI.check();
-    const admin = await adminsAPI.check();
-    setAuth(admin.data.auth ? "admin" : user.data.auth ? "user" : false);
+  const state = {
+    redirect: window.location.href
   };
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
 
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
 
-  const tryLogout = useCallback(async () => {
-    authAPI.logout().then(res => setAuth(false));
-  }, []);
-
   useEffect(() => {
+    const tryLogout = () => {
+      authAPI.logout().then(res => {
+        window.location.reload(false);
+      });
+    };
     if (auth === "admin")
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <Nav.Link className="header-admin-logout" onClick={tryLogout}>
-              어드민 로그아웃
-            </Nav.Link>
-          </Nav>
-        </div>
+        <Nav.Link className="header-admin-logout" onClick={tryLogout}>
+          {t("어드민 로그아웃")}
+        </Nav.Link>
       );
-    else if (auth === "user")
+    else if (auth === "student")
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <Nav.Link className="header-login">마이페이지</Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link className="header-login" onClick={tryLogout}>
-              로그아웃
-            </Nav.Link>
-          </Nav>
-        </div>
+        <NavDropdown alignRight title={t("name", { name })} id="user-name">
+          <NavDropdown.Item as={Link} to="/web/user/studentFee">
+            {t("학생회비")}
+          </NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item onClick={tryLogout} className="header-logout">
+            {t("로그아웃")}
+          </NavDropdown.Item>
+        </NavDropdown>
       );
     else
       setAuthButtonBar(
-        <div className="d-flex">
-          <Nav>
-            <Nav.Link
-              className="header-login"
-              href={`https://iam2dev.kaist.ac.kr/api/sso/commonLogin?client_id=KAIPEDIA&redirect_url=${encodeURI(
-                `${process.env.REACT_APP_API_URL}/auth/signup`
-              )}`}
-            >
-              로그인
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link className="header-login" href="/web/auth/agreement">
-              회원가입
-            </Nav.Link>
-          </Nav>
-        </div>
+        <>
+          <Nav.Link
+            className="header-login"
+            href={`${process.env.REACT_APP_SSO}?client_id=${
+              process.env.REACT_APP_CLIENT_ID
+            }&state=${JSON.stringify(state)}
+            &redirect_url=${encodeURI(
+              `${process.env.REACT_APP_API_URL}/auth/signup`
+            )}`}
+          >
+            {t("로그인")}
+          </Nav.Link>
+          <Nav.Link className="header-login" href="/web/auth/agreement">
+            {t("회원가입")}
+          </Nav.Link>
+        </>
       );
-  }, [auth, tryLogout, history]);
+  }, [auth, history, lang, name, t]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>
       <Navbar as={Container} collapseOnSelect expand="lg">
         <Navbar.Brand href="/web/main">
           <img
-            src={logo}
-            width="100px"
+            src={lang === "ko" ? korLogo : engLogo}
+            width={t("logoWidth")}
             style={{ padding: "10px 0px" }}
             alt="UA_logo"
             className="d-inline-block align-top logo"
@@ -110,44 +124,66 @@ const Header = ({ history, ...props }) => {
                 setHover1(leave);
               }}
             >
-              총학 소개
+              {t("총학 소개")}
               {props.active === "0" ? active : hover1}
             </Nav.Link>
             <Nav.Link
-              className={`header-item ${props.notice}`}
-              href="/web/bulletin/1"
+              ref={target}
+              className="header-item"
+              href=""
+              onClick={() => setShowTooltip(true)}
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
+                setShowTooltip(false);
               }}
             >
-              공지사항
-              {props.active === "1" ? active : hover2}
+              {t("학생청원")}
+              {props.tab3 ? active : hover2}
             </Nav.Link>
+            <Overlay
+              target={target.current}
+              show={showTooltip}
+              placement="bottom"
+            >
+              {props => (
+                <Tooltip id="overlay-example" {...props}>
+                  Coming soon
+                </Tooltip>
+              )}
+            </Overlay>
             <Nav.Link
-              className="header-item"
-              href=""
+              className={`header-item ${props.notice}`}
+              href="/web/board/1"
               onMouseEnter={() => setHover3(enter)}
               onMouseLeave={() => {
                 setHover3(leave);
               }}
             >
-              학생 청원
-              {props.tab3 ? active : hover3}
+              {t("공지사항")}
+              {props.active === "1" ? active : hover3}
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href="/web/bulletin/2"
+              href="/web/board/2"
               onMouseEnter={() => setHover4(enter)}
               onMouseLeave={() => {
                 setHover4(leave);
               }}
             >
-              학생 복지
+              {t("학생 복지")}
               {props.active === "2" ? active : hover4}
             </Nav.Link>
           </Nav>
-          {authButtonBar}
+          <Nav>
+            <Navbar.Text onClick={toggleLang}>
+              <span className="language-selector">
+                {lang === "ko" ? "ENG" : "KOR"}
+              </span>
+              |
+            </Navbar.Text>
+            {authButtonBar}
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
       <div style={{ height: "1px", backgroundColor: "#ddd" }} />
