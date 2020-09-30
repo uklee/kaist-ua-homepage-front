@@ -12,7 +12,8 @@ const PostViewer = ({ post }) => {
   if (!post) return <Loading />;
 
   const {
-    author,
+    korAuthor,
+    engAuthor,
     korTitle,
     engTitle,
     korContent,
@@ -30,6 +31,7 @@ const PostViewer = ({ post }) => {
   console.log(post);
 
   const title = { korTitle, engTitle };
+  const author = { korAuthor, engAuthor };
   const content = { korContent, engContent };
 
   return (
@@ -42,7 +44,7 @@ const PostViewer = ({ post }) => {
       <div className="post-title">{t("title", { title })}</div>
       <div className="d-flex flex-row">
         <div className="details">
-          <b>{author}</b> | {t("views", { views })} |{" "}
+          <b>{t("author", { author })}</b> | {t("views", { views })} |{" "}
           {typeof createdAt !== "undefined"
             ? createdAt.split(/T|.000Z/)[0]
             : ""}

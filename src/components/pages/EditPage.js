@@ -2,7 +2,8 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import EditorContentContainer from "../containers/editor/EditorContentContainer";
 
-const EditPage = () => {
+const EditPage = props => {
+  const { boardId } = props.match.params;
   return (
     <div
       style={{
@@ -13,7 +14,7 @@ const EditPage = () => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <EditorContentContainer />
+      <EditorContentContainer boardId={boardId} />
       <Footer />
     </div>
   );

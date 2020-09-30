@@ -49,14 +49,13 @@ const Header = ({ history, ...props }) => {
     />
   );
 
-  const state = {
-    redirect: window.location.href
-  };
-
   const enter = <div className="tab-hover-enter" />;
   const leave = <div className="tab-hover-leave" />;
 
   useEffect(() => {
+    const state = {
+      redirect: window.location.href
+    };
     const tryLogout = () => {
       authAPI.logout().then(res => {
         window.location.reload(false);
@@ -99,7 +98,7 @@ const Header = ({ history, ...props }) => {
           </Nav.Link>
         </>
       );
-  }, [auth, history, lang, name, t]);
+  }, [auth, name, t]);
 
   return (
     <div style={{ backgroundColor: "#fff" }}>

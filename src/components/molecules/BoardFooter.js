@@ -8,7 +8,7 @@ import "./BoardFooter.scss";
 
 import { useSelector } from "react-redux";
 
-const BoardFooter = ({ author, title, page, lastPage, history }) => {
+const BoardFooter = ({ author, title, page, lastPage, history, boardId }) => {
   const { auth } = useSelector(state => state.auth);
 
   return (
@@ -24,7 +24,7 @@ const BoardFooter = ({ author, title, page, lastPage, history }) => {
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"
-            onClick={() => history.push("/web/admin/edit")}
+            onClick={() => history.push(`/web/admin/edit/${boardId}`)}
           >
             글 작성하기
           </Button>
@@ -32,7 +32,7 @@ const BoardFooter = ({ author, title, page, lastPage, history }) => {
           <div />
         )}
 
-        <SearchBar className="d-inline-block" />
+        {/* <SearchBar className="d-inline-block" /> */}
       </div>
     </div>
   );

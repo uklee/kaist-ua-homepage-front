@@ -1,25 +1,15 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, init, setPost } from "../../../modules/post";
-import { getBoards } from "../../../modules/boards";
+import { changeField, init } from "../../../modules/post";
+import { setBoards, setCurrentBoard } from "../../../modules/boards";
 import { EditorContent } from "../../templates";
 import { withRouter } from "react-router-dom";
 import * as postsAPI from "../../../lib/api/post";
 import * as boardsAPI from "../../../lib/api/board";
 
-const EditorContentContainer = ({ history }) => {
+const EditorContentContainer = ({ history, boardId }) => {
   const dispatch = useDispatch();
-
-  const { title, author, content, post, boards, boardId } = useSelector(
-    ({ post, boards }) => ({
-      title: post.title,
-      author: post.author,
-      content: post.content,
-      post: post.post,
-      boards: boards.boards,
-      boardId: post.boardId
-    })
-  );
+  const post = useSelector(({ post }) => post);
 
   const onChangeField = useCallback(payload => dispatch(changeField(payload)), [
     dispatch
@@ -29,25 +19,34 @@ const EditorContentContainer = ({ history }) => {
     history.goBack();
   };
 
-  const onWrite = async () => {
-    await postsAPI
-      .write({ title, author, content, boardId })
-      .then(res => dispatch(setPost(res.data)))
+  const onWrite = () => {
+    console.log(post);
+    postsAPI
+      .write(post)
+      .then(res => {
+        history.push(`/web/board/${boardId}`);
+      })
       .catch(err => console.log(err));
   };
 
-  const getBoardsList = useCallback(() => {
-    boardsAPI
-      .list()
-      .then(res1 => {
-        dispatch(getBoards(res1.data));
-      })
-      .catch(err => console.log(err));
-  }, [dispatch]);
+  useEffect(() => {
+    dispatch(changeField({ key: "boardId", value: boardId }));
+  }, [dispatch, boardId]);
 
   useEffect(() => {
-    getBoardsList();
-  }, [getBoardsList]);
+    boardsAPI
+      .list()
+      .then(res => {
+        const boards = res.data;
+        dispatch(setBoards(boards));
+        boards.forEach(board => {
+          if (board.id === parseInt(boardId)) {
+            dispatch(setCurrentBoard(board));
+          }
+        });
+      })
+      .catch(err => console.log(err));
+  }, [boardId, dispatch]);
 
   useEffect(() => {
     return () => {
@@ -55,23 +54,11 @@ const EditorContentContainer = ({ history }) => {
     };
   }, [dispatch]);
 
-  useEffect(() => {
-    if (post) {
-      const { id } = post;
-      history.push(`/web/post/${id}`);
-    }
-  }, [history, post]);
-
   return (
     <EditorContent
       onChangeField={onChangeField}
       onWrite={onWrite}
       onCancel={onCancel}
-      content={content}
-      title={title}
-      author={author}
-      boards={boards}
-      boardId={boardId}
     />
   );
 };

@@ -4,8 +4,7 @@ import qs from "qs";
 
 const posts = axios.create({ baseURL: `${baseURL}/posts` });
 
-export const write = ({ title, author, content, boardId }) =>
-  posts.post("", { title, author, content, boardId });
+export const write = post => posts.post("", post);
 
 export const list = ({ board }) => {
   const page = 1;

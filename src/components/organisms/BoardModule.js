@@ -8,8 +8,6 @@ import { useTranslation } from "react-i18next";
 const BoardModule = ({ className, board, posts }) => {
   const { t } = useTranslation(["BoardModule"]);
 
-  console.log(board);
-
   if (!posts) posts = [];
   while (posts.length < 5)
     posts = posts.concat({
@@ -19,12 +17,13 @@ const BoardModule = ({ className, board, posts }) => {
       date: "",
       createdAt: ""
     });
+  console.log(posts);
 
   const rows = posts.map(post => (
     <React.Fragment key={post.id}>
       <BoardModuleRow
         id={post.id}
-        author={post.author}
+        author={post.korAuthor}
         title={post.korTitle}
         date={post.date}
         createdAt={post.createdAt}

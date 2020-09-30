@@ -13,14 +13,17 @@ const { init, setPost, changeField } = createActions({
 export { init, setPost, changeField };
 
 const initialState = {
-  author: "",
+  korAuthor: "",
+  engAuthor: "",
   korTitle: "",
   engTitle: "",
   korContent: "",
   engContent: "",
   isActive: false,
   isNew: false,
-  views: 0
+  views: 0,
+  boardId: 0,
+  board: {}
 };
 
 const post = handleActions(

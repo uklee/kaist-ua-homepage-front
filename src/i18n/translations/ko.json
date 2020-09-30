@@ -8,6 +8,7 @@
   },
   "BoardRow": {
     "title": "{{title.korTitle}}",
+    "author": "{{author.korAuthor}}",
     "views": "조회수 {{views}}"
   },
   "Footer": {
@@ -32,6 +33,7 @@
   },
   "PostViewer": {
     "title": "{{title.korTitle}}",
+    "author": "{{author.korAuthor}}",
     "content": "{{content.korContent}}",
     "views": "조회수 {{views}}"
   }

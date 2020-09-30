@@ -1,60 +1,45 @@
 import React from "react";
-import { Container, Form } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { Container, Form, Col } from "react-bootstrap";
+import { EditorFormGroup } from "../molecules";
 import "./EditorHeader.scss";
 
-const EditorHeader = ({ onChangeField, title, author, boards, boardId }) => {
-  const onChangeTitle = e => {
-    onChangeField({ key: "title", value: e.target.value });
+const EditorHeader = ({ onChangeField }) => {
+  const onChange = (key, e) => {
+    onChangeField({ key, value: e.target.value });
   };
 
-  const onChangeAuthor = e => {
-    onChangeField({ key: "author", value: e.target.value });
-  };
-
-  const onChangeBoard = e => {
-    onChangeField({ key: "boardId", value: e.target.value });
-  };
-
-  if (!boards) return <div>로딩중...</div>;
-
-  const options = boards.map((board, index) => (
-    <option value={index + 1}>{board.title}</option>
-  ));
+  const post = useSelector(({ post }) => post);
 
   return (
     <Container className="border-bottom mt-3">
       <Form>
-        <Form.Group className="d-flex  align-items-center">
-          <Form.Label className="mb-0  Label">게시판</Form.Label>
-          <Form.Control
-            className="flex-1"
-            as="select"
-            value={boardId}
-            onChange={onChangeBoard}
-          >
-            {options}
-          </Form.Control>
-        </Form.Group>
-        <Form.Group className="d-flex  align-items-center">
-          <Form.Label className="mb-0 Label">작성자</Form.Label>
-          <Form.Control
-            className="flex-1"
-            type="text"
-            placeholder="작성자"
-            onChange={onChangeAuthor}
-            value={author}
+        <Form.Row>
+          <EditorFormGroup
+            as={Col}
+            label="작성자 (한글)"
+            placeholder="예) 윤현식"
+            onChange={e => onChange("korAuthor", e)}
+            value={post.korAuthor}
           />
-        </Form.Group>
-        <Form.Group className="d-flex  align-items-center">
-          <Form.Label className="mb-0 Label">글 제목</Form.Label>
-          <Form.Control
-            className="flex-1"
-            type="text"
-            placeholder="제목"
-            onChange={onChangeTitle}
-            value={title}
+          <EditorFormGroup
+            as={Col}
+            label="작성자 (영어)"
+            placeholder="예) Hyunsik Yoon"
+            onChange={e => onChange("engAuthor", e)}
+            value={post.engAuthor}
           />
-        </Form.Group>
+        </Form.Row>
+        <EditorFormGroup
+          label="제목 (한글)"
+          onChange={e => onChange("korTitle", e)}
+          value={post.korTitle}
+        />
+        <EditorFormGroup
+          label="제목 (영어)"
+          onChange={e => onChange("engTitle", e)}
+          value={post.engTitle}
+        />
       </Form>
     </Container>
   );

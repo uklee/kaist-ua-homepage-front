@@ -4,11 +4,21 @@ import "./BoardRow.scss";
 import { useTranslation } from "react-i18next";
 
 const BoardRow = ({ post }) => {
-  const { id, author, korTitle, engTitle, createdAt, views, isNew } = post;
+  const {
+    id,
+    korAuthor,
+    engAuthor,
+    korTitle,
+    engTitle,
+    createdAt,
+    views,
+    isNew
+  } = post;
 
   const { t } = useTranslation(["BoardRow"]);
 
   const title = { korTitle, engTitle };
+  const author = { korAuthor, engAuthor };
 
   const newTag = isNew ? <div className="new-tag">NEW</div> : null;
 
@@ -22,7 +32,7 @@ const BoardRow = ({ post }) => {
       </div>
       <div className="d-flex">
         <h6 className="details text-black-50">
-          <b>{author}</b>
+          <b>{t("author", { author })}</b>
           {` | ${t("views", { views })} | ${
             createdAt ? createdAt.split(/T|.000Z/)[0] : null
           }`}

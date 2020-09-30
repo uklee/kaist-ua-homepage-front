@@ -4,3 +4,4 @@ export { default as CarouselItem } from "./CarouselItem";
 export { default as BoardHeader } from "./BoardHeader";
 export { default as BoardRow } from "./BoardRow";
 export { default as BoardFooter } from "./BoardFooter";
+export { default as EditorFormGroup } from "./EditorFormGroup";
