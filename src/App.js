@@ -40,7 +40,10 @@ function App() {
         path="/web/admin/payment"
         component={pages.AdminPaymentPage}
       />
-      <Route path="/web/admin/edit/:boardId" component={pages.EditPage} />
+      <ProtectedRoute
+        path="/web/admin/edit/:boardId"
+        component={pages.EditPage}
+      />
 
       <Route
         path="/web/auth/agreement/:login"
