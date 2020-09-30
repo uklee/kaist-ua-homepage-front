@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import { SearchBar } from "../atoms";
+// import { SearchBar } from "../atoms";
 import { Button } from "react-bootstrap";
 import PaginationContainer from "../containers/board/PaginationContainer";
 import "./BoardFooter.scss";

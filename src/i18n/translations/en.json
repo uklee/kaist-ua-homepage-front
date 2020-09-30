@@ -4,7 +4,8 @@
     "description": "{{description.engDescription}}"
   },
   "BoardModule": {
-    "title": "{{board.engTitle}}"
+    "title": "{{board.engTitle}}",
+    "content": "{{value.eng}}"
   },
   "BoardRow": {
     "title": "{{title.engTitle}}",

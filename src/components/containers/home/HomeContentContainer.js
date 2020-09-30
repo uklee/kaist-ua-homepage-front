@@ -26,7 +26,7 @@ const HomeContentContainer = () => {
           const res = await postsAPI.listPosts({ boardId, page });
           const boardModuleInfo = {
             board,
-            posts: res.data.posts.concat(0, 5)
+            posts: res.data.posts.slice(0, 5)
           };
           ret = ret.concat(boardModuleInfo);
         } catch (err) {
@@ -37,7 +37,6 @@ const HomeContentContainer = () => {
     }
     fetchData().then(res => setBoardModuleInfos(res));
   }, [boards]);
-
   return <HomeContent BoardModuleInfos={boardModuleInfos} />;
 };
 

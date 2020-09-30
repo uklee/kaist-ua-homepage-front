@@ -12,25 +12,27 @@ const BoardModule = ({ className, board, posts }) => {
   while (posts.length < 5)
     posts = posts.concat({
       id: posts.length,
-      author: "",
-      title: "",
       date: "",
       createdAt: ""
     });
-  console.log(posts);
 
-  const rows = posts.map(post => (
-    <React.Fragment key={post.id}>
-      <BoardModuleRow
-        id={post.id}
-        author={post.korAuthor}
-        title={post.korTitle}
-        date={post.date}
-        createdAt={post.createdAt}
-      />
-      <div className="board-module-divider" />
-    </React.Fragment>
-  ));
+  const rows = posts.map(post => {
+    const { korTitle, engTitle, korAuthor, engAuthor } = post;
+    const title = korTitle ? { kor: korTitle, eng: engTitle } : "";
+    const author = { kor: korAuthor, eng: engAuthor };
+    return (
+      <React.Fragment key={post.id}>
+        <BoardModuleRow
+          id={post.id}
+          author={author}
+          title={title}
+          date={post.date}
+          createdAt={post.createdAt}
+        />
+        <div className="board-module-divider" />
+      </React.Fragment>
+    );
+  });
 
   return (
     <div className={`${className} boardModule-module`}>

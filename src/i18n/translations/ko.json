@@ -4,7 +4,8 @@
     "description": "{{description.korDescription}}"
   },
   "BoardModule": {
-    "title": "{{board.korTitle}}"
+    "title": "{{board.korTitle}}",
+    "content": "{{value.kor}}"
   },
   "BoardRow": {
     "title": "{{title.korTitle}}",
