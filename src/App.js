@@ -35,6 +35,7 @@ function App() {
       <Route path="/web/board/:boardId" component={pages.BoardPage} />
       <Route path="/web/post/:postId" component={pages.PostViewPage} />
 
+      {/* Admin */}
       <Route path="/web/admin/login" component={pages.AdminLoginPage} />
       <ProtectedRoute
         path="/web/admin/payment"
@@ -51,7 +52,9 @@ function App() {
       />
       <Route path="/web/auth/agreement" component={pages.AuthAgreementPage} />
 
+      {/* User */}
       <UserRoute path="/web/user/studentFee" component={pages.StudentFeePage} />
+
       <Redirect to="/web/main" />
     </Switch>
   );
