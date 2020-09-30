@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 const BoardHeader = ({ title, description }) => {
   const { t } = useTranslation(["BoardHeader"]);
 
-  const actualTitle = typeof title === "string" ? title : t("title", { title });
+  const actualTitle = typeof title !== "object" ? title : t("title", { title });
   const actualDescription =
-    typeof description === "string"
+    typeof description !== "object"
       ? description
       : t("description", { description });
 

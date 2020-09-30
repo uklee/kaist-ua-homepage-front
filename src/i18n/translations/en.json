@@ -8,6 +8,7 @@
   },
   "BoardRow": {
     "title": "{{title.engTitle}}",
+    "author": "{{author.engAuthor}}",
     "views": "{{views}} views"
   },
   "Footer": {
@@ -32,6 +33,7 @@
   },
   "PostViewer": {
     "title": "{{title.engTitle}}",
+    "author": "{{author.engAuthor}}",
     "content": "{{content.engContent}}",
     "views": "{{views}} views",
     "공지사항": "Announcements"

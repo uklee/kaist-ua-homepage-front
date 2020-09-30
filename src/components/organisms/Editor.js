@@ -4,14 +4,14 @@ import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import "./Editor.scss";
 
-const Editor = ({ onChangeField, content }) => {
-  const quillElement = useRef(null);
+const Editor = ({ onChangeField, placeholder, keyName }) => {
+  const korContentQuill = useRef(null);
   const quillInstance = useRef(null);
 
   useEffect(() => {
-    quillInstance.current = new Quill(quillElement.current, {
+    quillInstance.current = new Quill(korContentQuill.current, {
       theme: "bubble",
-      placeholder: "내용을 작성하세요...",
+      placeholder,
       modules: {
         toolbar: [
           [{ header: "1" }, { header: "2" }, { header: "3" }],
@@ -25,13 +25,13 @@ const Editor = ({ onChangeField, content }) => {
     const quill = quillInstance.current;
     quill.on("text-change", (delta, oldDelta, source) => {
       if (source === "user")
-        onChangeField({ key: "content", value: quill.root.innerHTML });
+        onChangeField({ key: keyName, value: quill.root.innerHTML });
     });
-  }, [onChangeField]);
+  }, [onChangeField, keyName, placeholder]);
 
   return (
-    <Container style={{ height: "300px" }}>
-      <div ref={quillElement} />
+    <Container className="border-bottom" style={{ height: "300px" }}>
+      <div ref={korContentQuill} />
     </Container>
   );
 };

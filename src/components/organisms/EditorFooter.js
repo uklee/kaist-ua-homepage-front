@@ -3,7 +3,7 @@ import { Container, Button } from "react-bootstrap";
 
 const EditorFooter = ({ onCancel, onWrite }) => {
   return (
-    <Container className="border-top">
+    <Container>
       <div className="d-flex justify-content-end py-3">
         <Button onClick={onWrite} className="mr-3">
           작성 완료

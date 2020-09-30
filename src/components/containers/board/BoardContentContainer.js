@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import BoardContent from "../../templates/BoardContent";
 import * as boardsAPI from "../../../lib/api/board";
 import * as postsAPI from "../../../lib/api/post";
-import { getBoards } from "../../../modules/boards";
+import { setBoards } from "../../../modules/boards";
 import { listPosts } from "../../../modules/posts";
 
 const BoardContentContainer = ({ location, boardId, history }) => {
@@ -31,7 +31,7 @@ const BoardContentContainer = ({ location, boardId, history }) => {
     boardsAPI
       .list()
       .then(res1 => {
-        dispatch(getBoards(res1.data));
+        dispatch(setBoards(res1.data));
 
         postsAPI
           .listPosts({ author, korTitle, engTitle, page, boardId })
