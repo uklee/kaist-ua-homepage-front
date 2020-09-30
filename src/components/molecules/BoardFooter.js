@@ -32,7 +32,7 @@ const BoardFooter = ({ author, title, page, lastPage, history, boardId }) => {
           <div />
         )}
 
-        <SearchBar className="d-inline-block" />
+        {/* <SearchBar className="d-inline-block" /> */}
       </div>
     </div>
   );
