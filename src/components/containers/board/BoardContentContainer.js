@@ -34,7 +34,7 @@ const BoardContentContainer = ({ location, boardId, history }) => {
         dispatch(setBoards(res1.data));
 
         postsAPI
-          .listPosts({ author, korTitle, engTitle, page, boardId })
+          .list({ author, korTitle, engTitle, page, boardId })
           .then(res2 => {
             const { posts, lastPage } = res2.data;
             dispatch(listPosts({ posts, lastPage }));

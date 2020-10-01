@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withRouter, Link } from "react-router-dom";
 
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Overlay,
-  Tooltip
-} from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import korLogo from "../../static/logo/ua_logo_kor.png";
 import engLogo from "../../static/logo/ua_logo_eng.png";
 import "./Header.scss";
@@ -28,8 +21,6 @@ const Header = ({ history, ...props }) => {
   const [hover4, setHover4] = useState(<div />);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
   const target = useRef(null);
-
-  const [showTooltip, setShowTooltip] = useState(false);
 
   const { auth, name } = useSelector(state => state.auth);
   const [lang, setLang] = useState(i18n.language);
@@ -129,28 +120,15 @@ const Header = ({ history, ...props }) => {
             <Nav.Link
               ref={target}
               className="header-item"
-              href=""
-              onClick={() => setShowTooltip(true)}
+              href="/web/petition"
               onMouseEnter={() => setHover2(enter)}
               onMouseLeave={() => {
                 setHover2(leave);
-                setShowTooltip(false);
               }}
             >
               {t("학생청원")}
-              {props.tab3 ? active : hover2}
+              {props.active === "petition" ? active : hover2}
             </Nav.Link>
-            <Overlay
-              target={target.current}
-              show={showTooltip}
-              placement="bottom"
-            >
-              {props => (
-                <Tooltip id="overlay-example" {...props}>
-                  Coming soon
-                </Tooltip>
-              )}
-            </Overlay>
             <Nav.Link
               className={`header-item ${props.notice}`}
               href="/web/board/1"

@@ -23,7 +23,7 @@ const HomeContentContainer = () => {
         const boardId = board.id;
         const page = 1;
         try {
-          const res = await postsAPI.listPosts({ boardId, page });
+          const res = await postsAPI.list({ boardId, page });
           const boardModuleInfo = {
             board,
             posts: res.data.posts.slice(0, 5)
