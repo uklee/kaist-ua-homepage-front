@@ -8,8 +8,11 @@ import "./BoardFooter.scss";
 
 import { useSelector } from "react-redux";
 
+import { useTranslation } from "react-i18next";
+
 const BoardFooter = ({ title, page, lastPage, history }) => {
   const { auth } = useSelector(state => state.auth);
+  const { t } = useTranslation(["Label"]);
 
   return (
     <div className="d-flex flex-column justify-content-center Board-footer">
@@ -21,7 +24,7 @@ const BoardFooter = ({ title, page, lastPage, history }) => {
             className="h-100 d-inline-block"
             onClick={() => history.push(`/web/user/petition/edit`)}
           >
-            지금 청원하기
+            {t("label", { kor: "지금 청원하기", eng: "Start a petition" })}
           </Button>
         ) : (
           <div />
