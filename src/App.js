@@ -33,14 +33,23 @@ function App() {
 
       <Route path="/web/introduction" component={pages.IntroductionPage} />
       <Route path="/web/board/:boardId" component={pages.BoardPage} />
+      <Route
+        path="/web/petition/:petitionId"
+        component={pages.PetitionViewPage}
+      />
+      <Route path="/web/petition" component={pages.PetitionBoardPage} />
       <Route path="/web/post/:postId" component={pages.PostViewPage} />
 
+      {/* Admin */}
       <Route path="/web/admin/login" component={pages.AdminLoginPage} />
       <ProtectedRoute
         path="/web/admin/payment"
         component={pages.AdminPaymentPage}
       />
-      <Route path="/web/admin/edit" component={pages.EditPage} />
+      <ProtectedRoute
+        path="/web/admin/edit/:boardId"
+        component={pages.EditPage}
+      />
 
       <Route
         path="/web/auth/agreement/:login"
@@ -48,7 +57,13 @@ function App() {
       />
       <Route path="/web/auth/agreement" component={pages.AuthAgreementPage} />
 
+      {/* User */}
       <UserRoute path="/web/user/studentFee" component={pages.StudentFeePage} />
+      <UserRoute
+        path="/web/user/petition/edit"
+        component={pages.PetitionEditPage}
+      />
+
       <Redirect to="/web/main" />
     </Switch>
   );

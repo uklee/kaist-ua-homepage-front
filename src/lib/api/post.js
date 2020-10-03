@@ -4,22 +4,11 @@ import qs from "qs";
 
 const posts = axios.create({ baseURL: `${baseURL}/posts` });
 
-export const write = ({ title, author, content, boardId }) =>
-  posts.post("", { title, author, content, boardId });
-
-export const list = ({ board }) => {
-  const page = 1;
-  const boardId = board.id;
-  const queryString = qs.stringify({
-    page,
-    boardId
-  });
-  return posts.get(`?${queryString}`);
-};
+export const write = post => posts.post("", post);
 
 export const read = id => posts.get(`/${id}`);
 
-export const listPosts = ({ page, author, title, boardId }) => {
+export const list = ({ page, author, title, boardId }) => {
   const queryString = qs.stringify({
     page,
     author,

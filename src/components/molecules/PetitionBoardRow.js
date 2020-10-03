@@ -3,22 +3,14 @@ import "./BoardRow.scss";
 
 import { useTranslation } from "react-i18next";
 
-const BoardRow = ({ post }) => {
-  const {
-    id,
-    korAuthor,
-    engAuthor,
-    korTitle,
-    engTitle,
-    createdAt,
-    views,
-    isNew
-  } = post;
+const PetitionBoardRow = ({ petition }) => {
+  const { id, korTitle, engTitle, createdAt, Students, isNew } = petition;
+
+  const votes = Students.length;
 
   const { t } = useTranslation(["BoardRow"]);
 
   const title = { korTitle, engTitle };
-  const author = { korAuthor, engAuthor };
 
   const newTag = isNew ? <div className="new-tag">NEW</div> : null;
 
@@ -26,14 +18,13 @@ const BoardRow = ({ post }) => {
     <div className="board-row-shell">
       <div className="title-row">
         {newTag}
-        <a className="title" href={`/web/post/${id}`}>
+        <a className="title" href={`/web/petition/${id}`}>
           {t("title", { title })}
         </a>
       </div>
       <div className="d-flex">
         <h6 className="details text-black-50">
-          <b>{t("author", { author })}</b>
-          {` | ${t("views", { views })} | ${
+          {`${t("votes", { votes })} | ${
             createdAt ? createdAt.split(/T|.000Z/)[0] : null
           }`}
         </h6>
@@ -42,4 +33,4 @@ const BoardRow = ({ post }) => {
   );
 };
 
-export default BoardRow;
+export default PetitionBoardRow;

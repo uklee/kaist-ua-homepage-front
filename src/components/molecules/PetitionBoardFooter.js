@@ -8,25 +8,20 @@ import "./BoardFooter.scss";
 
 import { useSelector } from "react-redux";
 
-const BoardFooter = ({ author, title, page, lastPage, history, boardId }) => {
+const BoardFooter = ({ title, page, lastPage, history }) => {
   const { auth } = useSelector(state => state.auth);
 
   return (
     <div className="d-flex flex-column justify-content-center Board-footer">
-      <PaginationContainer
-        author={author}
-        title={title}
-        page={page}
-        lastPage={lastPage}
-      />
+      <PaginationContainer title={title} page={page} lastPage={lastPage} />
       <div className="d-flex justify-content-between">
-        {auth === "admin" ? (
+        {auth === "student" ? (
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"
-            onClick={() => history.push(`/web/admin/edit/${boardId}`)}
+            onClick={() => history.push(`/web/user/petition/edit`)}
           >
-            글 작성하기
+            지금 청원하기
           </Button>
         ) : (
           <div />

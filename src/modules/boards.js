@@ -1,18 +1,25 @@
 import { createAction, handleActions } from "redux-actions";
 
-const GET_BOARDS = "boards/GET_BOARDS";
+const ALL_BOARDS = "boards/ALL_BOARDS";
+const CURRENT_BOARD = "boards/CURRENT_BOARD";
 
-export const getBoards = createAction(GET_BOARDS, boards => boards);
+export const setBoards = createAction(ALL_BOARDS);
+export const setCurrentBoard = createAction(CURRENT_BOARD);
 
 const initialState = {
-  boards: []
+  boards: [],
+  board: {}
 };
 
 const boards = handleActions(
   {
-    [GET_BOARDS]: (state, { payload: boards }) => ({
+    [ALL_BOARDS]: (state, { payload: boards }) => ({
       ...state,
       boards
+    }),
+    [CURRENT_BOARD]: (state, { payload: board }) => ({
+      ...state,
+      board
     })
   },
   initialState

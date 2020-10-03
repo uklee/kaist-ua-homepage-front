@@ -35,6 +35,10 @@
 
 .post-content {
   padding-top: 15px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  height: max-content;
+}
+
+.petition-viewer-vote-button {
+  margin: auto;
+  width: 200px;
 }

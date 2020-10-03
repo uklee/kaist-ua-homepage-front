@@ -20,7 +20,7 @@ const BoardContent = ({ boards, boardId, posts }) => {
         description={{ korDescription, engDescription }}
       />
       <BoardList posts={posts} />
-      <BoardFooter />
+      <BoardFooter boardId={boardId} />
     </Container>
   );
 };

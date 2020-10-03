@@ -6,6 +6,9 @@ export { default as BoardList } from "./BoardList";
 export { default as Editor } from "./Editor";
 export { default as EditorHeader } from "./EditorHeader";
 export { default as EditorFooter } from "./EditorFooter";
+
+export { default as PetitionEditor } from "./PetitionEditor";
+
 export { default as HomeCarousel } from "./HomeCarousel";
 export { default as AdminLoginModule } from "./AdminLoginModule";
 
