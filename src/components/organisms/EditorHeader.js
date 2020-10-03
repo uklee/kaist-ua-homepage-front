@@ -16,14 +16,14 @@ const EditorHeader = ({ onChangeField }) => {
       <Form>
         <Form.Row>
           <EditorFormGroup
-            as={Col}
+            groupAs={Col}
             label="작성자 (한글)"
             placeholder="예) 윤현식"
             onChange={e => onChange("korAuthor", e)}
             value={post.korAuthor}
           />
           <EditorFormGroup
-            as={Col}
+            groupAs={Col}
             label="작성자 (영어)"
             placeholder="예) Hyunsik Yoon"
             onChange={e => onChange("engAuthor", e)}

@@ -1,23 +1,17 @@
 import { createAction, handleActions } from "redux-actions";
 
-const SET_PETITIONS = "petitions/SET_PETITIONS";
+const PETITIONS = "petitions/PETITIONS";
 
-export const setPetitions = createAction(
-  SET_PETITIONS,
-  ({ petitions, lastPage }) => ({
-    petitions,
-    lastPage
-  })
-);
+export const setPetitions = createAction(PETITIONS);
 
 const initialState = {
-  petitions: [],
+  petitions: null,
   lastPage: 1
 };
 
 const petitions = handleActions(
   {
-    [SET_PETITIONS]: (state, { payload: { petitions, lastPage } }) => ({
+    [PETITIONS]: (state, { payload: { petitions, lastPage } }) => ({
       ...state,
       petitions,
       lastPage

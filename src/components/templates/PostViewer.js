@@ -56,5 +56,4 @@ const PostViewer = ({ post }) => {
     </Container>
   );
 };
-
 export default PostViewer;

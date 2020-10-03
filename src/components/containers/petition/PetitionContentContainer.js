@@ -5,14 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import PetitionBoardContent from "../../templates/PetitionBoardContent";
 import * as petitionsAPI from "../../../lib/api/petition";
 
-import setPetitions from "../../../modules/petitions";
-import { get } from "lodash";
+import { setPetitions } from "../../../modules/petitions";
 
 const PetitionContentContainer = ({ location, history }) => {
   const dispatch = useDispatch();
   const petitions = useSelector(({ petitions }) => petitions.petitions);
 
-  const { korTitle, engTitle, page } = qs.parse(location.search, {
+  const { page } = qs.parse(location.search, {
     ignoreQueryPrefix: true
   });
 
@@ -28,14 +27,15 @@ const PetitionContentContainer = ({ location, history }) => {
     petitionsAPI
       .list({ page })
       .then(res => {
-        dispatch(setPetitions(res.data));
+        const { petitions, lastPage } = res.data;
+        dispatch(setPetitions({ petitions, lastPage }));
       })
       .catch(err => console.log(err));
   }, [dispatch, page]);
 
   useEffect(() => {
     getPetitions();
-  }, [dispatch, page, getPetitions]);
+  }, [dispatch, getPetitions]);
 
   return <PetitionBoardContent petitions={petitions} />;
 };

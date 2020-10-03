@@ -19,7 +19,7 @@ const BoardFooter = ({ title, page, lastPage, history }) => {
           <Button
             variant="outline-primary"
             className="h-100 d-inline-block"
-            onClick={() => history.push(`/web/user/edit`)}
+            onClick={() => history.push(`/web/user/petition/edit`)}
           >
             지금 청원하기
           </Button>

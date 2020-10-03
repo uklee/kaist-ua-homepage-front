@@ -3,8 +3,6 @@ import { Container } from "react-bootstrap";
 import "./BoardContent.scss";
 import { BoardList } from "../organisms";
 import { BoardHeader, PetitionBoardFooter } from "../molecules";
-import { Loading } from "../atoms";
-import { isEmpty } from "lodash";
 
 const PetitionBoardContent = ({ petitions }) => {
   return (

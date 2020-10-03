@@ -1,9 +1,17 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const EditorFormGroup = ({ label, value, onChange, as, placeholder }) => {
+const EditorFormGroup = ({
+  label,
+  value,
+  onChange,
+  groupAs,
+  controlAs,
+  rows,
+  placeholder
+}) => {
   return (
-    <Form.Group as={as} className="align-items-center">
+    <Form.Group as={groupAs} className="align-items-center">
       <Form.Label>{label}</Form.Label>
       <Form.Control
         className="flex-1"
@@ -11,6 +19,8 @@ const EditorFormGroup = ({ label, value, onChange, as, placeholder }) => {
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        as={controlAs}
+        rows={rows}
       />
     </Form.Group>
   );

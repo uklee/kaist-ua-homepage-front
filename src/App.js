@@ -33,6 +33,10 @@ function App() {
 
       <Route path="/web/introduction" component={pages.IntroductionPage} />
       <Route path="/web/board/:boardId" component={pages.BoardPage} />
+      <Route
+        path="/web/petition/:petitionId"
+        component={pages.PetitionViewPage}
+      />
       <Route path="/web/petition" component={pages.PetitionBoardPage} />
       <Route path="/web/post/:postId" component={pages.PostViewPage} />
 
@@ -55,6 +59,10 @@ function App() {
 
       {/* User */}
       <UserRoute path="/web/user/studentFee" component={pages.StudentFeePage} />
+      <UserRoute
+        path="/web/user/petition/edit"
+        component={pages.PetitionEditPage}
+      />
 
       <Redirect to="/web/main" />
     </Switch>

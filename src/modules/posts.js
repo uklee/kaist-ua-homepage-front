@@ -2,10 +2,7 @@ import { createAction, handleActions } from "redux-actions";
 
 const LIST_POSTS = "posts/LIST_POSTS";
 
-export const listPosts = createAction(LIST_POSTS, ({ posts, lastPage }) => ({
-  posts,
-  lastPage
-}));
+export const listPosts = createAction(LIST_POSTS);
 
 const initialState = {
   posts: null,

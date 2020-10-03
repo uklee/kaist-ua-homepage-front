@@ -1,9 +1,8 @@
 import React from "react";
 import { Header, Footer } from "../organisms";
-import EditorContentContainer from "../containers/editor/EditorContentContainer";
+import PetitionEditorContentContainer from "../containers/editor/PetitionEditorContentContainer";
 
-const EditPage = props => {
-  const { boardId } = props.match.params;
+const PetitionEditPage = props => {
   return (
     <div
       style={{
@@ -13,11 +12,11 @@ const EditPage = props => {
       }}
       className="d-flex flex-column"
     >
-      <Header active={boardId} />
-      <EditorContentContainer boardId={boardId} />
+      <Header active="petition" />
+      <PetitionEditorContentContainer />
       <Footer />
     </div>
   );
 };
 
-export default EditPage;
+export default PetitionEditPage;

@@ -1,13 +1,18 @@
 import React from "react";
 import "./BoardList.scss";
-import { BoardRow } from "../molecules";
+import { BoardRow, PetitionBoardRow } from "../molecules";
 
-const BoardList = ({ posts, isUser }) => {
-  if (!posts) return <div className="board-list"></div>;
+const BoardList = ({ posts, petitions }) => {
+  if (!posts && !petitions) return <div className="board-list"></div>;
 
-  const rows = posts.map(post => (
-    <BoardRow key={post.id} post={post} isUser={isUser} />
-  ));
+  let rows;
+  if (!posts) {
+    rows = petitions.map(petition => (
+      <PetitionBoardRow key={petition.id} petition={petition} />
+    ));
+  } else {
+    rows = posts.map(post => <BoardRow key={post.id} post={post} />);
+  }
 
   return <div className="board-list">{rows}</div>;
 };

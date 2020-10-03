@@ -2,7 +2,10 @@ import axios from "axios";
 import baseURL from "../baseURL";
 import qs from "qs";
 
-const petitions = axios.create({ baseURL: `${baseURL}/petitions` });
+const petitions = axios.create({
+  baseURL: `${baseURL}/petitions`,
+  withCredentials: true
+});
 
 export const write = petition => petitions.post("", petition);
 

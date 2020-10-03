@@ -13,10 +13,12 @@ const { init, setPetition, changeField } = createActions({
 export { init, setPetition, changeField };
 
 const initialState = {
+  id: "",
   korTitle: "",
   engTitle: "",
   korContent: "",
-  engContent: ""
+  engContent: "",
+  Students: []
 };
 
 const petition = handleActions(

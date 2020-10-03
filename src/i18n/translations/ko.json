@@ -10,7 +10,8 @@
   "BoardRow": {
     "title": "{{title.korTitle}}",
     "author": "{{author.korAuthor}}",
-    "views": "조회수 {{views}}"
+    "views": "조회수 {{views}}",
+    "votes": "{{votes}}명 참여 중"
   },
   "Footer": {
     "학부 총학생회": "학부 총학생회",
@@ -32,10 +33,14 @@
     "학생 복지": "학생 복지",
     "name": "{{name.korName}}"
   },
+  "Label": {
+    "label": "{{kor}}"
+  },
   "PostViewer": {
     "title": "{{title.korTitle}}",
     "author": "{{author.korAuthor}}",
     "content": "{{content.korContent}}",
-    "views": "조회수 {{views}}"
+    "views": "조회수 {{views}}",
+    "votes": "{{votes}}명 참여 중"
   }
 }
