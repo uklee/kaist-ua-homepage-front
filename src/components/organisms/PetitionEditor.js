@@ -36,8 +36,8 @@ const PetitionEditor = ({ onChangeField }) => {
         />
         <EditorFormGroup
           label={t("label", { kor: "내용 (영어)", eng: "Content (English)" })}
-          onChange={e => onChange("korContent", e)}
-          value={petition.korContent}
+          onChange={e => onChange("engContent", e)}
+          value={petition.engContent}
           controlAs="textarea"
           rows="5"
         />

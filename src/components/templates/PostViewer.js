@@ -50,9 +50,9 @@ const PostViewer = ({ post }) => {
             : ""}
         </div>
       </div>
-      <Col md="8" lg="7" className="post-content">
+      <div md="8" lg="7" className="post-content">
         <div dangerouslySetInnerHTML={{ __html: t("content", { content }) }} />
-      </Col>
+      </div>
     </Container>
   );
 };
