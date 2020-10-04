@@ -36,7 +36,7 @@ const AdminLoginModule = ({ history }) => {
 
   return (
     <div className="flex-grow-1 login-module d-flex flex-column">
-      <a href="/" className="align-self-center">
+      <a href="/web" className="align-self-center">
         <img src={logo} className="logo" width="120px" alt="UA_logo" />
       </a>
       <Form className="login-form" onSubmit={tryLogin}>
