@@ -32,8 +32,9 @@ const StudentFeePage = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showFailModal, setShowFailModal] = useState(false);
 
-  const { t } = useTranslation(["StudentFeePage"]);
+  const { t } = useTranslation(["StudentFeePage", "Label"]);
 
+  const paymentDeadline = new Date() < new Date(2020, 9, 19);
   const handleModalCloseAndRefresh = () => {
     handleModalOpen("");
     window.location.reload(false);
@@ -46,7 +47,7 @@ const StudentFeePage = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
-    if (new Date() > new Date(2020, 8, 7)) {
+    if (!paymentDeadline) {
       alert(t("납부 기간이 지났습니다."));
       return;
     }
@@ -108,7 +109,7 @@ const StudentFeePage = () => {
         handleClose={handleModalCloseAndRefresh}
         confirmMessage={t("확인")}
       />
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleSubmit}>
         <Modal.Header closeButton>
           <Modal.Title>{t("2020년도 가을학기 학생회비 납부")}</Modal.Title>
         </Modal.Header>
@@ -135,9 +136,12 @@ const StudentFeePage = () => {
             </ButtonGroup>
           </div>
           <div style={{ color: "#888", fontSize: "10pt", paddingTop: "15px" }}>
-            {t(
-              "납부를 선택하시면 이번 학기 첫 달(9월) 학자금에서 20,200원이 공제됩니다."
-            )}
+            {t("Label:label", {
+              kor:
+                "납부를 선택하시면 이번 학기 11월 학자금에서 20,200원이 공제됩니다.",
+              eng:
+                "If you choose Yes, an amount of ₩20,200 will be deducted from this semester's November scholarship."
+            })}
           </div>
         </Modal.Body>
         <Modal.Footer>
@@ -190,17 +194,23 @@ const StudentFeePage = () => {
             <span style={{ fontSize: "15pt", fontFamily: "NanumSquare Bold" }}>
               {t("2020년 가을학기")}
             </span>
-            {new Date() < new Date(2020, 8, 7) ? (
+            {paymentDeadline ? (
               <span
                 style={{ fontSize: "10pt", color: "#0a0", paddingLeft: "10px" }}
               >
-                {t("9월 6일까지 변경 가능")}
+                {t("Label:label", {
+                  kor: "10월 18일까지 변경 가능",
+                  eng: "Changes accepted until Oct. 18"
+                })}
               </span>
             ) : (
               <span
                 style={{ fontSize: "10pt", color: "#a00", paddingLeft: "10px" }}
               >
-                {t("변경 기간이 지났습니다.")}
+                {t("Label:label", {
+                  kor: "변경 기간이 지났습니다.",
+                  eng: "The payment decision period has ended."
+                })}
               </span>
             )}
           </Col>
@@ -210,14 +220,14 @@ const StudentFeePage = () => {
             </Col>
           ) : (
             <Col lg={3} className="d-flex">
-              {t("9월 17일 납부 예정")}
+              {t("Label:label", {
+                kor: "11월 10일 납부 예정",
+                eng: "Will be charged on Nov. 10"
+              })}
             </Col>
           )}
           <Col lg={2} className="d-flex justify-content-end">
-            <Button
-              disabled={new Date() > new Date(2020, 8, 7)}
-              onClick={handleShow}
-            >
+            <Button disabled={!paymentDeadline} onClick={handleShow}>
               {t("변경하기")}
             </Button>
           </Col>

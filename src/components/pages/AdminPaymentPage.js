@@ -8,24 +8,8 @@ import { BoardHeader } from "../molecules";
 import * as paymentAPI from "../../lib/api/payment";
 
 const AdminPaymentPage = () => {
-  const CURRENT_YEAR = new Date().getFullYear();
-  const years = [];
-  const semesterMap = new Map();
-  var i;
-  for (i = CURRENT_YEAR; i >= 2010; i--) {
-    const spring = `${i}년 봄학기`;
-    const fall = `${i}년 가을학기`;
-    years.push(fall);
-    years.push(spring);
-    semesterMap[spring] = { year: i, semester: "spring" };
-    semesterMap[fall] = { year: i, semester: "fall" };
-  }
-
-  const [year, setYear] = useState(semesterMap[years[0].year]);
-  const [semester, setSemester] = useState(semesterMap[years[0].semester]);
   const [idList, setIdList] = useState([]);
   const [fileName, setFileName] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(years[0]);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showFailModal, setShowFailModal] = useState(false);
@@ -37,22 +21,19 @@ const AdminPaymentPage = () => {
     setShowFailModal(current === "fail");
   };
 
-  var c = 0;
-  const options = years.map(option => <option key={c++}>{option}</option>);
-
   const verifyIdList = fileContent => {
-    const studentIds = [];
-    for (i = 0; i < fileContent.length; i++) {
+    const studentDataCollection = [];
+    for (var i = 3; i < fileContent.length - 1; i++) {
       const currentRow = fileContent[i].split(",");
-      var j;
-      for (j = 0; j < currentRow.length; j++) {
+      const studentId = currentRow[1].trim();
+      const studentData = [studentId];
+      for (var j = 13; j < currentRow.length; j++) {
         const currentValue = currentRow[j].trim();
-        if (currentValue.length === 8 && currentValue.startsWith("20")) {
-          studentIds.push(currentValue);
-        }
+        studentData.push(currentValue);
       }
+      studentDataCollection.push(studentData);
     }
-    return studentIds;
+    return studentDataCollection;
   };
 
   const handleFiles = files => {
@@ -65,18 +46,9 @@ const AdminPaymentPage = () => {
     reader.readAsText(files[0]);
   };
 
-  const handleSemester = event => {
-    setSelectedOption(event.target.value);
-    const { year, semester } = semesterMap[event.target.value];
-    setYear(year);
-    setSemester(semester);
-  };
-
   const handleSubmit = () => {
     const body = {
-      studentNumberList: idList,
-      year,
-      semester
+      studentDataCollection: idList
     };
     paymentAPI
       .bulkUpload(body)
@@ -92,7 +64,7 @@ const AdminPaymentPage = () => {
       className="d-flex flex-column"
     >
       <CustomModal
-        title={`${selectedOption} 학생회비 납부 기록`}
+        title={`학생회비 납부 기록`}
         body={`${fileName}를 등록하시겠습니까?`}
         show={showConfirmModal}
         handleConfirm={handleSubmit}
@@ -117,19 +89,20 @@ const AdminPaymentPage = () => {
         <BoardHeader title="학생회비 납부자 등록" />
         <Form>
           <Form.Group>
-            <Form.Label>학기 선택</Form.Label>
-            <Form.Control onChange={handleSemester.bind(this)} as="select">
-              {options}
-            </Form.Control>
-          </Form.Group>
-          <Form.Group>
             <Form.Label>파일 선택</Form.Label>
             <ReactFileReader handleFiles={handleFiles} fileTypes={".csv"}>
               <Button variant="outline-primary">업로드</Button>
             </ReactFileReader>
             <Form.Text className="text-muted">
-              납부자 목록(학번)을 담은 Excel 파일을 .csv 유형으로 저장한 뒤
-              올려주세요.
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://docs.google.com/spreadsheets/d/1bZ2ED5DMh4NHTSkaYJ7MRE6egMOi6Ms3yjYUKFEGnw0/edit#gid=0"
+              >
+                이 파일
+              </a>
+              과 같은 형식을 .csv로 저장한 뒤 올려주세요. <br />새 학기에 대한
+              납부 정보를 추가 할 경우, 맨 오른쪽에 열을 추가해주세요.
             </Form.Text>
             <Form.Text className="text-muted">
               {fileName

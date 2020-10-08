@@ -20,3 +20,5 @@ export const list = ({ page, title }) => {
 export const read = id => petitions.get(`/${id}`);
 
 export const vote = id => petitions.post(`/vote/${id}`);
+
+export const deletePetition = id => petitions.delete(`/${id}`);

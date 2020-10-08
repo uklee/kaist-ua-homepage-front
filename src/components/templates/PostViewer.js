@@ -2,7 +2,7 @@ import React from "react";
 
 import { Loading } from "../atoms";
 
-import { Container, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./PostViewer.scss";
 
 import { useTranslation } from "react-i18next";
