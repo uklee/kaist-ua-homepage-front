@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 const Header = ({ history, ...props }) => {
-  const { t, i18n } = useTranslation(["Header"]);
+  const { t, i18n } = useTranslation(["Header", "Label"]);
 
   const [hover1, setHover1] = useState(<div />);
   const [hover2, setHover2] = useState(<div />);
@@ -155,7 +155,7 @@ const Header = ({ history, ...props }) => {
           <Nav>
             <Navbar.Text onClick={toggleLang}>
               <span className="language-selector">
-                {lang === "ko" ? "ENG" : "KOR"}
+                {t("Label:label", { kor: "ENG", eng: "KOR" })}
               </span>
               |
             </Navbar.Text>

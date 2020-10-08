@@ -31,7 +31,11 @@ const Footer = () => {
         </Nav>
         <Nav>
           <Nav.Item>
-            <a href="https://www.facebook.com/ua.kaist">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/ua.kaist"
+            >
               <OverlayTrigger
                 key="top"
                 placement="top"
@@ -46,7 +50,11 @@ const Footer = () => {
             </a>
           </Nav.Item>
           <Nav.Item>
-            <a href="https://www.instagram.com/kaistua_flex">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/kaistua_flex"
+            >
               <OverlayTrigger
                 key="top"
                 placement="top"
