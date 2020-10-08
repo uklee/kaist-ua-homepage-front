@@ -45,7 +45,7 @@ const StudentFeePage = () => {
     setShowFailModal(current === "fail");
   };
 
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
   const handleShow = () => {
     if (!paymentDeadline) {
       alert(t("납부 기간이 지났습니다."));

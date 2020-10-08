@@ -15,7 +15,8 @@ const HomeCarousel = props => {
 
   const CarouselItemList = banners.length
     ? banners.map(banner =>
-        banner.isActive ? (
+        banner.isActive &&
+        banner.image.startsWith(process.env.REACT_APP_BANNER_URL) ? (
           <CarouselItem key={banner.id} src={banner.image} href={banner.link} />
         ) : null
       )
