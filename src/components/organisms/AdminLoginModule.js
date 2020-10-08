@@ -17,7 +17,8 @@ const AdminLoginModule = ({ history }) => {
   const { auth } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
-  const tryLogin = async () => {
+  const tryLogin = e => {
+    e.preventDefault();
     adminsAPI
       .login({ email, password })
       .then(res => {
@@ -27,7 +28,7 @@ const AdminLoginModule = ({ history }) => {
         alert("로그인 정보가 일치하지 않습니다.");
       });
   };
-
+  console.log(auth);
   if (auth === "admin") {
     history.push("/web/main");
   }
