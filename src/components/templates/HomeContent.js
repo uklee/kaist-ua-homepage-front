@@ -20,6 +20,13 @@ const HomeContent = ({ BoardModuleInfos }) => {
     <Container className="flex-grow-1 home-content">
       <HomeCarousel className="module" />
       <Row>{boardModules}</Row>
+      <div>
+        <img
+          className="bottom-banner"
+          src="https://kaistua-web.s3.ap-northeast-2.amazonaws.com/ad-banner.png"
+          alt="dfdf"
+        />
+      </div>
     </Container>
   );
 };
