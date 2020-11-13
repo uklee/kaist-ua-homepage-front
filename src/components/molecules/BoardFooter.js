@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
-// import { SearchBar } from "../atoms";
+import SearchBarContainer from "../containers/board/SearchBarContainer";
 import { Button } from "react-bootstrap";
 import PaginationContainer from "../containers/board/PaginationContainer";
 import "./BoardFooter.scss";
@@ -29,10 +28,10 @@ const BoardFooter = ({ author, title, page, lastPage, history, boardId }) => {
             글 작성하기
           </Button>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
 
-        {/* <SearchBar className="d-inline-block" /> */}
+        {<SearchBarContainer className="d-inline-block" />}
       </div>
     </div>
   );
