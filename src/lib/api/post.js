@@ -2,7 +2,10 @@ import axios from "axios";
 import baseURL from "../baseURL";
 import qs from "qs";
 
-const posts = axios.create({ baseURL: `${baseURL}/posts` });
+const posts = axios.create({
+  baseURL: `${baseURL}/posts`,
+  withCredentials: true
+});
 
 export const write = post => posts.post("", post);
 

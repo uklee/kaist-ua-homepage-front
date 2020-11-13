@@ -18,6 +18,9 @@ $date-width: 80px;
   text-align: center;
   font-family: "NanumSquare ExtraBold";
   width: $author-width;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .row-title {
