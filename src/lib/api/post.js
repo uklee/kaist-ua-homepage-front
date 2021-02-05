@@ -12,11 +12,12 @@ export const write = post => posts.post("", post);
 export const read = id => posts.get(`/${id}`);
 
 export const list = ({ page, author, title, boardId }) => {
+  const BoardId = boardId;
   const queryString = qs.stringify({
     page,
     author,
     title,
-    boardId
+    BoardId
   });
   return posts.get(`?${queryString}`);
 };
