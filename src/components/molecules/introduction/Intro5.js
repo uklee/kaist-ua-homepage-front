@@ -5,16 +5,16 @@ const IntroductionMaterial = () => {
     <div>
       <span className="title-2">동아리연합회</span>
       <br />
-      <span className="title-3">공식카페 </span>
+      <span className="title-3">공식카페: </span>
       <a href="https://cafe.naver.com/kaistclubs">
         https://cafe.naver.com/kaistclubs
       </a>
       <br />
-      <span className="title-3">이메일 </span> clubsunion@kaist.ac.kr
+      <span className="title-3">이메일: </span> clubsunion@kaist.ac.kr
       <br />
-      <span className="title-3">전화번호 </span> 042-350-2096
+      <span className="title-3">전화번호: </span> 042-350-2096
       <br />
-      <span className="title-3">위치 </span> 장영신 학생회관 (N13-1) 303호
+      <span className="title-3">위치: </span> 장영신 학생회관 (N13-1) 303호
       <br />
       KAIST 학부 동아리연합회는 다양한 동아리와 학생들이 모여있는
       자치단체입니다. 동아리들의 의견을 수렴하여 외부와 소통하고 협의해서 동아리
@@ -24,12 +24,12 @@ const IntroductionMaterial = () => {
       <br />
       <span className="title-2">학생복지위원회</span>
       <br />
-      <span className="title-3">홈페이지 </span>
+      <span className="title-3">홈페이지: </span>
       <a href="https://welfare.kaist.ac.kr">https://welfare.kaist.ac.kr</a>
       <br />
-      <span className="title-3">이메일 </span>kaistwelfare@gmail.com
+      <span className="title-3">이메일: </span>kaistwelfare@gmail.com
       <br />
-      <span className="title-3">페이스북 </span>
+      <span className="title-3">페이스북: </span>
       <a href="https://www.fb.com/kaistwelfare">
         https://www.fb.com/kaistwelfare
       </a>
@@ -37,7 +37,7 @@ const IntroductionMaterial = () => {
       <span className="title-3">위치 </span>장영신 학생회관 (N13-1) 305호
       <br />
       학생복지위원회는 카이스트의 모든 학우들을 대상으로 사업들을 진행하고 여러
-      시설을 운영하며 학 우분들의 복지를 위해 힘쓰는 자치단체입니다. 대부분의
+      시설을 운영하며 학우분들의 복지를 위해 힘쓰는 자치단체입니다. 대부분의
       사업들은 비영리이며 일부 사업의 수익은 학우들에게 환원될 수 있도록 다른
       사업의 예산으로 사용됩니다.
       <br />
@@ -53,8 +53,8 @@ const IntroductionMaterial = () => {
       <br />
       위치: 장영신 학생회관 (N13-1) 306호
       <br />
-      행사준비위원회 상상효과는 kaist 행사들의 전반적인 운영을 책임지는
-      자치단체입니다. 운영하는 행사는 크게 태울석림제(석림태울제), kaist-postech
+      행사준비위원회 상상효과는 KAIST 행사들의 전반적인 운영을 책임지는
+      자치단체입니다. 운영하는 행사는 크게 태울석림제(석림태울제), KAIST-POSTECH
       학생대제전, 학생문화제가 있습니다. 이 행사들에서 예산 편성부터 기획,
       실무까지 모든 것 을 담당합니다.
       <br />
@@ -178,7 +178,7 @@ const IntroductionMaterial = () => {
       <br />
       Encourageing Leaders of KAIST, ELKA는 총학생회 산하 특별기구로서, 학교
       공식 응원단 역할을 수행하는 자치단체입니다. 새내기 응원대제전,
-      kaist-postech 학생대제전 및 다양한 행사에서 공연을 통해 학생들을
+      KAIST-POSTECH 학생대제전 및 다양한 행사에서 공연을 통해 학생들을
       단결시키고 학교의 위상을 높이는데 힘쓰고 있습니다.
       <br />
       <br />
@@ -197,7 +197,7 @@ const IntroductionMaterial = () => {
       <br />
       Green in KAIST, G-inK는 총학생회 산하 특별기구로서, 다양한 환경문제에
       관심을 가지고 카이스트를 그린캠퍼스 로 만드는 환경 자치단체입니다.
-      kaist내에서 보다 효율적이고 지속 가능한 방법 으로 환경문제를 해결해 나갈
+      KAIST내에서 보다 효율적이고 지속 가능한 방법 으로 환경문제를 해결해 나갈
       수 있도록 돕는 역할을 하고 있습니다.
       <br />
       <br />
@@ -215,7 +215,7 @@ const IntroductionMaterial = () => {
       KAIST 글로벌 학생봉사단, KGSV는 총학생회 산하 특별기구로서, 단원들이
       봉사를 자치적으로 기획 하고 실행하는 자치단체입니다. 학생들에게 다양한
       봉사활동을 소개하고 참여할 수 있는 기회들을 제공하고 있으며 다른 단체들의
-      봉사 관련 사업들의 예산을 지원하기도 합니다.
+      봉사 관련 사업 예산을 지원하기도 합니다.
       <br />
       <br />
       <span className="title-2">SPARCS</span>

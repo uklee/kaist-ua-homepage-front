@@ -41,12 +41,6 @@ const IntroductionPane = () => {
       <Tab.Pane eventKey="#3_8">
         <Intro3.Intro8 />
       </Tab.Pane>
-      <Tab.Pane eventKey="#3_9">
-        <Intro3.Intro9 />
-      </Tab.Pane>
-      <Tab.Pane eventKey="#3_10">
-        <Intro3.Intro10 />
-      </Tab.Pane>
       <Tab.Pane eventKey="#4">
         <Intro4 />
       </Tab.Pane>

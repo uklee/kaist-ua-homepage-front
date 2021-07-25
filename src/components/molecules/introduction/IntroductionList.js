@@ -9,10 +9,6 @@ const IntroductionList = () => {
       title: "총학생회 소개"
     },
     {
-      link: "#2",
-      title: "회장단 인사말"
-    },
-    {
       subTabs: true,
       link: "#3_1",
       title: "중앙집행위원회"
@@ -32,21 +28,17 @@ const IntroductionList = () => {
       title: "총학생회 소개"
     },
     {
-      link: "#2",
-      title: "회장단 인사말"
-    },
-    {
       link: "#3_1",
       title: "중앙집행위원회"
     },
     {
       link: "#3_2",
-      title: "사무국",
+      title: "서기실",
       isSubTab: true
     },
     {
       link: "#3_3",
-      title: "복지국",
+      title: "집행지원실",
       isSubTab: true
     },
     {
@@ -56,32 +48,22 @@ const IntroductionList = () => {
     },
     {
       link: "#3_5",
-      title: "문화기획국",
+      title: "복지국",
       isSubTab: true
     },
     {
       link: "#3_6",
-      title: "국제사무국",
+      title: "사무국",
       isSubTab: true
     },
     {
       link: "#3_7",
-      title: "협력국",
+      title: "디자인국",
       isSubTab: true
     },
     {
       link: "#3_8",
-      title: "집행지원실",
-      isSubTab: true
-    },
-    {
-      link: "#3_9",
-      title: "디자인정보팀",
-      isSubTab: true
-    },
-    {
-      link: "#3_10",
-      title: "회계팀",
+      title: "정보국",
       isSubTab: true
     },
     {
@@ -96,8 +78,8 @@ const IntroductionList = () => {
   const [tabList, setTabList] = useState(listData);
   const [subTabs, setSubTabs] = useState(false);
   const handleClick = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3") {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3") {
       setTabList(listData2);
       setSubTabs(true);
     } else {
@@ -106,14 +88,14 @@ const IntroductionList = () => {
     }
   };
   const handleMouseEnter = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3") {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3") {
       setTabList(listData2);
     }
   };
   const handleMouseLeave = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3" && !subTabs) {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3" && !subTabs) {
       setTabList(listData);
     }
   };
@@ -123,6 +105,7 @@ const IntroductionList = () => {
         <ListGroup.Item
           active={tab.active}
           id={tab.link}
+          name={tab.link}
           action
           key={tab.link}
           onClick={handleClick.bind(this)}

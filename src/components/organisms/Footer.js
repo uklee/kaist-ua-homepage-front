@@ -53,7 +53,7 @@ const Footer = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.instagram.com/kaistua_flex"
+              href="https://www.instagram.com/kaistua_urc/"
             >
               <OverlayTrigger
                 key="top"
