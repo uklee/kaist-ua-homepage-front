@@ -96,8 +96,8 @@ const IntroductionList = () => {
   const [tabList, setTabList] = useState(listData);
   const [subTabs, setSubTabs] = useState(false);
   const handleClick = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3") {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3") {
       setTabList(listData2);
       setSubTabs(true);
     } else {
@@ -106,14 +106,14 @@ const IntroductionList = () => {
     }
   };
   const handleMouseEnter = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3") {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3") {
       setTabList(listData2);
     }
   };
   const handleMouseLeave = event => {
-    const id = event.target.id;
-    if (id.substring(0, 2) === "#3" && !subTabs) {
+    const name = event.target.name;
+    if (name.substring(0, 2) === "#3" && !subTabs) {
       setTabList(listData);
     }
   };
@@ -123,6 +123,7 @@ const IntroductionList = () => {
         <ListGroup.Item
           active={tab.active}
           id={tab.link}
+          name={tab.link}
           action
           key={tab.link}
           onClick={handleClick.bind(this)}
