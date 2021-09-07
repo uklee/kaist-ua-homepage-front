@@ -28,10 +28,6 @@ const AuthAgreementPage = ({ history, ...props }) => {
             <Alert variant="primary">초기 회원가입을 먼저 해주세요.</Alert>
           ) : null}
           <AuthAgreementContent />
-          <details>
-            <summary>이전 약관 보기</summary>
-            <AuthAgreementPreviousContent />
-          </details>
           <div>
             <div className="d-flex align-items-center">
               <input
@@ -54,6 +50,10 @@ const AuthAgreementPage = ({ history, ...props }) => {
                 회원가입
               </Button>
             </div>
+            <details>
+              <summary>이전 개인정보 처리방침 보기</summary>
+              <AuthAgreementPreviousContent />
+            </details>
           </div>
         </div>
       </Container>
