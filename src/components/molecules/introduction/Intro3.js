@@ -133,7 +133,7 @@ export const Intro4 = () => {
       학교의 변화를 이끌어 내는 역할을 합니다.
       <br />
       <br />
-      <span className="title-2">사업팀 사업 소개</span>
+      <span className="title-2">정책국 사업 소개</span>
       <br />
       <br />
       <span className="title-3">학사 정책 개선</span>
@@ -159,9 +159,6 @@ export const Intro4 = () => {
       군복무 경험 체육 AU 인정 사업을 진행 중입니다.  이외에도, 학습 사각지대 해결,
       공결 전산 시스템 도입 등 학습권을 보장하기 위한 정책을 연구하고 관련 사업을
       진행하고 있습니다.
-      <br />
-      <br />
-      <span className="title-2">대응팀 사업 소개</span>
       <br />
       <br />
       <span className="title-3">학내 이슈 대응</span>
@@ -232,6 +229,38 @@ export const Intro5 = () => {
 export const Intro6 = () => {
   return (
     <div>
+      <span className="title-1">문화기획국</span>
+      <br />
+      <br />
+      문화기획국은 학업에 지친 학우들이 즐길 수 있는 문화사업을 기획하고 진행하는 국서입니다.
+      과거에는 '봄을찾기', '카이파크, 'KAMF(KAIST Art & Music Festival)' 등을 진행하였으며,
+      현재는 코로나19로 인해 비대면으로 사업을 진행하고 있습니다.
+      <br />
+      <br />
+      <span className="title-2">문화기획국 사업소개</span>
+      <br />
+      <br />
+      <span className="title-3">E스포츠대회</span>
+      <br />
+      비대면으로 즐길 수 있는 E스포츠대회를 기획하고 진행합니다.
+      리그오브레전드, 어몽어스와 같이 팀 혹은 개인으로 경쟁할 수 있는 게임 중에 종목을 선정한 후 지원자를 받아 대회를 진행합니다.
+      <br />
+      <br />
+      <span className="title-3">졸업준비위원회</span>
+      <br />
+      졸업사진 촬영을 준비하는 학우들을 위해 졸업준비위원회에 참여하여 졸업 사진 촬영 장소와 일정 등을 조율하고 이를 학우들에게 공유합니다.
+      <br />
+      <br />
+      <span className="title-3">취업박람회</span>
+      <br />
+      취업을 준비하는 학생들을 위한 취업박람회를 준비합니다. 참여하는 기업, 일정과 장소 등을 조율학고 이를 학우들에게 공유합니다.
+    </div>
+  );
+};
+
+export const Intro7 = () => {
+  return (
+    <div>
       <span className="title-1">사무국</span>
       <br />
       <br />
@@ -297,7 +326,7 @@ export const Intro6 = () => {
   );
 };
 
-export const Intro7 = () => {
+export const Intro8 = () => {
   return (
     <div>
       <span className="title-1">디자인국</span>
@@ -328,7 +357,7 @@ export const Intro7 = () => {
   );
 };
 
-export const Intro8 = () => {
+export const Intro9 = () => {
   return (
     <div>
       <span className="title-1">정보국</span>
