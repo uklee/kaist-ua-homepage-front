@@ -49,7 +49,14 @@ function App() {
       <ProtectedRoute
         path="/web/admin/edit/:boardId"
         component={pages.EditPage}
+        exact={true}
       />
+
+      <ProtectedRoute
+        path="/web/admin/edit/:boardId/:postId"
+        component={pages.EditPage}
+      />
+
 
       <Route
         path="/web/auth/agreement/:login"

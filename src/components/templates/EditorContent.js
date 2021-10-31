@@ -8,7 +8,7 @@ import { BoardHeader } from "../molecules";
 
 import "./EditorContent.scss";
 
-const EditorContent = ({ onChangeField, onWrite, onCancel }) => {
+const EditorContent = ({ onChangeField, onWrite, onCancel, initialContent }) => {
   const board = useSelector(({ boards }) => boards.board);
   return (
     <Container className="flex-grow-1 board-content">
@@ -18,11 +18,13 @@ const EditorContent = ({ onChangeField, onWrite, onCancel }) => {
         onChangeField={onChangeField}
         placeholder="한글 내용을 작성하세요..."
         keyName="korContent"
+        initialContent={initialContent ? initialContent.korContent : null}
       />
       <Editor
         onChangeField={onChangeField}
         placeholder="영문 내용을 작성하세요..."
         keyName="engContent"
+        initialContent={initialContent ? initialContent.korContent : null}
       />
       <EditorFooter onWrite={onWrite} onCancel={onCancel} />
     </Container>

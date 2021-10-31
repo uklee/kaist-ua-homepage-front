@@ -4,7 +4,7 @@ import Quill from "quill";
 import "quill/dist/quill.bubble.css";
 import "./Editor.scss";
 
-const Editor = ({ onChangeField, placeholder, keyName }) => {
+const Editor = ({ onChangeField, placeholder, keyName, initialContent }) => {
   const korContentQuill = useRef(null);
   const quillInstance = useRef(null);
 
@@ -28,6 +28,14 @@ const Editor = ({ onChangeField, placeholder, keyName }) => {
         onChangeField({ key: keyName, value: quill.root.innerHTML });
     });
   }, [onChangeField, keyName, placeholder]);
+
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (mounted.current) return;
+    if (initialContent === "") return;
+    mounted.current = true;
+    quillInstance.current.root.innerHTML = initialContent;
+  }, [initialContent]);
 
   return (
     <Container className="border-bottom" style={{ height: "300px" }}>

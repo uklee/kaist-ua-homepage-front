@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import Terms1 from "../molecules/terms/terms_20210908.js"
 
 const AuthAgreementPreviousContent = () => {

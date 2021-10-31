@@ -4,7 +4,7 @@ import { Header, Footer } from "../organisms";
 import PostViewerContainer from "../containers/viewer/PostViewerContainer";
 import { withRouter } from "react-router-dom";
 
-const PostViewPage = ({ match }) => {
+const PostViewPage = ({ match, history }) => {
   const { postId } = match.params;
 
   return (
@@ -17,7 +17,7 @@ const PostViewPage = ({ match }) => {
       className="d-flex flex-column"
     >
       <Header notice={true} />
-      <PostViewerContainer postId={postId} />
+      <PostViewerContainer history={history} postId={postId} />
       <Footer />
     </div>
   );

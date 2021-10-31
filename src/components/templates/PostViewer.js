@@ -7,8 +7,12 @@ import "./PostViewer.scss";
 
 import { useTranslation } from "react-i18next";
 
-const PostViewer = ({ post }) => {
+import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
+
+const PostViewer = ({ post, onEdit, onRemove }) => {
   const { t } = useTranslation(["PostViewer"]);
+  const { auth } = useSelector(state => state.auth);
   if (!post) return <Loading />;
 
   const {
@@ -53,6 +57,27 @@ const PostViewer = ({ post }) => {
       <div md="8" lg="7" className="post-content">
         <div dangerouslySetInnerHTML={{ __html: t("content", { content }) }} />
       </div>
+
+      {auth === "admin" ? (
+        <div className="d-flex justify-content-end py-3">
+          <Button
+            variant="outline-primary"
+            className="mr-3"
+            onClick={onEdit}
+          >
+            글 수정하기
+          </Button>
+          <Button
+            variant="outline-primary"
+            onClick={onRemove}
+          >
+            글 삭제하기
+          </Button>
+        </div>
+      ) : (
+        <div />
+      )}
+
     </Container>
   );
 };
