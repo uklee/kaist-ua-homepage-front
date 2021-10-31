@@ -22,7 +22,7 @@ export const list = ({ page, author, title, boardId }) => {
   return posts.get(`?${queryString}`);
 };
 
-export const update = (id, { title, content }) =>
-  posts.patch(`/posts/${id}`, { title, content });
+export const update = (id, post) =>
+  posts.patch(`${id}`, post);
 
-export const remove = id => posts.delete(`/posts/${id}`);
+export const remove = id => posts.delete(`${id}`);

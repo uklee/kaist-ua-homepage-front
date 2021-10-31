@@ -3,7 +3,7 @@ import { Header, Footer } from "../organisms";
 import EditorContentContainer from "../containers/editor/EditorContentContainer";
 
 const EditPage = props => {
-  const { boardId } = props.match.params;
+  const { boardId, postId } = props.match.params;
   return (
     <div
       style={{
@@ -14,7 +14,7 @@ const EditPage = props => {
       className="d-flex flex-column"
     >
       <Header active={boardId} />
-      <EditorContentContainer boardId={boardId} />
+      <EditorContentContainer boardId={boardId} postId={postId} />
       <Footer />
     </div>
   );
