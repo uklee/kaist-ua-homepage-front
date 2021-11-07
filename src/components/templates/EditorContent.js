@@ -24,7 +24,7 @@ const EditorContent = ({ onChangeField, onWrite, onCancel, initialContent }) => 
         onChangeField={onChangeField}
         placeholder="영문 내용을 작성하세요..."
         keyName="engContent"
-        initialContent={initialContent ? initialContent.korContent : null}
+        initialContent={initialContent ? initialContent.engContent : null}
       />
       <EditorFooter onWrite={onWrite} onCancel={onCancel} />
     </Container>
