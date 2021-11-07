@@ -54,6 +54,10 @@ const AuthAgreementPage = ({ history, ...props }) => {
                 회원가입
               </Button>
             </div>
+            <details>
+              <summary>이전 개인정보 처리방침 보기</summary>
+              <AuthAgreementPreviousContent />
+            </details>
           </div>
         </div>
       </Container>

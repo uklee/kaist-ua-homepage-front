@@ -236,9 +236,9 @@ const AuthAgreementContent = () => {
         노력하겠습니다.
       </p>
       <p>▶ 개인정보 열람청구 접수.처리 담당자</p>
-      <p>성명 : 최다은</p>
-      <p>직책 : KAIST 학부 총학생회 디자인정보팀장</p>
-      <p>연락처 : 010-2796-5866, cde1103@kaist.ac.kr</p>
+      <p>성명 : 허현</p>
+      <p>직책 : KAIST 학부 총학생회 정보국장</p>
+      <p>연락처 : 010-4447-7547, heohyun0703@kaist.ac.kr</p>
       <p>
         <strong>제10조(권익침해 구제방법)</strong> 정보주체는 아래의 기관에 대해
         개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.
@@ -288,6 +288,9 @@ const AuthAgreementContent = () => {
           http://cyberbureau.police.go.kr
         </a>
         )
+      </p>
+      <p>
+        이 개인정보처리방침은 2021년 09월 08일부터 적용됩니다.
       </p>
     </div>
   );

@@ -53,16 +53,21 @@ const IntroductionList = () => {
     },
     {
       link: "#3_6",
-      title: "사무국",
+      title: "문화기획국",
       isSubTab: true
     },
     {
       link: "#3_7",
-      title: "디자인국",
+      title: "사무국",
       isSubTab: true
     },
     {
       link: "#3_8",
+      title: "디자인국",
+      isSubTab: true
+    },
+    {
+      link: "#3_9",
       title: "정보국",
       isSubTab: true
     },
