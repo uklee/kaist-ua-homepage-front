@@ -52,11 +52,6 @@ const IntroductionList = () => {
       isSubTab: true
     },
     {
-      link: "#3_6",
-      title: "문화기획국",
-      isSubTab: true
-    },
-    {
       link: "#3_7",
       title: "사무국",
       isSubTab: true
