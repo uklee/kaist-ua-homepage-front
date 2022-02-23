@@ -6,7 +6,21 @@
   padding-bottom: 30px;
 }
 
-.bottom-banner {
+.ad-banner {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.ad-box {
+  width: 12%;
+  padding: 5px;
+}
+
+.ad {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 30px;
   width: 100%;
 }
