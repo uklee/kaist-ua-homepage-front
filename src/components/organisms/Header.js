@@ -19,6 +19,7 @@ const Header = ({ history, ...props }) => {
   const [hover2, setHover2] = useState(<div />);
   const [hover3, setHover3] = useState(<div />);
   const [hover4, setHover4] = useState(<div />);
+  const [hover5, setHover5] = useState(<div />);
   const [authButtonBar, setAuthButtonBar] = useState(<div />);
   const target = useRef(null);
 
@@ -150,6 +151,17 @@ const Header = ({ history, ...props }) => {
             >
               {t("학생 복지")}
               {props.active === "2" ? active : hover4}
+            </Nav.Link>
+            <Nav.Link
+              className="header-item"
+              href="https://cov.kaist.ac.kr/"
+              onMouseEnter={() => setHover5(enter)}
+              onMouseLeave={() => {
+                setHover5(leave);
+              }}
+            >
+              {t("COVID19")}
+              {props.active === "covid19" ? active : hover5}
             </Nav.Link>
           </Nav>
           <Nav>
