@@ -19,7 +19,7 @@ const IntroductionList = () => {
     },
     {
       link: "#5",
-      title: "자치기구 소개"
+      title: "산하기구 소개"
     }
   ];
   const listData2 = [
@@ -72,7 +72,7 @@ const IntroductionList = () => {
     },
     {
       link: "#5",
-      title: "자치기구 소개"
+      title: "산하기구 소개"
     }
   ];
   const [tabList, setTabList] = useState(listData);
