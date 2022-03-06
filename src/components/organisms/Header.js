@@ -76,12 +76,11 @@ const Header = ({ history, ...props }) => {
         <>
           <Nav.Link
             className="header-login"
-            href={`${process.env.REACT_APP_SSO}?client_id=${
-              process.env.REACT_APP_CLIENT_ID
-            }&state=${JSON.stringify(state)}
+            href={`${process.env.REACT_APP_SSO}?client_id=${process.env.REACT_APP_CLIENT_ID
+              }&state=${JSON.stringify(state)}
             &redirect_url=${encodeURI(
-              `${process.env.REACT_APP_API_URL}/auth/signup`
-            )}`}
+                `${process.env.REACT_APP_API_URL}/auth/signup`
+              )}`}
           >
             {t("로그인")}
           </Nav.Link>
@@ -143,7 +142,7 @@ const Header = ({ history, ...props }) => {
             </Nav.Link>
             <Nav.Link
               className="header-item"
-              href="/web/board/2"
+              href="/web/board/23"
               onMouseEnter={() => setHover4(enter)}
               onMouseLeave={() => {
                 setHover4(leave);
