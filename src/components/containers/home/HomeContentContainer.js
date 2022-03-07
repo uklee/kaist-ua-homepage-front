@@ -11,7 +11,8 @@ const HomeContentContainer = () => {
     boardsAPI
       .list()
       .then(res => {
-        setBoards(res.data);
+        const processed = res.data.slice(0, 2)
+        setBoards(processed);
       })
       .catch(err => console.log(err));
   }, []);
@@ -19,6 +20,7 @@ const HomeContentContainer = () => {
   useEffect(() => {
     async function fetchData() {
       var ret = [];
+      console.log(boards)
       for (const board of boards) {
         const boardId = board.id;
         const page = 1;
