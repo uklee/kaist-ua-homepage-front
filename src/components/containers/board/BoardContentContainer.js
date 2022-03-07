@@ -7,6 +7,7 @@ import * as boardsAPI from "../../../lib/api/board";
 import * as postsAPI from "../../../lib/api/post";
 import { setBoards } from "../../../modules/boards";
 import { listPosts } from "../../../modules/posts";
+import { isEmpty } from "lodash";
 
 const BoardContentContainer = ({ location, boardId, history }) => {
   const dispatch = useDispatch();
@@ -26,6 +27,20 @@ const BoardContentContainer = ({ location, boardId, history }) => {
   useEffect(() => {
     redirect();
   }, [location.pathname, boardId, redirect]);
+
+  const boardRedirect = useCallback(() => {
+    console.log(boards);
+    if (isEmpty(boards)) return;
+    else {
+      const redirectionURL = boards.find(board => `${board.id}` === boardId).redirection;
+      console.log(location.pathname);
+      if (redirectionURL && (location.pathname !== redirectionURL)) history.push(redirectionURL);
+    }
+  }, [boards, boardId, location.pathname, history]);
+
+  useEffect(() => {
+    boardRedirect();
+  }, [boards, boardRedirect]);
 
   const getBoardsList = useCallback(() => {
     boardsAPI

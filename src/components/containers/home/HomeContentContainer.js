@@ -11,8 +11,7 @@ const HomeContentContainer = () => {
     boardsAPI
       .list()
       .then(res => {
-        const processed = res.data.slice(0, 2)
-        setBoards(processed);
+        setBoards(res.data);
       })
       .catch(err => console.log(err));
   }, []);
@@ -22,17 +21,19 @@ const HomeContentContainer = () => {
       var ret = [];
       console.log(boards)
       for (const board of boards) {
-        const boardId = board.id;
-        const page = 1;
-        try {
-          const res = await postsAPI.list({ boardId, page });
-          const boardModuleInfo = {
-            board,
-            posts: res.data.posts.slice(0, 5)
-          };
-          ret = ret.concat(boardModuleInfo);
-        } catch (err) {
-          console.log(err);
+        if (board.viewHome) {
+          const boardId = board.id;
+          const page = 1;
+          try {
+            const res = await postsAPI.list({ boardId, page });
+            const boardModuleInfo = {
+              board,
+              posts: res.data.posts.slice(0, 5)
+            };
+            ret = ret.concat(boardModuleInfo);
+          } catch (err) {
+            console.log(err);
+          }
         }
       }
       return ret;
