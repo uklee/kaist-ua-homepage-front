@@ -33,10 +33,8 @@ function App() {
 
       <Route path="/web/introduction" component={pages.IntroductionPage} />
       <Route path="/web/board/:boardId" component={pages.BoardPage} />
-      <Route
-        path="/web/petition/:petitionId"
-        component={pages.PetitionViewPage}
-      />
+      <Route path="/web/welfare" component={pages.WelfarePage} />
+      <Route path="/web/petition/:petitionId" component={pages.PetitionViewPage} />
       <Route path="/web/petition" component={pages.PetitionBoardPage} />
       <Route path="/web/post/:postId" component={pages.PostViewPage} />
 
