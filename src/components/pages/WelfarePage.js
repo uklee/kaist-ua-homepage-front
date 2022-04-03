@@ -13,7 +13,7 @@ const WelfarePage = () => {
       <Header active={"welfare"} />
       <div
         style={{ minHeight: "100vh", fontFamily: "NanumSquare" }}
-        className="d-flex flex-row" id="welfareContainer"
+        className="d-flex flex-row flex-grow-1 board-content container" id="welfareContainer"
       >
         <div id="welfare">
           <BoardContentContainer boardId={"2"} />
