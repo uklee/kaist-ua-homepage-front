@@ -1,0 +1,13 @@
+#welfare {
+    width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    #welfareContainer {
+        flex-wrap: wrap;
+    }
+
+    #welfare {
+        width: 100%;
+    }
+}
