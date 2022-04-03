@@ -3,7 +3,7 @@ import React from "react";
 import { Header, Footer } from "../organisms";
 import BoardContentContainer from "../containers/board/BoardContentContainer";
 import BoardContentContainer2 from "../containers/board/BoardContentContainer2";
-
+import "./WelfarePage.scss"
 const WelfarePage = () => {
   return (
     <div
