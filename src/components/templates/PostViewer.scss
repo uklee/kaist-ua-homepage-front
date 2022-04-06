@@ -16,6 +16,7 @@
   font-family: "NanumSquare ExtraBold";
   color: #888;
   transition: 0.2s;
+
   &:hover {
     cursor: pointer;
     color: #444;
@@ -36,6 +37,10 @@
 .post-content {
   padding-top: 15px;
   height: max-content;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .petition-viewer-vote-button {
