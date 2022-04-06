@@ -82,7 +82,7 @@ const IntroductionMaterial = () => {
       <br />
       <span className="title-2">새내기학생회</span>
       <br />
-      이메일: kaistisang@gmail.com
+      이메일: 21kaistflight@gmail.com
       <br />
       페이스북: <a href="www.fb.com/kaistfsc">www.fb.com/kaistfsc</a>
       <br />
