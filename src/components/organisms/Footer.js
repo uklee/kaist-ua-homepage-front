@@ -10,6 +10,8 @@ import {
 } from "react-bootstrap";
 import "./Footer.scss";
 import logo from "../../static/logo/kaist_logo.png";
+import logoFB from "../../static/logo/logoFB.png";
+import logoIG from "../../static/logo/logoIG.png";
 
 import { useTranslation } from "react-i18next";
 
@@ -43,8 +45,8 @@ const Footer = () => {
               >
                 <img
                   className="social-media-logo"
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png"
-                  alt="instagram"
+                  src={logoFB}
+                  alt="facebook"
                 />
               </OverlayTrigger>
             </a>
@@ -58,12 +60,12 @@ const Footer = () => {
               <OverlayTrigger
                 key="top"
                 placement="top"
-                overlay={<Tooltip id="tooltip-top">kaistua_flex</Tooltip>}
+                overlay={<Tooltip id="tooltip-top">kaistua_urc</Tooltip>}
               >
                 <img
                   className="social-media-logo"
-                  src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png"
-                  alt="facebook"
+                  src={logoIG}
+                  alt="instagram"
                 />
               </OverlayTrigger>
             </a>
@@ -100,12 +102,6 @@ const Footer = () => {
           </Col>
           <Col lg="8" md="6">
             042-350-2072
-          </Col>
-          <Col lg="3" md="4">
-            <div className="creators">
-              <a href="https://github.com/winningarc">@winningarc</a>{" "}
-              <a href="https://github.com/CoderLulu">@CoderLulu</a>
-            </div>
           </Col>
         </Row>
       </Container>
