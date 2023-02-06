@@ -1,6 +1,6 @@
 import React from "react";
 
-const AuthAgreementContent = () => {
+const Terms = () => {
   return (
     <div
       className="border border-secondary p-3"
@@ -220,9 +220,9 @@ const AuthAgreementContent = () => {
         보호책임자를 지정하고 있습니다.
       </p>
       <p>▶ 개인정보 보호책임자</p>
-      <p>성명 : 강동재</p>
-      <p>직책 : KAIST 학부 총학생회장</p>
-      <p>연락처 : 010-7280-3780, jackkang3780@kaist.ac.kr</p>
+      <p>성명 : 이*욱</p>
+      <p>직책 : KAIST 학부 총학생회 정보국장</p>
+      <p>연락처 : 010-****-****, arn****@kaist.ac.kr</p>
       <p>
         ② 정보주체께서는 KAIST 학부 총학생회의 서비스(또는 사업)을 이용하시면서
         발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을
@@ -236,9 +236,9 @@ const AuthAgreementContent = () => {
         노력하겠습니다.
       </p>
       <p>▶ 개인정보 열람청구 접수.처리 담당자</p>
-      <p>성명 : 강동재</p>
-      <p>직책 : KAIST 학부 총학생회장</p>
-      <p>연락처 : 010-7280-3780, jackkang3780@kaist.ac.kr</p>
+      <p>성명 : 이*욱</p>
+      <p>직책 : KAIST 학부 총학생회 정보국장</p>
+      <p>연락처 : 010-****-****, arn****@kaist.ac.kr</p>
       <p>
         <strong>제10조(권익침해 구제방법)</strong> 정보주체는 아래의 기관에 대해
         개인정보 침해에 대한 피해구제, 상담 등을 문의하실 수 있습니다.
@@ -290,10 +290,10 @@ const AuthAgreementContent = () => {
         )
       </p>
       <p>
-        이 개인정보처리방침은 2023년 02월 07일부터 적용됩니다.
+        이 개인정보처리방침은 2022년 04월 14일부터 적용됩니다.
       </p>
     </div>
   );
 };
 
-export default AuthAgreementContent;
+export default Terms;
